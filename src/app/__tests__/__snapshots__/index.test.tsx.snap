@@ -13,16 +13,21 @@ exports[`<App /> should render and match the snapshot 1`] = `
       name="description"
     />
   </Helmet>
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/"
-    />
-    <Route
-      component={[Function]}
-    />
-  </Switch>
-  <UNDEFINED />
+  <AuthProvider>
+    <OmsorgspengerHeader />
+    <AuthChecker>
+      <Switch>
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/"
+        />
+        <Route
+          component={[Function]}
+        />
+      </Switch>
+    </AuthChecker>
+    <UNDEFINED />
+  </AuthProvider>
 </BrowserRouter>
 `;
