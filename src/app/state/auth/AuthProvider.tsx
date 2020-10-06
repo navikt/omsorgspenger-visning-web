@@ -1,22 +1,23 @@
 import React from 'react';
-
 import { get } from '../../../utils/http/request';
 import ResponseError from '../../../utils/http/ResponseError';
 import { authReducer, AuthState, initialAuthState } from './AuthState';
 import {
+  AuthActions,
   loadUser,
   unknownAuthError,
   userLoaded,
   userUnauthorised,
 } from './authActions';
 import { apiRoutes } from '../../../utils/http/apiConfig';
+import actionLogger from '../../middleware/actionLogger';
 
 // @ts-ignore
 const AuthContext = React.createContext<AuthContextProps>();
 
 interface AuthContextRaw {
   state: AuthState;
-  dispatch: React.Dispatch<any>; // TODO: any?
+  dispatch: React.Dispatch<AuthActions>;
 }
 
 export interface AuthContextProps extends AuthContextRaw {
@@ -56,7 +57,11 @@ export const useAuthContext = (): AuthContextProps => {
 };
 
 export const AuthProvider: React.FunctionComponent = props => {
-  const [state, dispatch] = React.useReducer(authReducer, initialAuthState);
+  const [state, dispatch] = React.useReducer(
+    actionLogger(authReducer, 'Auth'),
+    initialAuthState,
+  );
+
   const value: AuthContextRaw = React.useMemo(() => ({ state, dispatch }), [
     state,
   ]);

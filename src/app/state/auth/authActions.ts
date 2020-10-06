@@ -1,9 +1,9 @@
 export enum LoginStatus {
-  LoggedIn,
-  LoggingIn,
-  NotloggedIn,
-  Unauthorised,
-  UnknownError,
+  LoggedIn = 'LoggedIn',
+  LoggingIn = 'LoggingIn',
+  NotloggedIn = 'NotloggedIn',
+  Unauthorised = 'Unauthorised',
+  UnknownError = 'UnknownError',
 }
 
 export enum AuthAction {
