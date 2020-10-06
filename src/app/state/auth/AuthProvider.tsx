@@ -3,7 +3,12 @@ import React from 'react';
 import { get } from '../../../utils/http/request';
 import ResponseError from '../../../utils/http/ResponseError';
 import { authReducer, AuthState, initialAuthState } from './AuthState';
-import { loadUser, userLoaded } from './authActions';
+import {
+  loadUser,
+  unknownAuthError,
+  userLoaded,
+  userUnauthorised,
+} from './authActions';
 import { apiRoutes } from '../../../utils/http/apiConfig';
 
 // @ts-ignore
@@ -37,9 +42,9 @@ export const useAuthContext = (): AuthContextProps => {
       const responseError = e as ResponseError;
       console.log(e);
       if (responseError.response.status === 403) {
-        dispatch({}); // TODO: ingen tilgang
+        dispatch(userUnauthorised());
       } else {
-        // TODO: generell feil
+        dispatch(unknownAuthError());
       }
     }
   };

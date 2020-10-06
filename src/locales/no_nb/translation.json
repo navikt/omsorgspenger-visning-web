@@ -1,5 +1,7 @@
 {
   "navHeader": "Omsorgspenger",
   "homeTitle": "Omsorgspenger visning",
+  "ingenTilgang": "Du har ikke tilgang til å se innholdet på denne siden",
+  "innloggingsfeil": "Det skjedde en feil ved innloggingen. Prøv igjen senere",
   "404Page": "Fant ikke siden du lette etter"
 }

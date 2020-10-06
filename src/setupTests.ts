@@ -8,3 +8,7 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 
 import 'jest-styled-components';
+
+import 'jest-extended';
+
+import './locales/i18n';

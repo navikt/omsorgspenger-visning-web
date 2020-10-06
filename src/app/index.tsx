@@ -4,7 +4,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
 import { HomePage } from './containers/HomePage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
-import ApplicationWrapper from './containers/ApplicationWrapper';
+import AuthChecker from './containers/AuthChecker';
 import OmsorgspengerHeader from './containers/OmsorgspengerHeader/OmsorgspengerHeader';
 import { AuthProvider } from './state/auth/AuthProvider';
 
@@ -19,15 +19,14 @@ export function App() {
       </Helmet>
 
       <AuthProvider>
-        <ApplicationWrapper>
-          <OmsorgspengerHeader />
-
+        <OmsorgspengerHeader />
+        <AuthChecker>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route component={NotFoundPage} />
           </Switch>
-          <GlobalStyle />
-        </ApplicationWrapper>
+        </AuthChecker>
+        <GlobalStyle />
       </AuthProvider>
     </BrowserRouter>
   );

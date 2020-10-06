@@ -2,20 +2,32 @@ export enum LoginStatus {
   LoggedIn,
   LoggingIn,
   NotloggedIn,
+  Unauthorised,
+  UnknownError,
 }
 
 export enum AuthAction {
   LoadUser = 'Auth_LoadUser',
   UserLoaded = 'Auth_UserLoaded',
+  UserUnauthorised = 'Auth_UserUnauthorised',
+  UnknownError = 'Auth_UnknownError',
 }
 
 type LoadUserAction = {
   type: AuthAction.LoadUser;
 };
 
+type UserUnauthorisedAction = {
+  type: AuthAction.UserUnauthorised;
+};
+
 type UserLoadedAction = {
   type: AuthAction.UserLoaded;
   userName: string;
+};
+
+type UnknownErrorAction = {
+  type: AuthAction.UnknownError;
 };
 
 export const loadUser = (): LoadUserAction => ({ type: AuthAction.LoadUser });
@@ -25,4 +37,16 @@ export const userLoaded = (userName: string): UserLoadedAction => ({
   userName,
 });
 
-export type AuthActions = LoadUserAction | UserLoadedAction;
+export const unknownAuthError = (): UnknownErrorAction => ({
+  type: AuthAction.UnknownError,
+});
+
+export const userUnauthorised = (): UserUnauthorisedAction => ({
+  type: AuthAction.UserUnauthorised,
+});
+
+export type AuthActions =
+  | LoadUserAction
+  | UserLoadedAction
+  | UserUnauthorisedAction
+  | UnknownErrorAction;

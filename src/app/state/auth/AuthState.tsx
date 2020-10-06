@@ -12,7 +12,7 @@ export const initialAuthState: AuthState = {
 export const authReducer = (
   state: AuthState = initialAuthState,
   action: AuthActions,
-) => {
+): AuthState => {
   switch (action.type) {
     case AuthAction.LoadUser:
       return {
@@ -24,6 +24,18 @@ export const authReducer = (
         ...state,
         loginStatus: LoginStatus.LoggedIn,
         userName: action.userName,
+      };
+    case AuthAction.UserUnauthorised:
+      return {
+        ...state,
+        loginStatus: LoginStatus.Unauthorised,
+        userName: undefined,
+      };
+    case AuthAction.UnknownError:
+      return {
+        ...state,
+        loginStatus: LoginStatus.UnknownError,
+        userName: undefined,
       };
     default:
       return state;
