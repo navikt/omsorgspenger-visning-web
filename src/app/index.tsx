@@ -7,6 +7,7 @@ import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import AuthChecker from './containers/AuthChecker';
 import OmsorgspengerHeader from './containers/OmsorgspengerHeader/OmsorgspengerHeader';
 import { AuthProvider } from './state/auth/AuthProvider';
+import ErrorBoundary from './components/errors/ErrorBoundary';
 
 export function App() {
   return (
@@ -20,12 +21,14 @@ export function App() {
 
       <AuthProvider>
         <OmsorgspengerHeader />
-        <AuthChecker>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </AuthChecker>
+        <ErrorBoundary>
+          <AuthChecker>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </AuthChecker>
+        </ErrorBoundary>
         <GlobalStyle />
       </AuthProvider>
     </BrowserRouter>

@@ -9,8 +9,11 @@ import { App } from 'app';
 
 import { HelmetProvider } from 'react-helmet-async';
 
+import initSentry from './utils/initSentry';
 // Initialize languages
 import './locales/i18n';
+
+initSentry();
 
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 

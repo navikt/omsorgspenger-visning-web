@@ -7,6 +7,7 @@ const redirectServedPath = require('react-dev-utils/redirectServedPathMiddleware
 const paths = require('./paths');
 const getHttpsConfig = require('./getHttpsConfig');
 const mockLogin = require('./mocks/mockLogin');
+const mockSentry = require('./mocks/mockSentry');
 
 const host = process.env.HOST || '0.0.0.0';
 const sockHost = process.env.WDS_SOCKET_HOST;
@@ -103,6 +104,7 @@ module.exports = function (proxy, allowedHost) {
     proxy,
     before(app, server) {
       mockLogin(app);
+      mockSentry(app);
       // Keep `evalSourceMapMiddleware` and `errorOverlayMiddleware`
       // middlewares before `redirectServedPath` otherwise will not have any effect
       // This lets us fetch source contents from webpack for the error overlay
