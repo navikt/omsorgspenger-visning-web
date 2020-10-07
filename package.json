@@ -60,9 +60,7 @@
     "jest-watch-typeahead": "0.4.2",
     "lint-staged": "10.0.8",
     "mini-css-extract-plugin": "0.9.0",
-    "node-plop": "0.25.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
-    "plop": "2.6.0",
     "pnp-webpack-plugin": "1.6.4",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",
@@ -84,7 +82,6 @@
     "sass-loader": "8.0.2",
     "semver": "6.3.0",
     "serve": "11.3.0",
-    "shelljs": "0.8.3",
     "style-loader": "0.23.1",
     "styled-components": "5.0.1",
     "stylelint": "13.2.1",
@@ -112,7 +109,6 @@
     "lint": "yarn eslint -- src",
     "lint:fix": "yarn eslint -- --fix src",
     "lint:css": "stylelint src/**/*.css",
-    "generate": "cross-env TS_NODE_PROJECT='./internals/ts-node.tsconfig.json' plop --plopfile internals/generators/plopfile.ts",
     "prettify": "prettier --write"
   },
   "browserslist": {
@@ -198,15 +194,7 @@
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
-      }
-    }
+    ]
   },
   "babel": {
     "presets": [
