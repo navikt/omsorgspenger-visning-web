@@ -1,6 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import AppContainer from '../../components/AppContainer/AppContainer';
+import ContentContainer from '../../components/ContentContainer/ContentContainer';
+import Overføringer from '../Overføringer/Overføringer';
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -8,9 +11,13 @@ const HomePage = () => {
     <>
       <Helmet>
         <title>{t('homeTitle')}</title>
-        <meta name="description" content="A Boilerplate application homepage" />
+        <meta name="description" content={t('homepage.descr')} />
       </Helmet>
-      <span>{t('homeTitle')}</span>
+      <AppContainer>
+        <ContentContainer>
+          <Overføringer />
+        </ContentContainer>
+      </AppContainer>
     </>
   );
 };

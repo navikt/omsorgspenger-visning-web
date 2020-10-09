@@ -55,6 +55,7 @@ export const i18n = i18next
       interpolation: {
         escapeValue: false, // not needed for react as it escapes by default
       },
+      keySeparator: false,
     },
     () => {
       convertLanguageJsonToObject(noNb, translations);

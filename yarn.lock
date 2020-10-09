@@ -8234,10 +8234,20 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
+nav-frontend-chevron-style@0.3.9:
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/nav-frontend-chevron-style/-/nav-frontend-chevron-style-0.3.9.tgz#234db341787e87e7e30459e6f83bc9db105225f7"
+  integrity sha512-1oXBRfzVEiHgcP2CJRvxJnaVzt6Ihv/d4aRSCYZFxTwmwedXEyLEiKgBzJsXL9OaOIIVnFGzMZxkijnAFadi5A==
+
 nav-frontend-chevron-style@^0.3.5:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/nav-frontend-chevron-style/-/nav-frontend-chevron-style-0.3.5.tgz#778d814ccf98825da744b7fb95a6e7dfb3ff7f4e"
   integrity sha512-RahSZnJ+R/GtSHy4I15omGUyLawqswb3xgIG7Zcc88pbLH1x4Z1UHyqRShbsf1yKklXCgHzhx+JneZKYb2av/w==
+
+nav-frontend-chevron@1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/nav-frontend-chevron/-/nav-frontend-chevron-1.0.17.tgz#8337bc23579dfbaf825a254315ba0252c1a72f21"
+  integrity sha512-rDnYSyvuZhZNFEVeALVU6b9djuMOBP6xBjQPI97wFaOuPyT9J2cxkzdg7vjw+U39BlRHilfIRUx4DjIdOYZU/w==
 
 nav-frontend-chevron@^1.0.10:
   version "1.0.13"

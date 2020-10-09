@@ -62,6 +62,8 @@
     "lint-staged": "10.0.8",
     "lodash.throttle": "4.1.1",
     "mini-css-extract-plugin": "0.9.0",
+    "nav-frontend-chevron": "1.0.17",
+    "nav-frontend-chevron-style": "0.3.9",
     "nav-frontend-core": "5.0.5",
     "nav-frontend-js-utils": "1.0.13",
     "nav-frontend-knapper": "2.0.12",
