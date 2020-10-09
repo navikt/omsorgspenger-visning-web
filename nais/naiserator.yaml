@@ -33,3 +33,8 @@ spec:
     min: {{minReplicas}}
     max: {{maxReplicas}}
     cpuThresholdPercentage: 75
+  env:
+    {{#each env}}
+      - name: {{@key}}
+        value: {{this}}
+    {{/each}}
