@@ -7,6 +7,6 @@
   "maxReplicas": "2",
   "ingresses": ["https://omsorgspenger-visning.dev.adeo.no"],
   "env": {
-    "OIDC_AUTH_PROXY": "https://omsorgspenger-oidc-auth-proxy.dev.adeo.no"
+    "REACT_APP_OIDC_AUTH_PROXY": "https://omsorgspenger-oidc-auth-proxy.dev.adeo.no"
   }
 }
