@@ -2,12 +2,13 @@ import Dato from '../Dato';
 import Personidentifikator from '../Personidentifikator';
 
 export enum OverføringStatus {
-  Aktiv = 'Aktiv',
-  Inaktiv = 'Inaktiv',
+  Gjeldende = 'Gjeldende',
+  IkkeGjeldende = 'IkkeGjeldende',
 }
 
 export interface Overføring {
-  antallDager: number;
+  dagerOverført: number;
+  dagerØnsketOverført: number;
   gjelderFraOgMed: Dato;
   gjelderTilOgMed: Dato;
   status: OverføringStatus;

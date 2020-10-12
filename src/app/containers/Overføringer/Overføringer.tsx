@@ -10,30 +10,66 @@ import Overføring from '../../components/Overføring/Overføring';
 const testoverføringer: OverføringerType = {
   gitt: [
     {
-      antallDager: 3,
-      gjelderFraOgMed: '2020-09-29',
+      dagerOverført: 8,
+      dagerØnsketOverført: 10,
+      gjelderFraOgMed: '2020-10-05',
       gjelderTilOgMed: '2020-12-31',
       til: '01010101010',
-      begrunnelser: ['Har utvidet rett for 1 barn', 'Har omsorgen for 3 barn'],
-      status: OverføringStatus.Aktiv,
+      begrunnelser: [
+        'Har utvidet rett for 1 barn',
+        'Har aleneomsorg for 1 barn',
+        'Har omsorgen for 3 barn',
+        'Har 35 omsorgsdager',
+        'Har allerede tatt ut 27 dager i 2020',
+      ],
+      status: OverføringStatus.Gjeldende,
     },
     {
-      antallDager: 3,
-      gjelderFraOgMed: '2018-09-29',
-      gjelderTilOgMed: '2019-12-31',
+      dagerOverført: 10,
+      dagerØnsketOverført: 10,
+      gjelderFraOgMed: '2021-01-01',
+      gjelderTilOgMed: '2021-12-31',
       til: '01010101010',
-      begrunnelser: ['Har utvidet rett for 1 barn', 'Har omsorgen for 3 barn'],
-      status: OverføringStatus.Inaktiv,
+      begrunnelser: [
+        'Har utvidet rett for 1 barn',
+        'Har aleneomsorg for 1 barn',
+        'Har omsorgen for 3 barn',
+        'Har 35 omsorgsdager',
+      ],
+      status: OverføringStatus.Gjeldende,
+    },
+    {
+      dagerOverført: 5,
+      dagerØnsketOverført: 10,
+      gjelderFraOgMed: '2022-01-01',
+      gjelderTilOgMed: '2027-12-31',
+      til: '01010101010',
+      begrunnelser: ['Har omsorgen for 2 barn', 'Har 20 omsorgsdager'],
+      status: OverføringStatus.Gjeldende,
+    },
+    {
+      dagerOverført: 5,
+      dagerØnsketOverført: 10,
+      gjelderFraOgMed: '2012-01-01',
+      gjelderTilOgMed: '2022-12-31',
+      til: '01010101010',
+      begrunnelser: [
+        'Har utvidet rett for 1 barn',
+        'Har omsorgen for 2 barn',
+        'Har 20 omsorgsdager',
+      ],
+      status: OverføringStatus.IkkeGjeldende,
     },
   ],
   fått: [
     {
-      antallDager: 3,
-      gjelderFraOgMed: '2020-09-29',
-      gjelderTilOgMed: '2020-12-31',
+      dagerOverført: 5,
+      dagerØnsketOverført: 10,
+      gjelderFraOgMed: '2015-09-29',
+      gjelderTilOgMed: '2017-12-31',
       fra: '01010101010',
       begrunnelser: ['Har utvidet rett for 1 barn', 'Har omsorgen for 3 barn'],
-      status: OverføringStatus.Inaktiv,
+      status: OverføringStatus.IkkeGjeldende,
     },
   ],
 };
@@ -49,13 +85,13 @@ const Overføringer: React.FunctionComponent = () => {
       {testoverføringer.gitt.map(overføring => (
         <Overføring
           overføring={overføring}
-          key={`${overføring.til}-${overføring.status}-${overføring.gjelderFraOgMed}-${overføring.gjelderTilOgMed}-${overføring.antallDager}`}
+          key={`${overføring.til}-${overføring.status}-${overføring.gjelderFraOgMed}-${overføring.gjelderTilOgMed}-${overføring.dagerOverført}`}
         />
       ))}
       {testoverføringer.fått.map(overføring => (
         <Overføring
           overføring={overføring}
-          key={`${overføring.fra}-${overføring.status}-${overføring.gjelderFraOgMed}-${overføring.gjelderTilOgMed}-${overføring.antallDager}`}
+          key={`${overføring.fra}-${overføring.status}-${overføring.gjelderFraOgMed}-${overføring.gjelderTilOgMed}-${overføring.dagerOverført}`}
         />
       ))}
     </>
