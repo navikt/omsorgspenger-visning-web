@@ -10,7 +10,10 @@ server.use(
       directives: {
         defaultSrc: ["'self'"],
         connectSrc: ["'self'", OIDC_AUTH_PROXY_URL, 'https://sentry.gc.nav.no'],
-        frameSrc: ["'self'", OIDC_AUTH_PROXY_URL],
+        scriptSrc: [
+          "'self'",
+          'sha256-KNxMgXjhJ7wXJOk5PBkUQ1Z/IOcez2ZbORJyImJdstg=',
+        ],
         fontSrc: ["'self'", 'data:'],
         imgSrc: ["'self'", 'data:'],
       },
