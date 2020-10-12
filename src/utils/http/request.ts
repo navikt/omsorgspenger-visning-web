@@ -35,8 +35,13 @@ const getData = (response: Response): Promise<ResponseData> => {
 
 export const get = (
   url: string,
-  options?: RequestInit,
+  options: RequestInit = {},
 ): Promise<ResponseData> => {
   // @ts-ignore
-  return fetch(url, options).then(getData).then(checkStatus);
+  return fetch(url, {
+    ...options,
+    credentials: 'include',
+  })
+    .then(getData)
+    .then(checkStatus);
 };
