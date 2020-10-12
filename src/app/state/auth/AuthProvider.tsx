@@ -36,7 +36,7 @@ export const useAuthContext = (): AuthContextProps => {
     dispatch(loadUser());
 
     try {
-      const { data } = await get(apiRoutes.Me);
+      const { data } = await get(apiRoutes().Me);
 
       dispatch(userLoaded(data.name));
     } catch (e) {

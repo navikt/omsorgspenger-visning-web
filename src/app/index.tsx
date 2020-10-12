@@ -10,8 +10,6 @@ import { AuthProvider } from './state/auth/AuthProvider';
 import ErrorBoundary from './components/errors/ErrorBoundary';
 
 export function App() {
-  // TODO: Fjern:
-  console.log('miljøvariabler', process.env);
   return (
     <BrowserRouter>
       <Helmet

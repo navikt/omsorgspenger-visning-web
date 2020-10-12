@@ -12,35 +12,41 @@ import { HelmetProvider } from 'react-helmet-async';
 import initSentry from './utils/initSentry';
 // Initialize languages
 import './locales/i18n';
+import { get } from './utils/http/request';
 
 initSentry();
 
-const MOUNT_NODE = document.getElementById('root') as HTMLElement;
+get('/api/env').then(({ data = {} }) => {
+  // @ts-ignore
+  window.appSettings = data;
 
-interface Props {
-  Component: typeof App;
-}
-const ConnectedApp = ({ Component }: Props) => (
-  <HelmetProvider>
-    <React.StrictMode>
-      <Component />
-    </React.StrictMode>
-  </HelmetProvider>
-);
+  const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 
-const render = (Component: typeof App) => {
-  ReactDOM.render(<ConnectedApp Component={Component} />, MOUNT_NODE);
-};
+  interface Props {
+    Component: typeof App;
+  }
+  const ConnectedApp = ({ Component }: Props) => (
+    <HelmetProvider>
+      <React.StrictMode>
+        <Component />
+      </React.StrictMode>
+    </HelmetProvider>
+  );
 
-if (module.hot) {
-  // Hot reloadable translation json files and app
-  // modules.hot.accept does not accept dynamic dependencies,
-  // have to be constants at compile-time
-  module.hot.accept(['./app', './locales/i18n'], () => {
-    ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-    const App = require('./app').App;
-    render(App);
-  });
-}
+  const render = (Component: typeof App) => {
+    ReactDOM.render(<ConnectedApp Component={Component} />, MOUNT_NODE);
+  };
 
-render(App);
+  if (module.hot) {
+    // Hot reloadable translation json files and app
+    // modules.hot.accept does not accept dynamic dependencies,
+    // have to be constants at compile-time
+    module.hot.accept(['./app', './locales/i18n'], () => {
+      ReactDOM.unmountComponentAtNode(MOUNT_NODE);
+      const App = require('./app').App;
+      render(App);
+    });
+  }
+
+  render(App);
+});
