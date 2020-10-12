@@ -12,7 +12,7 @@ server.use(
         connectSrc: ["'self'", OIDC_AUTH_PROXY_URL, 'https://sentry.gc.nav.no'],
         scriptSrc: [
           "'self'",
-          'sha256-KNxMgXjhJ7wXJOk5PBkUQ1Z/IOcez2ZbORJyImJdstg=',
+          "'sha256-KNxMgXjhJ7wXJOk5PBkUQ1Z/IOcez2ZbORJyImJdstg='",
         ],
         fontSrc: ["'self'", 'data:'],
         imgSrc: ["'self'", 'data:'],
