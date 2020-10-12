@@ -16,6 +16,8 @@ server.use(
         ],
         fontSrc: ["'self'", 'data:'],
         imgSrc: ["'self'", 'data:'],
+        // TODO: Bruker unsafe inline pga styled components. Bruk nonce istedenfor
+        styleSrc: ["'self'", "'unsafe-inline'"],
       },
     },
   }),
