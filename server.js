@@ -11,7 +11,7 @@ server.get('/isReady', (req, res) => res.sendStatus(200));
 server.get('/api/env', (req, res) =>
   res
     .json({
-      OIDC_AUTH_PROXY: process.env.OIDC_AUTH_PROXY,
+      OIDC_AUTH_PROXY_URL: process.env.OIDC_AUTH_PROXY_URL,
     })
     .send(),
 );
