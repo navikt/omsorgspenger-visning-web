@@ -3,6 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import NavFrontendChevron from 'nav-frontend-chevron';
 import navColors from '../../../styles/designSystemColors';
+import { UnmountClosed } from 'react-collapse';
 
 interface Props {
   visInnhold: boolean;
@@ -33,6 +34,7 @@ const DeleDagerPanel: React.FunctionComponent<Props> = ({
   children,
 }) => {
   const { t } = useTranslation();
+
   return (
     <DeleDagerPanelStyle aria-expanded={visInnhold} visInnhold={visInnhold}>
       <Overskrift farge={farge} onClick={setVisInnhold}>
@@ -47,7 +49,9 @@ const DeleDagerPanel: React.FunctionComponent<Props> = ({
           </KnappStyle>
         </Banner>
       </Overskrift>
-      {visInnhold && <Innhold>{children}</Innhold>}
+      <UnmountClosed isOpened={visInnhold}>
+        <Innhold>{children}</Innhold>
+      </UnmountClosed>
     </DeleDagerPanelStyle>
   );
 };
@@ -100,7 +104,7 @@ export const Dager = styled.span`
   flex: 0 0 80px;
   font-size: 1.3em;
   display: flex;
-  align-items: baseline;
+  align-items: center;
 
   > * {
     display: inline;
@@ -113,6 +117,7 @@ export const OverskriftTekst = styled.strong`
 
 export const Banner = styled.span`
   flex-grow: 1;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
