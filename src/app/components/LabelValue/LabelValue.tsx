@@ -16,12 +16,17 @@ const LabelValue: React.FunctionComponent<Props> = ({
   retning,
 }) => {
   const valueId = React.useMemo(() => uuid(), []);
+  const labelId = React.useMemo(() => uuid(), []);
   const { t } = useTranslation();
 
   return (
     <LabelValueStyle retning={retning}>
-      <Label htmlFor={valueId}>{t(labelTextId)}</Label>
-      <div id={valueId}>{value}</div>
+      <Label htmlFor={valueId} id={labelId}>
+        {t(labelTextId)}
+      </Label>
+      <div aria-labelledby={labelId} id={valueId}>
+        {value}
+      </div>
     </LabelValueStyle>
   );
 };
