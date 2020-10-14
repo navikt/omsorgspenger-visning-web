@@ -29,8 +29,9 @@ const PORT = process.env.PORT || 8090;
 
 server.get('/isAlive', (req, res) => res.sendStatus(200));
 server.get('/isReady', (req, res) => res.sendStatus(200));
-
-server.get('/api/env', (req, res) => res.json({ OIDC_AUTH_PROXY_URL }).send());
+server.get('/localapi/env', (req, res) =>
+  res.json({ OIDC_AUTH_PROXY_URL }).send(),
+);
 
 server.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

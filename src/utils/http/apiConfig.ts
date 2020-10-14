@@ -1,11 +1,15 @@
 import { getEnvironmentVariable, getLocation } from './browserUtils';
 
-export const API_URL = () =>
+export const AUTH_PROXY_URL = () =>
   getEnvironmentVariable('OIDC_AUTH_PROXY_URL') || 'http://localhost:3000';
 
+const API_URL = () => `${AUTH_PROXY_URL()}/api`;
+
 export const apiRoutes = () => ({
-  Me: `${API_URL()}/me`,
-  Login: `${API_URL()}/login`,
+  Env: '/localapi/env',
+  Me: `${AUTH_PROXY_URL()}/me`,
+  Login: `${AUTH_PROXY_URL()}/login`,
+  Overføringer: `${API_URL()}/overforinger`,
 });
 
 export const loginWithRedirect = () =>

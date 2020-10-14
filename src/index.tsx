@@ -13,10 +13,11 @@ import initSentry from './utils/initSentry';
 // Initialize languages
 import './locales/i18n';
 import { get } from './utils/http/request';
+import { apiRoutes } from './utils/http/apiConfig';
 
 initSentry();
 
-get('/api/env').then(({ data = {} }) => {
+get(apiRoutes().Env).then(({ data = {} }) => {
   // @ts-ignore
   window.appSettings = data;
 
