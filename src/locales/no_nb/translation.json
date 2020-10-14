@@ -10,6 +10,11 @@
   "deleDagerPanel.skjulInnhold": "Skjul innhold",
   "deleDagerPanel.visInnhold": "Vis innhold",
   "overføringer.overskrift": "Overføringer",
-  "overføring.dagerGir": "Dager gitt",
-  "overføring.dagerFår": "Dager fått"
+  "overføringer.visSenere": "Vis kommende endringer",
+  "overføringer.skjulSenere": "Skjul kommende endringer",
+  "overføringer.visTidligere": "Vis tidligere overføringer",
+  "overføringer.skjulTidligere": "Skjul tidligere overføringer",
+  "overføringer.ingenGjeldende": "Det er ikke registrert noen overføringer",
+  "overføring.dagerGir": "Dager overført",
+  "overføring.dagerFår": "Dager mottatt"
 }

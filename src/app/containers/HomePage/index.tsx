@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import AppContainer from '../../components/AppContainer/AppContainer';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
-import Overføringer from '../Overføringer/Overføringer';
+import OverføringerContainer from '../Overføringer/OverføringerContainer';
 
 const HomePage = () => {
   const { t } = useTranslation();
@@ -15,7 +15,7 @@ const HomePage = () => {
       </Helmet>
       <AppContainer>
         <ContentContainer>
-          <Overføringer />
+          <OverføringerContainer />
         </ContentContainer>
       </AppContainer>
     </>

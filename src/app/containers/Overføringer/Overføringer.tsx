@@ -1,101 +1,123 @@
 import React from 'react';
-import RammemeldingOverskrift from '../../components/RammemeldingOverskrift/RammemeldingOverskrift';
-import {
-  OverføringStatus,
-  Overføringer as OverføringerType,
-} from '../../types';
 import { useTranslation } from 'react-i18next';
+import { Overføring as OverføringType } from '../../types';
 import Overføring from '../../components/Overføring/Overføring';
+import ExpandablePanel from '../../components/ExpandablePanel/ExpandablePanel';
+import GoBackInTimeIcon from '../../components/icons/GoBackInTimeIcon';
+import styled, { css } from 'styled-components/macro';
 
-const testoverføringer: OverføringerType = {
-  gitt: [
-    {
-      dagerOverført: 8,
-      dagerØnsketOverført: 10,
-      gjelderFraOgMed: '2020-10-05',
-      gjelderTilOgMed: '2020-12-31',
-      til: '01010101010',
-      begrunnelser: [
-        'Har utvidet rett for 1 barn',
-        'Har aleneomsorg for 1 barn',
-        'Har omsorgen for 3 barn',
-        'Har 35 omsorgsdager',
-        'Har allerede tatt ut 27 dager i 2020',
-      ],
-      status: OverføringStatus.Gjeldende,
-    },
-    {
-      dagerOverført: 10,
-      dagerØnsketOverført: 10,
-      gjelderFraOgMed: '2021-01-01',
-      gjelderTilOgMed: '2021-12-31',
-      til: '01010101010',
-      begrunnelser: [
-        'Har utvidet rett for 1 barn',
-        'Har aleneomsorg for 1 barn',
-        'Har omsorgen for 3 barn',
-        'Har 35 omsorgsdager',
-      ],
-      status: OverføringStatus.Gjeldende,
-    },
-    {
-      dagerOverført: 5,
-      dagerØnsketOverført: 10,
-      gjelderFraOgMed: '2022-01-01',
-      gjelderTilOgMed: '2027-12-31',
-      til: '01010101010',
-      begrunnelser: ['Har omsorgen for 2 barn', 'Har 20 omsorgsdager'],
-      status: OverføringStatus.Gjeldende,
-    },
-    {
-      dagerOverført: 5,
-      dagerØnsketOverført: 10,
-      gjelderFraOgMed: '2012-01-01',
-      gjelderTilOgMed: '2022-12-31',
-      til: '01010101010',
-      begrunnelser: [
-        'Har utvidet rett for 1 barn',
-        'Har omsorgen for 2 barn',
-        'Har 20 omsorgsdager',
-      ],
-      status: OverføringStatus.IkkeGjeldende,
-    },
-  ],
-  fått: [
-    {
-      dagerOverført: 5,
-      dagerØnsketOverført: 10,
-      gjelderFraOgMed: '2015-09-29',
-      gjelderTilOgMed: '2017-12-31',
-      fra: '01010101010',
-      begrunnelser: ['Har utvidet rett for 1 barn', 'Har omsorgen for 3 barn'],
-      status: OverføringStatus.IkkeGjeldende,
-    },
-  ],
-};
+interface Props {
+  overføringer: OverføringType[];
+}
 
-const Overføringer: React.FunctionComponent = () => {
+const Overføringer: React.FunctionComponent<Props> = ({
+  overføringer = [],
+}) => {
   const { t } = useTranslation();
+
+  const gjeldendeOverføringerNå = React.useMemo(() => {
+    const nå = new Date();
+
+    return overføringer.filter(
+      ({ gjelderFraOgMed, gjelderTilOgMed }) =>
+        new Date(gjelderFraOgMed) <= nå && new Date(gjelderTilOgMed) >= nå,
+    );
+  }, [overføringer]);
+
+  const tidligereOverføringer = React.useMemo(() => {
+    const nå = new Date();
+
+    return overføringer.filter(
+      ({ gjelderTilOgMed }) => new Date(gjelderTilOgMed) < nå,
+    );
+  }, [overføringer]);
+
+  const senereOverføringer = React.useMemo(() => {
+    const nå = new Date();
+
+    return overføringer.filter(
+      ({ gjelderFraOgMed }) => new Date(gjelderFraOgMed) > nå,
+    );
+  }, [overføringer]);
+
+  const overføringKey = React.useCallback(
+    ({
+      til,
+      fra,
+      status,
+      gjelderFraOgMed,
+      gjelderTilOgMed,
+      dagerOverført,
+    }: OverføringType) =>
+      `${
+        til || fra
+      }-${status}-${gjelderFraOgMed}-${gjelderTilOgMed}-${dagerOverført}`,
+    [],
+  );
+
+  const [visTidligere, setVisTidligere] = React.useState<boolean>(false);
+  const [visSenere, setVisSenere] = React.useState<boolean>(false);
+
+  const flipXAxis = css`
+    transform: scaleX(-1);
+  `;
 
   return (
     <>
-      <RammemeldingOverskrift>
-        {t('overføringer.overskrift')}
-      </RammemeldingOverskrift>
-      {testoverføringer.gitt.map(overføring => (
+      {gjeldendeOverføringerNå.length === 0 && t('overføringer.ingenGjeldende')}
+      {gjeldendeOverføringerNå.map((overføring, index) => (
         <Overføring
           overføring={overføring}
-          key={`${overføring.til}-${overføring.status}-${overføring.gjelderFraOgMed}-${overføring.gjelderTilOgMed}-${overføring.dagerOverført}`}
+          key={overføringKey(overføring)}
+          defaultOpen={true}
         />
       ))}
-      {testoverføringer.fått.map(overføring => (
-        <Overføring
-          overføring={overføring}
-          key={`${overføring.fra}-${overføring.status}-${overføring.gjelderFraOgMed}-${overføring.gjelderTilOgMed}-${overføring.dagerOverført}`}
-        />
-      ))}
+      {tidligereOverføringer.length > 0 && (
+        <>
+          <ExpandablePanel
+            onClick={() => setVisTidligere(current => !current)}
+            heading={
+              <>
+                <GoBackInTimeIcon />
+                <span>{t('overføringer.visTidligere')}</span>
+              </>
+            }
+            isOpen={visTidligere}
+          >
+            {tidligereOverføringer.map(overføring => (
+              <OverføringWrapper key={overføringKey(overføring)}>
+                <Overføring overføring={overføring} defaultOpen={false} />
+              </OverføringWrapper>
+            ))}
+          </ExpandablePanel>
+        </>
+      )}
+      {senereOverføringer.length > 0 && (
+        <>
+          <ExpandablePanel
+            onClick={() => setVisSenere(current => !current)}
+            heading={
+              <>
+                <GoBackInTimeIcon cssStyle={flipXAxis} />
+                <span>{t('overføringer.visSenere')}</span>
+              </>
+            }
+            isOpen={visSenere}
+          >
+            {senereOverføringer.map(overføring => (
+              <OverføringWrapper key={overføringKey(overføring)}>
+                <Overføring overføring={overføring} defaultOpen={false} />
+              </OverføringWrapper>
+            ))}
+          </ExpandablePanel>
+        </>
+      )}
     </>
   );
 };
+
+const OverføringWrapper = styled.div`
+  padding-left: 2em;
+`;
 
 export default Overføringer;

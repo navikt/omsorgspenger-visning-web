@@ -6,21 +6,26 @@ import Dato from '../../types/Dato';
 
 interface Props {
   overføring: OverføringType;
+  defaultOpen: boolean;
 }
 
 const isoDateToLocale = (date: Dato) => new Date(date).toLocaleDateString();
 
-const Overføring: React.FunctionComponent<Props> = ({ overføring }) => {
+const Overføring: React.FunctionComponent<Props> = ({
+  overføring,
+  defaultOpen,
+}) => {
   const {
     til,
     fra,
-    status,
     gjelderFraOgMed,
     gjelderTilOgMed,
     dagerOverført,
     begrunnelser,
   } = overføring;
-  const [visDagerGittInnhold, setVisDagerGittInnhold] = useState<boolean>(true);
+  const [visDagerGittInnhold, setVisDagerGittInnhold] = useState<boolean>(
+    defaultOpen,
+  );
 
   return (
     <DeleDagerPanel
@@ -38,8 +43,7 @@ const Overføring: React.FunctionComponent<Props> = ({ overføring }) => {
         <div>{`Gyldighetsperiode: ${isoDateToLocale(
           gjelderFraOgMed,
         )} til og med ${isoDateToLocale(gjelderTilOgMed)}`}</div>
-        <div>{`Status: ${status}`}</div>
-        <div>Begrunnelser:</div>
+        <div>Grunnlag for resultat:</div>
         {begrunnelser.map(begrunnelse => (
           <div style={{ marginLeft: '2em' }} key={begrunnelse}>
             {begrunnelse}
