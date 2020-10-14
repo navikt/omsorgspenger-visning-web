@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TransferArrows = () => (
+const TransferArrowsIcon = () => (
   <svg
     width="24"
     height="24"
@@ -17,4 +17,4 @@ const TransferArrows = () => (
   </svg>
 );
 
-export default TransferArrows;
+export default TransferArrowsIcon;
