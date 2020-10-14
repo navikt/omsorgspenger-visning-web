@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { Overføring as OverføringType } from '../../types';
 import Overføring from '../../components/Overføring/Overføring';
 import ExpandablePanel from '../../components/ExpandablePanel/ExpandablePanel';
-import GoBackInTimeIcon from '../../components/icons/GoBackInTimeIcon';
+import { GoBackInTimeIcon } from '../../components/icons';
 import styled, { css } from 'styled-components/macro';
+import navColors from '../../../styles/designSystemColors';
 
 interface Props {
   overføringer: OverføringType[];
@@ -65,11 +66,12 @@ const Overføringer: React.FunctionComponent<Props> = ({
   return (
     <>
       {gjeldendeOverføringerNå.length === 0 && t('overføringer.ingenGjeldende')}
-      {gjeldendeOverføringerNå.map((overføring, index) => (
+      {gjeldendeOverføringerNå.map(overføring => (
         <Overføring
           overføring={overføring}
           key={overføringKey(overføring)}
           defaultOpen={true}
+          farge={overføring.til ? navColors.navLysBla : navColors.navDypBla}
         />
       ))}
       {tidligereOverføringer.length > 0 && (
@@ -79,14 +81,22 @@ const Overføringer: React.FunctionComponent<Props> = ({
             heading={
               <>
                 <GoBackInTimeIcon />
-                <span>{t('overføringer.visTidligere')}</span>
+                <span>
+                  {visTidligere
+                    ? t('overføringer.skjulTidligere')
+                    : t('overføringer.visTidligere')}
+                </span>
               </>
             }
             isOpen={visTidligere}
           >
             {tidligereOverføringer.map(overføring => (
               <OverføringWrapper key={overføringKey(overføring)}>
-                <Overføring overføring={overføring} defaultOpen={false} />
+                <Overføring
+                  overføring={overføring}
+                  defaultOpen={false}
+                  farge={navColors.navGra40}
+                />
               </OverføringWrapper>
             ))}
           </ExpandablePanel>
@@ -99,14 +109,22 @@ const Overføringer: React.FunctionComponent<Props> = ({
             heading={
               <>
                 <GoBackInTimeIcon cssStyle={flipXAxis} />
-                <span>{t('overføringer.visSenere')}</span>
+                <span>
+                  {visSenere
+                    ? t('overføringer.skjulSenere')
+                    : t('overføringer.visSenere')}
+                </span>
               </>
             }
             isOpen={visSenere}
           >
             {senereOverføringer.map(overføring => (
               <OverføringWrapper key={overføringKey(overføring)}>
-                <Overføring overføring={overføring} defaultOpen={false} />
+                <Overføring
+                  overføring={overføring}
+                  defaultOpen={false}
+                  farge={navColors.navGra40}
+                />
               </OverføringWrapper>
             ))}
           </ExpandablePanel>

@@ -5,6 +5,7 @@ import { apiRoutes } from '../../../utils/http/apiConfig';
 import RammemeldingOverskrift from '../../components/RammemeldingOverskrift/RammemeldingOverskrift';
 import { LoadingIndicator } from '../../components/LoadingIndicator';
 import Overføringer from './Overføringer';
+import { TransferArrows } from '../../components/icons';
 
 const personA = '01010101010';
 
@@ -18,6 +19,7 @@ const OverføringerContainer: React.FunctionComponent = () => {
   return (
     <>
       <RammemeldingOverskrift>
+        <TransferArrows />
         {t('overføringer.overskrift')}
       </RammemeldingOverskrift>
       {loading && <LoadingIndicator />}

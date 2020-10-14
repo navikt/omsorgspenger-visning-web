@@ -15,15 +15,10 @@ interface Props {
   };
 }
 
-const DeleDagerPanelStyle = styled.article<Pick<Props, 'visInnhold'>>`
-  margin-bottom: 0.5em;
-  ${({ visInnhold }) =>
-    visInnhold &&
-    `
-    box-shadow: 0 3px 3px -1px #c6c2bf;
-    outline: 1px solid #f3f4f4;
-    padding-bottom: 1em;
-  `}
+const DeleDagerPanelStyle = styled.article`
+  margin-bottom: 1em;
+  box-shadow: 0 3px 3px -1px #c6c2bf;
+  border: 1px solid #c6c2bf;
 `;
 
 const DeleDagerPanel: React.FunctionComponent<Props> = ({
@@ -36,7 +31,7 @@ const DeleDagerPanel: React.FunctionComponent<Props> = ({
   const { t } = useTranslation();
 
   return (
-    <DeleDagerPanelStyle aria-expanded={visInnhold} visInnhold={visInnhold}>
+    <DeleDagerPanelStyle aria-expanded={visInnhold}>
       <Overskrift farge={farge} onClick={setVisInnhold}>
         <Dager>{overskrift.antallDager}</Dager>
         <Banner>

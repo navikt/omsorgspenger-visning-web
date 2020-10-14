@@ -16,5 +16,10 @@
   "overføringer.skjulTidligere": "Skjul tidligere overføringer",
   "overføringer.ingenGjeldende": "Det er ikke registrert noen overføringer",
   "overføring.dagerGir": "Dager overført",
-  "overføring.dagerFår": "Dager mottatt"
+  "overføring.dagerFår": "Dager mottatt",
+  "overføring.til": "Til",
+  "overføring.fra": "Fra",
+  "overføring.ønsketOverført": "Antall dager ønsket overført",
+  "overføring.gyldighetsperiode": "Gyldighetsperiode",
+  "overføring.grunnlag": "Grunnlag for resultat:"
 }

@@ -3,10 +3,15 @@ import DeleDagerPanel from '../ExpandablePanel/DeleDagerPanel';
 import navColors from '../../../styles/designSystemColors';
 import { Overføring as OverføringType } from '../../types';
 import Dato from '../../types/Dato';
+import LabelValue from '../LabelValue/LabelValue';
+import Hr from '../Hr/Hr';
+import { CheckIcon } from '../icons';
+import { FlexRow, FlexContainer } from '../Flex';
 
 interface Props {
   overføring: OverføringType;
   defaultOpen: boolean;
+  farge: navColors;
 }
 
 const isoDateToLocale = (date: Dato) => new Date(date).toLocaleDateString();
@@ -14,6 +19,7 @@ const isoDateToLocale = (date: Dato) => new Date(date).toLocaleDateString();
 const Overføring: React.FunctionComponent<Props> = ({
   overføring,
   defaultOpen,
+  farge,
 }) => {
   const {
     til,
@@ -21,6 +27,7 @@ const Overføring: React.FunctionComponent<Props> = ({
     gjelderFraOgMed,
     gjelderTilOgMed,
     dagerOverført,
+    dagerØnsketOverført,
     begrunnelser,
   } = overføring;
   const [visDagerGittInnhold, setVisDagerGittInnhold] = useState<boolean>(
@@ -31,25 +38,55 @@ const Overføring: React.FunctionComponent<Props> = ({
     <DeleDagerPanel
       visInnhold={visDagerGittInnhold}
       setVisInnhold={() => setVisDagerGittInnhold(current => !current)}
-      farge={til ? navColors.navLysBla : navColors.navDypBla}
+      farge={farge}
       overskrift={{
         antallDager: dagerOverført,
         overskrifttekstId: til ? 'overføring.dagerGir' : 'overføring.dagerFår',
       }}
     >
-      <>
-        {til && <div>{`Overført til: ${til}`}</div>}
-        {fra && <div>{`Overført fra: ${fra}`}</div>}
-        <div>{`Gyldighetsperiode: ${isoDateToLocale(
-          gjelderFraOgMed,
-        )} til og med ${isoDateToLocale(gjelderTilOgMed)}`}</div>
-        <div>Grunnlag for resultat:</div>
-        {begrunnelser.map(begrunnelse => (
-          <div style={{ marginLeft: '2em' }} key={begrunnelse}>
-            {begrunnelse}
-          </div>
-        ))}
-      </>
+      <FlexContainer childSpacing="2em">
+        {til && (
+          <LabelValue
+            labelTextId={'overføring.til'}
+            value={til}
+            retning="vertikal"
+          />
+        )}
+        {fra && (
+          <LabelValue
+            labelTextId={'overføring.fra'}
+            value={fra}
+            retning="vertikal"
+          />
+        )}
+        <LabelValue
+          labelTextId="overføring.gyldighetsperiode"
+          value={`${isoDateToLocale(gjelderFraOgMed)} - ${isoDateToLocale(
+            gjelderTilOgMed,
+          )}`}
+          retning="vertikal"
+        />
+        <LabelValue
+          labelTextId="overføring.ønsketOverført"
+          value={dagerØnsketOverført}
+          retning="vertikal"
+        />
+      </FlexContainer>
+      {til && (
+        <>
+          <Hr marginTopPx={16} marginBottomPx={16} />
+          <LabelValue
+            labelTextId="overføring.grunnlag"
+            value={begrunnelser.map(begrunnelse => (
+              <FlexRow alignItems="baseline" key={begrunnelse}>
+                <CheckIcon />
+                <span>{begrunnelse}</span>
+              </FlexRow>
+            ))}
+            retning="vertikal"
+          />
+        </>
+      )}
     </DeleDagerPanel>
   );
 };
