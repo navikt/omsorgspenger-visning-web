@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import navColors from './designSystemColors';
 
 export const GlobalStyle = createGlobalStyle`
   html,
@@ -9,18 +10,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    line-height: 1.428571429;
+    color: ${navColors.navMorkGra};
   }
 
   #root {
     min-height: 100%;
     min-width: 100%;
-  }
-
-  p,
-  label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    line-height: 1.5em;
   }
 
   input, select {
