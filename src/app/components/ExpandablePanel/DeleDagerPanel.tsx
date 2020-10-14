@@ -106,7 +106,7 @@ export const Dager = styled.span`
   }
 `;
 
-export const OverskriftTekst = styled.strong`
+export const OverskriftTekst = styled.b`
   font-size: 0.8em;
 `;
 
