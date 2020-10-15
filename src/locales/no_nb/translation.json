@@ -21,5 +21,11 @@
   "overføring.fra": "Fra",
   "overføring.ønsketOverført": "Antall dager ønsket overført",
   "overføring.gyldighetsperiode": "Gyldighetsperiode",
-  "overføring.grunnlag": "Grunnlag for resultat:"
+  "overføring.grunnlag": "Grunnlag for resultat:",
+  "personsøk.input.label": "Søk på person (fødselsnummer eller d-nummer)",
+  "personsøk.søkeknapp.søk": "Søk",
+  "personsøk.input.feil": "Et fødsels- eller d-nummer består av 11 siffer",
+  "personsøk.response.feil.NotAuthorised": "Du har ikke tilgang til å søke på denne personen",
+  "personsøk.response.feil.Unknown": "Det skjedde en ukjent feil. Prøv på nytt senere",
+  "personsøk.response.feil.NotFound": "Fant ingen personer med det fødsels- eller d-nummeret"
 }
