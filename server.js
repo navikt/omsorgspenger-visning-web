@@ -10,13 +10,11 @@ server.use(
       directives: {
         defaultSrc: ["'self'"],
         connectSrc: ["'self'", OIDC_AUTH_PROXY_URL, 'https://sentry.gc.nav.no'],
-        scriptSrc: [
-          "'self'",
-          "'sha256-KNxMgXjhJ7wXJOk5PBkUQ1Z/IOcez2ZbORJyImJdstg='",
-        ],
         fontSrc: ["'self'", 'data:'],
         imgSrc: ["'self'", 'data:'],
-        // TODO: Bruker unsafe inline pga styled components. Bruk nonce istedenfor
+        // TODO: Se https://github.com/navikt/omsorgspenger-visning-web/issues/7
+        scriptSrc: ["'self'", "'unsafe-inline'"],
+        // TODO: samme som over
         styleSrc: ["'self'", "'unsafe-inline'"],
       },
     },
