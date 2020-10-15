@@ -45,3 +45,19 @@ export const get = (
     .then(getData)
     .then(checkStatus);
 };
+
+export const post = (
+  url: string,
+  body: object,
+  options: RequestInit = {},
+): Promise<ResponseData> => {
+  // @ts-ignore
+  return fetch(url, {
+    ...options,
+    body: JSON.stringify(body),
+    method: 'POST',
+    credentials: 'include',
+  })
+    .then(getData)
+    .then(checkStatus);
+};
