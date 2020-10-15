@@ -1,11 +1,11 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async';
 import AppContainer from '../../components/AppContainer/AppContainer';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
-import PersonSøk from '../PersonSøk/PersonSøk';
+import OverføringerContainer from '../Overføringer/OverføringerContainer';
 
-const HomePage = () => {
+const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
   return (
     <>
@@ -15,11 +15,11 @@ const HomePage = () => {
       </Helmet>
       <AppContainer>
         <ContentContainer>
-          <PersonSøk />
+          <OverføringerContainer />
         </ContentContainer>
       </AppContainer>
     </>
   );
 };
 
-export default HomePage;
+export default SakPage;

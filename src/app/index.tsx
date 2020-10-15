@@ -2,8 +2,9 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
-import { HomePage } from './containers/HomePage/Loadable';
-import { NotFoundPage } from './components/NotFoundPage/Loadable';
+import { HomePageLoadable } from './containers/HomePage/HomePageLoadable';
+import { NotFoundPage } from './containers/NotFoundPage/Loadable';
+import { SakPageLoadable } from './containers/SakPage/SakPageLoadable';
 import AuthChecker from './containers/AuthChecker';
 import OmsorgspengerHeader from './containers/OmsorgspengerHeader/OmsorgspengerHeader';
 import { AuthProvider } from './state/auth/AuthProvider';
@@ -24,7 +25,8 @@ export function App() {
         <ErrorBoundary>
           <AuthChecker>
             <Switch>
-              <Route exact path="/" component={HomePage} />
+              <Route exact path="/" component={HomePageLoadable} />
+              <Route path="/sak" component={SakPageLoadable} />
               <Route component={NotFoundPage} />
             </Switch>
           </AuthChecker>

@@ -1,5 +1,5 @@
 /**
- * Asynchronously loads the component for HomePage
+ * Asynchronously loads the component for SakPage
  */
 
 import React from 'react';
@@ -15,8 +15,8 @@ const LoadingWrapper = styled.div`
   justify-content: center;
 `;
 
-export const HomePage = lazyLoad(
-  () => import('./index'),
+export const SakPageLoadable = lazyLoad(
+  () => import('./SakPage'),
   module => module.default,
   {
     fallback: (

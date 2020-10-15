@@ -7,7 +7,11 @@ const mockFetch = (response: Partial<Response>) => {
   (global as any).fetch = jest.fn(() => Promise.resolve(response));
 };
 
+const ikkeLogg = () => jest.spyOn(global.console, 'log').mockImplementation();
+
 describe('<AuthChecker>', () => {
+  ikkeLogg();
+
   test('Rendrer ikke innhold hvis 403', async () => {
     mockFetch({
       status: 403,
