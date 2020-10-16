@@ -36,4 +36,13 @@ export const GlobalStyle = createGlobalStyle`
   input[type=number] {
     -moz-appearance: textfield;
   }
+  
+  code {
+    border: 1px solid ${navColors.navGra20};
+    background: #f7f7f7;
+    border-radius: 5px;
+    color: ${navColors.redError};
+    padding: 2px 4px;
+    font-size: 1.1em;
+  }
 `;

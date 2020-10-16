@@ -1,3 +1,4 @@
+// Denne er ukomplett. Bare å legge til fra https://design.nav.no/resources/colors ved behov
 enum navColors {
   navRod = '#C30000',
   navOransje = '#FF9100',
@@ -13,6 +14,7 @@ enum navColors {
   navGra40 = '#B7B1A9',
   navGra20 = '#C6C2BF',
   navLysGra = '#E9E7E7',
+  redError = '#BA3A26',
 }
 
 export default navColors;

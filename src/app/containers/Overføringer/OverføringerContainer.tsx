@@ -20,6 +20,8 @@ const OverføringerContainer: React.FunctionComponent<Props> = ({
     `${apiRoutes().Overføringer}?saksnummer=${saksnummer}`,
   );
 
+  const errorStatus = error?.response?.status;
+
   return (
     <>
       <RammemeldingOverskrift>
@@ -27,7 +29,18 @@ const OverføringerContainer: React.FunctionComponent<Props> = ({
         {t('overføringer.overskrift')}
       </RammemeldingOverskrift>
       {loading && <LoadingIndicator />}
-      {error && <div>Det skjedde en feil</div>}
+      {error && (
+        <p>
+          {errorStatus === 404 ? (
+            <>
+              {t('sak.feil.404')}
+              <code>{`${saksnummer}`}</code>
+            </>
+          ) : (
+            t('sak.feil.ukjent')
+          )}
+        </p>
+      )}
       {data !== null && <Overføringer overføringer={data?.overføringer} />}
     </>
   );

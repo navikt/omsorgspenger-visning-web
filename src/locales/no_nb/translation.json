@@ -9,6 +9,8 @@
   "homepage.descr": "Omsorgspenger forside",
   "deleDagerPanel.skjulInnhold": "Skjul innhold",
   "deleDagerPanel.visInnhold": "Vis innhold",
+  "sak.feil.404": "Fant ingen saker med saksnummer ",
+  "sak.feil.ukjent": "Det skjedde en ukjent feil. Prøv igjen senere",
   "overføringer.overskrift": "Overføringer",
   "overføringer.visSenere": "Vis kommende endringer",
   "overføringer.skjulSenere": "Skjul kommende endringer",
