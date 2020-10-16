@@ -4,9 +4,12 @@ import { Helmet } from 'react-helmet-async';
 import AppContainer from '../../components/AppContainer/AppContainer';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 import OverføringerContainer from '../Overføringer/OverføringerContainer';
+import { useParams } from 'react-router-dom';
 
 const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
+  const { saksnummer } = useParams();
+
   return (
     <>
       <Helmet>
@@ -15,7 +18,7 @@ const SakPage: React.FunctionComponent = () => {
       </Helmet>
       <AppContainer>
         <ContentContainer>
-          <OverføringerContainer />
+          <OverføringerContainer saksnummer={saksnummer} />
         </ContentContainer>
       </AppContainer>
     </>

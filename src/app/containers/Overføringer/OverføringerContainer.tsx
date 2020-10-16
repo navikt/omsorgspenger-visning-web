@@ -7,13 +7,17 @@ import { LoadingIndicator } from '../../components/LoadingIndicator';
 import Overføringer from './Overføringer';
 import { TransferArrowsIcon } from '../../components/icons';
 
-const personA = '01010101010';
+interface Props {
+  saksnummer: string;
+}
 
-const OverføringerContainer: React.FunctionComponent = () => {
+const OverføringerContainer: React.FunctionComponent<Props> = ({
+  saksnummer,
+}) => {
   const { t } = useTranslation();
 
   const { data, error, loading } = useGet(
-    `${apiRoutes().Overføringer}?personident=${personA}`,
+    `${apiRoutes().Overføringer}?saksnummer=${saksnummer}`,
   );
 
   return (

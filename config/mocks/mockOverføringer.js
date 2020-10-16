@@ -1,17 +1,13 @@
 const path = require('path');
 
-const identOverføringMap = {
-  '01010101010': path.join(
-    __dirname,
-    'mockdata',
-    'overføringer_01010101010.json',
-  ),
+const saksnrOverføringMap = {
+  '200': path.join(__dirname, 'mockdata', 'overføringer_200.json'),
 };
 
 const mockOverføringer = app => {
   app.get('/api/overforinger', (req, res) => {
-    const { personident } = req.query;
-    const overføringJsonPath = identOverføringMap[personident];
+    const { saksnummer } = req.query;
+    const overføringJsonPath = saksnrOverføringMap[saksnummer];
 
     if (overføringJsonPath) {
       return res.status(200).sendFile(overføringJsonPath);

@@ -26,7 +26,7 @@ export function App() {
           <AuthChecker>
             <Switch>
               <Route exact path="/" component={HomePageLoadable} />
-              <Route path="/sak" component={SakPageLoadable} />
+              <Route path="/sak/:saksnummer" component={SakPageLoadable} />
               <Route component={NotFoundPage} />
             </Switch>
           </AuthChecker>

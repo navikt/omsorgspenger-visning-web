@@ -19,7 +19,7 @@ const mockPersonsøk = app => {
       if (errCode) {
         res.sendStatus(errCode);
       } else {
-        res.status(200).json({ saksnummer: '6Gf45' });
+        res.status(200).json({ saksnummer: '200' });
       }
     },
   );

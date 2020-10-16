@@ -11,9 +11,8 @@ function checkStatus(response: ResponseData) {
     redirect(url);
     return;
   }
-  const error = new ResponseError(response);
-  error.response = response;
-  throw error;
+
+  throw new ResponseError(response);
 }
 
 const getData = (response: Response): Promise<ResponseData> => {
