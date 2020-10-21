@@ -4,12 +4,13 @@ export const AUTH_PROXY_URL = () =>
   getEnvironmentVariable('OIDC_AUTH_PROXY_URL') || '';
 
 const API_URL = () => `${AUTH_PROXY_URL()}/api`;
+const SAK_URL = () => `${AUTH_PROXY_URL()}/sak`;
 
 export const apiRoutes = () => ({
   Env: '/localapi/env',
   Me: `${AUTH_PROXY_URL()}/me`,
   Login: `${AUTH_PROXY_URL()}/login`,
-  HentSaksnummer: `${API_URL()}/hentsaksnummer`,
+  HentSaksnummer: `${SAK_URL()}/saksnummer`,
   Overføringer: `${API_URL()}/overforinger`,
 });
 

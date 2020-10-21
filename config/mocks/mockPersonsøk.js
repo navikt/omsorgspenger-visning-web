@@ -9,20 +9,16 @@ const personErrorMap = {
 };
 
 const mockPersonsøk = app => {
-  app.post(
-    '/api/hentsaksnummer',
-    bodyParser.json({ type: '*/*' }),
-    (req, res) => {
-      const { identitetsnummer } = req.body;
+  app.post('/sak/saksnummer', bodyParser.json({ type: '*/*' }), (req, res) => {
+    const { identitetsnummer } = req.body;
 
-      const errCode = personErrorMap[identitetsnummer];
-      if (errCode) {
-        res.sendStatus(errCode);
-      } else {
-        res.status(200).json({ saksnummer: '200' });
-      }
-    },
-  );
+    const errCode = personErrorMap[identitetsnummer];
+    if (errCode) {
+      res.sendStatus(errCode);
+    } else {
+      res.status(200).json({ saksnummer: '200' });
+    }
+  });
 };
 
 module.exports = mockPersonsøk;
