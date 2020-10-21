@@ -4,7 +4,7 @@ export const AUTH_PROXY_URL = () =>
   getEnvironmentVariable('OIDC_AUTH_PROXY_URL') || '';
 
 const API_URL = () => `${AUTH_PROXY_URL()}/api`;
-const SAK_URL = () => `${AUTH_PROXY_URL()}/sak`;
+const SAK_URL = () => `${API_URL()}/sak`;
 
 export const apiRoutes = () => ({
   Env: '/localapi/env',
