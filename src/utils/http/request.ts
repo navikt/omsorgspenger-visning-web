@@ -40,6 +40,10 @@ export const get = (
   return fetch(url, {
     ...options,
     credentials: 'include',
+    headers: {
+      ...options.headers,
+      'Content-Type': 'application/json',
+    },
   })
     .then(getData)
     .then(checkStatus);
@@ -56,6 +60,10 @@ export const post = (
     body: JSON.stringify(body),
     method: 'POST',
     credentials: 'include',
+    headers: {
+      ...options.headers,
+      'Content-Type': 'application/json',
+    },
   })
     .then(getData)
     .then(checkStatus);
