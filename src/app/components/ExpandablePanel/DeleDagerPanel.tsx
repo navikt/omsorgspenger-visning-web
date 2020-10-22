@@ -3,7 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import NavFrontendChevron from 'nav-frontend-chevron';
 import navColors from '../../../styles/designSystemColors';
-import { UnmountClosed } from 'react-collapse';
+import { ExpandablePanelBase } from './ExpandablePanel';
 
 interface Props {
   visInnhold: boolean;
@@ -32,21 +32,28 @@ const DeleDagerPanel: React.FunctionComponent<Props> = ({
 
   return (
     <DeleDagerPanelStyle aria-expanded={visInnhold}>
-      <Overskrift farge={farge} onClick={setVisInnhold}>
-        <Dager>{overskrift.antallDager}</Dager>
-        <Banner>
-          <OverskriftTekst>{t(overskrift.overskrifttekstId)}</OverskriftTekst>
-          <KnappStyle>
-            {visInnhold
-              ? t('deleDagerPanel.skjulInnhold')
-              : t('deleDagerPanel.visInnhold')}
-            <NavFrontendChevron type={visInnhold ? 'opp' : 'ned'} />
-          </KnappStyle>
-        </Banner>
-      </Overskrift>
-      <UnmountClosed isOpened={visInnhold}>
-        <Innhold>{children}</Innhold>
-      </UnmountClosed>
+      <ExpandablePanelBase
+        onClick={setVisInnhold}
+        headerButton={
+          <Overskrift farge={farge} onClick={setVisInnhold}>
+            <Dager>{overskrift.antallDager}</Dager>
+            <Banner>
+              <OverskriftTekst>
+                {t(overskrift.overskrifttekstId)}
+              </OverskriftTekst>
+              <KnappStyle>
+                {visInnhold
+                  ? t('deleDagerPanel.skjulInnhold')
+                  : t('deleDagerPanel.visInnhold')}
+                <NavFrontendChevron type={visInnhold ? 'opp' : 'ned'} />
+              </KnappStyle>
+            </Banner>
+          </Overskrift>
+        }
+        isOpen={visInnhold}
+      >
+        {children}
+      </ExpandablePanelBase>
     </DeleDagerPanelStyle>
   );
 };

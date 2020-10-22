@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flatknapp } from 'nav-frontend-knapper';
 import NavFrontendChevron from 'nav-frontend-chevron';
-import { UnmountClosed } from 'react-collapse';
+import Collapse from '@material-ui/core/Collapse';
 import { v4 as uuid } from 'uuid';
 import styled from 'styled-components/macro';
 
@@ -9,12 +9,14 @@ interface BaseProps {
   onClick: () => void;
   headerButton: React.ReactElement;
   isOpen: boolean;
+  innholdPadding?: string;
 }
 
 export const ExpandablePanelBase: React.FunctionComponent<BaseProps> = ({
   headerButton,
   isOpen,
   children,
+  innholdPadding = '1em',
 }) => {
   const buttonId = React.useMemo(() => uuid(), []);
   const contentId = React.useMemo(() => uuid(), []);
@@ -31,28 +33,22 @@ export const ExpandablePanelBase: React.FunctionComponent<BaseProps> = ({
   });
 
   return (
-    <StyleWrapper>
+    <>
       {buttonWithId}
-      <Innhold
-        role="region"
-        id={contentId}
-        aria-labelledby={buttonId}
-        isOpen={isOpen}
-      >
-        <UnmountClosed isOpened={isOpen}>{children}</UnmountClosed>
-      </Innhold>
-    </StyleWrapper>
+      <div role="region" id={contentId} aria-labelledby={buttonId}>
+        <Collapse in={isOpen}>
+          <Innhold innholdPadding={innholdPadding}>{children}</Innhold>
+        </Collapse>
+      </div>
+    </>
   );
 };
-
-const StyleWrapper = styled.section`
-  margin: 1em 0;
-`;
 
 interface Props {
   onClick: () => void;
   heading: React.ReactNode;
   isOpen: boolean;
+  innholdPadding?: string;
 }
 
 const ExpandablePanel: React.FunctionComponent<Props> = ({
@@ -60,11 +56,13 @@ const ExpandablePanel: React.FunctionComponent<Props> = ({
   heading,
   isOpen,
   children,
+  innholdPadding = '1em',
 }) => {
   return (
     <ExpandablePanelBase
       onClick={onClick}
       isOpen={isOpen}
+      innholdPadding={innholdPadding}
       headerButton={
         <Flatknapp
           onClick={onClick}
@@ -82,8 +80,8 @@ const ExpandablePanel: React.FunctionComponent<Props> = ({
   );
 };
 
-const Innhold = styled.div<Pick<BaseProps, 'isOpen'>>`
-  ${({ isOpen }) => isOpen && 'margin: 1em 0;'}
+const Innhold = styled.div<Pick<BaseProps, 'innholdPadding'>>`
+  padding: ${({ innholdPadding }) => innholdPadding};
 `;
 
 export default ExpandablePanel;

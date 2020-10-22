@@ -1,11 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Overføring as OverføringType } from '../../types';
+import { Overføring as OverføringType, overføringKey } from '../../types';
 import Overføring from '../../components/Overføring/Overføring';
-import ExpandablePanel from '../../components/ExpandablePanel/ExpandablePanel';
 import { GoBackInTimeIcon } from '../../components/icons';
-import styled, { css } from 'styled-components/macro';
+import { css } from 'styled-components/macro';
 import navColors from '../../../styles/designSystemColors';
+import OverføringerExpandable from '../../components/Overføring/OverføringerExpandable';
 
 interface Props {
   overføringer: OverføringType[];
@@ -41,21 +41,6 @@ const Overføringer: React.FunctionComponent<Props> = ({
     );
   }, [overføringer]);
 
-  const overføringKey = React.useCallback(
-    ({
-      til,
-      fra,
-      status,
-      gjelderFraOgMed,
-      gjelderTilOgMed,
-      dagerOverført,
-    }: OverføringType) =>
-      `${
-        til || fra
-      }-${status}-${gjelderFraOgMed}-${gjelderTilOgMed}-${dagerOverført}`,
-    [],
-  );
-
   const [visTidligere, setVisTidligere] = React.useState<boolean>(false);
   const [visSenere, setVisSenere] = React.useState<boolean>(false);
 
@@ -75,67 +60,42 @@ const Overføringer: React.FunctionComponent<Props> = ({
         />
       ))}
       {tidligereOverføringer.length > 0 && (
-        <>
-          <ExpandablePanel
-            onClick={() => setVisTidligere(current => !current)}
-            heading={
-              <>
-                <GoBackInTimeIcon />
-                <span>
-                  {visTidligere
-                    ? t('overføringer.skjulTidligere')
-                    : t('overføringer.visTidligere')}
-                </span>
-              </>
-            }
-            isOpen={visTidligere}
-          >
-            {tidligereOverføringer.map(overføring => (
-              <OverføringWrapper key={overføringKey(overføring)}>
-                <Overføring
-                  overføring={overføring}
-                  defaultOpen={false}
-                  farge={navColors.navGra40}
-                />
-              </OverføringWrapper>
-            ))}
-          </ExpandablePanel>
-        </>
+        <OverføringerExpandable
+          overføringer={tidligereOverføringer}
+          vis={visTidligere}
+          onClick={() => setVisTidligere(current => !current)}
+          innholdPadding="1em 1em 0 1em"
+          heading={
+            <>
+              <GoBackInTimeIcon />
+              <span>
+                {visTidligere
+                  ? t('overføringer.skjulTidligere')
+                  : t('overføringer.visTidligere')}
+              </span>
+            </>
+          }
+        />
       )}
       {senereOverføringer.length > 0 && (
-        <>
-          <ExpandablePanel
-            onClick={() => setVisSenere(current => !current)}
-            heading={
-              <>
-                <GoBackInTimeIcon cssStyle={flipXAxis} />
-                <span>
-                  {visSenere
-                    ? t('overføringer.skjulSenere')
-                    : t('overføringer.visSenere')}
-                </span>
-              </>
-            }
-            isOpen={visSenere}
-          >
-            {senereOverføringer.map(overføring => (
-              <OverføringWrapper key={overføringKey(overføring)}>
-                <Overføring
-                  overføring={overføring}
-                  defaultOpen={false}
-                  farge={navColors.navGra40}
-                />
-              </OverføringWrapper>
-            ))}
-          </ExpandablePanel>
-        </>
+        <OverføringerExpandable
+          overføringer={senereOverføringer}
+          vis={visSenere}
+          onClick={() => setVisSenere(current => !current)}
+          heading={
+            <>
+              <GoBackInTimeIcon cssStyle={flipXAxis} />
+              <span>
+                {visSenere
+                  ? t('overføringer.skjulSenere')
+                  : t('overføringer.visSenere')}
+              </span>
+            </>
+          }
+        />
       )}
     </>
   );
 };
-
-const OverføringWrapper = styled.div`
-  padding-left: 2em;
-`;
 
 export default Overføringer;
