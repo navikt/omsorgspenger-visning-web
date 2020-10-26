@@ -133,8 +133,4 @@ export const Banner = styled.span`
   }
 `;
 
-const Innhold = styled.div`
-  padding: 1em;
-`;
-
 export default DeleDagerPanel;
