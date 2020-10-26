@@ -5,40 +5,6 @@ import { axe } from 'jest-axe';
 import ExpandablePanel from '../ExpandablePanel';
 
 describe('<ExpandablePanel>', () => {
-  test('Den viser innhold når den er åpen', () => {
-    const testid = 'testid';
-    render(
-      <ExpandablePanel
-        onClick={() => undefined}
-        heading="Trykk på meg"
-        isOpen={true}
-      >
-        <div data-testid={testid} />
-      </ExpandablePanel>,
-    );
-
-    const innhold = screen.getByTestId(testid);
-
-    expect(innhold).toBeInTheDocument();
-  });
-
-  test('Den viser ikke innhold når den ikke er åpen', () => {
-    const testid = 'testid';
-    render(
-      <ExpandablePanel
-        onClick={() => undefined}
-        heading="Trykk på meg"
-        isOpen={false}
-      >
-        <div data-testid={testid} />
-      </ExpandablePanel>,
-    );
-
-    const innhold = screen.queryByTestId(testid);
-
-    expect(innhold).not.toBeInTheDocument();
-  });
-
   test('Knappeklikk trigger callback', async () => {
     const onClickCallback = jest.fn();
     render(
