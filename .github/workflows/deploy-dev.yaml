@@ -32,7 +32,7 @@ jobs:
       - name: Tester og linting
         run: yarn test --watchAll=false
       - name: Bygge dist
-        run: OIDC_AUTH_PROXY_URL='https://omsorgspenger-oidc-auth-proxy.dev.intern.nav.no' yarn build
+        run: yarn build
       - name: Sette Docker-navn og -tag
         run: |
           echo "::set-env name=TAG::$(date +"%Y%m%d%H%M%S")-$(echo $GITHUB_SHA | cut -c1-7)"

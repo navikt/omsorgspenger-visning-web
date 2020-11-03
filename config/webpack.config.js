@@ -40,8 +40,6 @@ const imageInlineSizeLimit = parseInt(
   process.env.IMAGE_INLINE_SIZE_LIMIT || '10000',
 );
 
-const oidcAuthProxyUrl = process.env.OIDC_AUTH_PROXY_URL;
-
 // Check if TypeScript is setup
 const useTypeScript = fs.existsSync(paths.appTsConfig);
 
@@ -482,7 +480,7 @@ module.exports = function (webpackEnv) {
             'default-src': ["'self'"],
             'connect-src': [
               "'self'",
-              oidcAuthProxyUrl,
+              'https://omsorgspenger-oidc-auth-proxy.dev.intern.nav.no',
               'https://sentry.gc.nav.no',
             ],
             'font-src': ["'self'", 'data:'],
