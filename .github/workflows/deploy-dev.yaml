@@ -35,8 +35,8 @@ jobs:
         run: yarn build
       - name: Sette Docker-navn og -tag
         run: |
-          echo "TAG=$(date +"%Y%m%d%H%M%S")-$(echo $GITHUB_SHA | cut -c1-7) >> $GITHUB_ENV"
-          echo "IMAGE=$IMAGE_BASE:$(date +"%Y%m%d%H%M%S")-$(echo $GITHUB_SHA | cut -c1-7) >> $GITHUB_ENV"
+          echo "TAG=$(date +"%Y%m%d%H%M%S")-$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+          echo "IMAGE=$IMAGE_BASE:$(date +"%Y%m%d%H%M%S")-$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
       - name: Bygg og laste opp docker-image
         run: |
           docker build --tag ${IMAGE} --tag ${IMAGE_BASE}:latest .
