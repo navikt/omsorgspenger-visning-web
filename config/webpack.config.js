@@ -453,7 +453,7 @@ module.exports = function (webpackEnv) {
             inject: true,
             template: paths.appHtml,
             cspPlugin: {
-              enabled: true,
+              enabled: isEnvProduction,
             },
           },
           isEnvProduction
@@ -486,7 +486,10 @@ module.exports = function (webpackEnv) {
             'font-src': ["'self'", 'data:'],
             'img-src': ["'self'", 'data:'],
             'script-src': ["'self'"],
-            'style-src': ["'self'", "'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='"],
+            'style-src': [
+              "'self'",
+              "'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='",
+            ],
             // 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU er sha256-hashen av en tom streng
             // TODO: Filtrere ut tomme <style>-tagger, slik at denne workarounden ikke blir nødvendig
           },
