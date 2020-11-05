@@ -4,22 +4,7 @@ const helmet = require('helmet');
 const server = express();
 
 const OIDC_AUTH_PROXY_URL = process.env.OIDC_AUTH_PROXY_URL;
-server.use(
-  helmet({
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        connectSrc: ["'self'", OIDC_AUTH_PROXY_URL, 'https://sentry.gc.nav.no'],
-        fontSrc: ["'self'", 'data:'],
-        imgSrc: ["'self'", 'data:'],
-        // TODO: Se https://github.com/navikt/omsorgspenger-visning-web/issues/7
-        scriptSrc: ["'self'", "'unsafe-inline'"],
-        // TODO: samme som over
-        styleSrc: ["'self'", "'unsafe-inline'"],
-      },
-    },
-  }),
-);
+server.use(helmet({ contentSecurityPolicy: false })); // CSP settes i meta-tagger av CspHtmlWebpackPlugin
 
 server.use(express.static(path.join(__dirname, 'build')));
 

@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const resolve = require('resolve');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -419,7 +420,11 @@ module.exports = function (webpackEnv) {
             // compiles Less to CSS
             {
               test: /\.less$/,
-              use: ['style-loader', 'css-loader', 'less-loader'],
+              use: [
+                isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+                'css-loader',
+                'less-loader',
+              ],
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
@@ -451,6 +456,9 @@ module.exports = function (webpackEnv) {
           {
             inject: true,
             template: paths.appHtml,
+            cspPlugin: {
+              enabled: true,
+            },
           },
           isEnvProduction
             ? {
@@ -470,6 +478,36 @@ module.exports = function (webpackEnv) {
             : undefined,
         ),
       ),
+      isEnvProduction &&
+        new CspHtmlWebpackPlugin(
+          {
+            'default-src': ["'self'"],
+            'connect-src': [
+              "'self'",
+              'https://omsorgspenger-oidc-auth-proxy.dev.intern.nav.no',
+              'https://sentry.gc.nav.no',
+            ],
+            'font-src': ["'self'", 'data:'],
+            'img-src': ["'self'", 'data:'],
+            'script-src': ["'self'"],
+            'style-src': [
+              "'self'",
+              "'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='",
+            ],
+            // 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU er sha256-hashen av en tom streng
+            // TODO: Filtrere ut tomme <style>-tagger, slik at denne workarounden ikke blir nødvendig
+          },
+          {
+            nonceEnabled: {
+              'script-src': false,
+              'style-src': false,
+            },
+            hashEnabled: {
+              'script-src': true,
+              'style-src': true,
+            },
+          },
+        ),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       // https://github.com/facebook/create-react-app/issues/5358
