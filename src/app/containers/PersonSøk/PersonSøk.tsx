@@ -1,3 +1,4 @@
+import { LoadingIndicator } from 'app/components/LoadingIndicator';
 import React, { useState } from 'react';
 import { Input } from 'nav-frontend-skjema';
 import { useTranslation } from 'react-i18next';
@@ -5,8 +6,8 @@ import { useHistory } from 'react-router-dom';
 import { FlexRow } from '../../components/Flex';
 import { Hovedknapp } from 'nav-frontend-knapper';
 import styled from 'styled-components';
-import { post } from '../../../utils/http/request';
-import { apiRoutes } from '../../../utils/http/apiConfig';
+import { post } from 'utils/http/request';
+import { apiRoutes } from 'utils/http/apiConfig';
 import ResponseError from '../../../utils/http/ResponseError';
 
 enum ErrorType {
@@ -22,6 +23,7 @@ const PersonSøk: React.FunctionComponent = () => {
   const [personIdent, setPersonIdent] = useState<string>('');
   const [hasSearched, setHasSearched] = useState<boolean>(false);
   const [responseError, setResponseError] = useState<ErrorType>();
+  const [awaitingResponse, setAwaitingResponse] = useState<boolean>(false);
 
   const har11Siffer = personIdent.length === 11;
 
@@ -31,6 +33,7 @@ const PersonSøk: React.FunctionComponent = () => {
     setResponseError(undefined);
 
     if (har11Siffer) {
+      setAwaitingResponse(true);
       post(apiRoutes().HentSaksnummer, {
         identitetsnummer: personIdent,
       })
@@ -57,7 +60,8 @@ const PersonSøk: React.FunctionComponent = () => {
               setResponseError(ErrorType.Unknown);
               break;
           }
-        });
+        })
+        .finally(() => setAwaitingResponse(false));
     }
   };
 
@@ -73,13 +77,20 @@ const PersonSøk: React.FunctionComponent = () => {
           label={t('personsøk.input.label')}
           bredde="M"
           feil={hasSearched && !har11Siffer && t('personsøk.input.feil')}
+          disabled={awaitingResponse}
         />
         <AlignMedInputWrapper>
-          <Hovedknapp onClick={submitSøk} htmlType="submit">
+          <Hovedknapp onClick={submitSøk} htmlType="submit" disabled={awaitingResponse}>
             {t('personsøk.søkeknapp.søk')}
           </Hovedknapp>
         </AlignMedInputWrapper>
       </FlexRow>
+      {awaitingResponse && (
+        <FlexRow>
+          <div><LoadingIndicator/></div>
+          <p>{t('personsøk.indikasjon')}</p>
+        </FlexRow>
+      )}
       {responseError && <p>{t(`personsøk.response.feil.${responseError}`)}</p>}
     </form>
   );
