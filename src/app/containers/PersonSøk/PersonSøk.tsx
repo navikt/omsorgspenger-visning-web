@@ -88,7 +88,7 @@ const PersonSøk: React.FunctionComponent = () => {
       {awaitingResponse && (
         <FlexRow>
           <div><LoadingIndicator/></div>
-          <p>Søker på person &hellip;</p>
+          <p>{t('personsøk.indikasjon')}</p>
         </FlexRow>
       )}
       {responseError && <p>{t(`personsøk.response.feil.${responseError}`)}</p>}
