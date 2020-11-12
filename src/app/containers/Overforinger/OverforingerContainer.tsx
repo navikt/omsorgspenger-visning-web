@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import useGet from '../../../utils/http/useGet';
-import { apiRoutes } from '../../../utils/http/apiConfig';
+import { apiRoutes } from 'utils/http/apiConfig';
 import RammemeldingOverskrift from '../../components/RammemeldingOverskrift/RammemeldingOverskrift';
-import { LoadingIndicator } from '../../components/LoadingIndicator';
-import Overføringer from './Overføringer';
+import { LoadingIndicator } from 'app/components/LoadingIndicator';
+import Overføringer from './Overforinger';
 import { TransferArrowsIcon } from '../../components/icons';
 
 interface Props {

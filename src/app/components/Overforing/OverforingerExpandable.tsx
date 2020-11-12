@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { Overføring as OverføringType, overføringKey } from '../../types';
 import ExpandablePanel from '../ExpandablePanel/ExpandablePanel';
-import Overføring from './Overføring';
+import Overføring from './Overforing';
 import navColors from '../../../styles/designSystemColors';
 
 interface Props {

@@ -1,7 +1,7 @@
 const path = require('path');
 
 const saksnrOverføringMap = {
-  '200': path.join(__dirname, 'mockdata', 'overføringer_200.json'),
+  '200': path.join(__dirname, 'mockdata', 'overforinger_200.json'),
 };
 
 const mockOverføringer = app => {

@@ -1,6 +1,6 @@
 export type { default as Dato } from './Dato';
 export type { default as Personidentifikator } from './Personidentifikator';
-export type { Overføringer, Overføring } from './overføring/overføring';
-export { overføringKey } from './overføring/utils';
+export type { Overføringer, Overføring } from './overforing/overforing';
+export { overføringKey } from './overforing/utils';
 
-export { OverføringStatus } from './overføring/overføring';
+export { OverføringStatus } from './overforing/overforing';

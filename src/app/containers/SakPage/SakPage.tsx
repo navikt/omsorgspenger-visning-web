@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 import AppContainer from '../../components/AppContainer/AppContainer';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
-import OverføringerContainer from '../Overføringer/OverføringerContainer';
+import OverføringerContainer from '../Overforinger/OverforingerContainer';
 import { useParams } from 'react-router-dom';
 
 const SakPage: React.FunctionComponent = () => {
