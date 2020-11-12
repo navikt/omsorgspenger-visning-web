@@ -1,11 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Overføring as OverføringType, overføringKey } from '../../types';
-import Overføring from '../../components/Overføring/Overføring';
+import Overføring from 'app/components/Overforing/Overforing';
 import { GoBackInTimeIcon } from '../../components/icons';
 import { css } from 'styled-components/macro';
 import navColors from '../../../styles/designSystemColors';
-import OverføringerExpandable from '../../components/Overføring/OverføringerExpandable';
+import OverføringerExpandable from 'app/components/Overforing/OverforingerExpandable';
 
 interface Props {
   overføringer: OverføringType[];

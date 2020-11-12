@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import AppContainer from '../../components/AppContainer/AppContainer';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
-import PersonSøk from '../PersonSøk/PersonSøk';
+import PersonSøk from '../PersonSok/PersonSok';
 
 const HomePage = () => {
   const { t } = useTranslation();

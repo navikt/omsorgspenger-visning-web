@@ -1,4 +1,4 @@
-import { Overføring as OverføringType } from './overføring';
+import { Overføring as OverføringType } from './overforing';
 
 export const overføringKey = ({
   til,

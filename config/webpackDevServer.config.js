@@ -8,8 +8,8 @@ const paths = require('./paths');
 const getHttpsConfig = require('./getHttpsConfig');
 const mockLogin = require('./mocks/mockLogin');
 const mockSentry = require('./mocks/mockSentry');
-const mockOverføringer = require('./mocks/mockOverføringer');
-const mockPersonsøk = require('./mocks/mockPersonsøk');
+const mockOverføringer = require('./mocks/mockOverforinger');
+const mockPersonsøk = require('./mocks/mockPersonsok');
 
 const host = process.env.HOST || '0.0.0.0';
 const sockHost = process.env.WDS_SOCKET_HOST;
