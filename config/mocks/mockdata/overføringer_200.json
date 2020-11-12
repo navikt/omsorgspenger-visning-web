@@ -3,14 +3,18 @@
     {
       "dagerOverført": 5,
       "dagerØnsketOverført": 10,
-        "gjelderFraOgMed": "2012-01-01",
+      "gjelderFraOgMed": "2012-01-01",
       "gjelderTilOgMed": "2020-10-04",
       "til": "01010101010",
-      "begrunnelser": [
-        "Har utvidet rett for 1 barn",
-        "Har omsorgen for 2 barn",
-        "Har 20 omsorgsdager"
-      ],
+      "begrunnelserForPeriode": [{
+        "gjelderFraOgMed": "2012-01-01",
+        "gjelderTilOgMed": "2020-10-04",
+        "begrunnelser": [
+          "Har utvidet rett for 1 barn",
+          "Har omsorgen for 2 barn",
+          "Har 20 omsorgsdager"
+        ]
+      }],
       "status": "Gjeldende"
     },
     {
@@ -19,12 +23,26 @@
       "gjelderFraOgMed": "2020-10-05",
       "gjelderTilOgMed": "2020-12-31",
       "til": "01010101010",
-      "begrunnelser": [
-        "Har utvidet rett for 1 barn",
-        "Har aleneomsorg for 1 barn",
-        "Har omsorgen for 3 barn",
-        "Har 35 omsorgsdager",
-        "Har allerede tatt ut 27 dager i 2020"
+      "begrunnelserForPeriode": [
+        {
+          "gjelderFraOgMed": "2020-10-05",
+          "gjelderTilOgMed": "2020-10-31",
+          "begrunnelser": [
+            "Har utvidet rett for 1 barn",
+            "Har aleneomsorg for 1 barn",
+            "Har omsorgen for 3 barn",
+            "Har 35 omsorgsdager",
+            "Har allerede tatt ut 27 dager i 2020"
+          ]
+        },
+        {
+          "gjelderFraOgMed": "2020-11-01",
+          "gjelderTilOgMed": "2020-12-31",
+          "begrunnelser": [
+            "Har 35 omsorgsdager",
+            "Har allerede tatt ut 27 dager i 2020"
+          ]
+        }
       ],
       "status": "Gjeldende"
     },
@@ -34,12 +52,16 @@
       "gjelderFraOgMed": "2021-01-01",
       "gjelderTilOgMed": "2021-12-31",
       "til": "01010101010",
-      "begrunnelser": [
-        "Har utvidet rett for 1 barn",
-        "Har aleneomsorg for 1 barn",
-        "Har omsorgen for 3 barn",
-        "Har 35 omsorgsdager"
-      ],
+      "begrunnelserForPeriode": [{
+        "gjelderFraOgMed": "2021-01-01",
+        "gjelderTilOgMed": "2021-12-31",
+        "begrunnelser": [
+          "Har utvidet rett for 1 barn",
+          "Har aleneomsorg for 1 barn",
+          "Har omsorgen for 3 barn",
+          "Har 35 omsorgsdager"
+        ]
+      }],
       "status": "Gjeldende"
     },
     {
@@ -48,10 +70,14 @@
       "gjelderFraOgMed": "2022-01-01",
       "gjelderTilOgMed": "2027-12-31",
       "til": "01010101010",
-      "begrunnelser": [
-        "Har omsorgen for 2 barn",
-        "Har 20 omsorgsdager"
-      ],
+      "begrunnelserForPeriode": [{
+        "gjelderFraOgMed": "2022-01-01",
+        "gjelderTilOgMed": "2027-12-31",
+        "begrunnelser": [
+          "Har omsorgen for 2 barn",
+          "Har 20 omsorgsdager"
+        ]
+      }],
       "status": "Gjeldende"
     },
     {
@@ -60,10 +86,14 @@
       "gjelderFraOgMed": "2010-09-29",
       "gjelderTilOgMed": "2011-12-31",
       "fra": "01010101010",
-      "begrunnelser": [
-        "Har utvidet rett for 1 barn",
-        "Har omsorgen for 2 barn"
-      ],
+      "begrunnelserForPeriode": [{
+        "gjelderFraOgMed": "2010-09-29",
+        "gjelderTilOgMed": "2011-12-31",
+        "begrunnelser": [
+          "Har utvidet rett for 1 barn",
+          "Har omsorgen for 2 barn"
+        ]
+      }],
       "status": "Gjeldende"
     }
   ]

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 import DeleDagerPanel from '../ExpandablePanel/DeleDagerPanel';
 import navColors from '../../../styles/designSystemColors';
 import { Overføring as OverføringType } from '../../types';
@@ -28,11 +30,12 @@ const Overføring: React.FunctionComponent<Props> = ({
     gjelderTilOgMed,
     dagerOverført,
     dagerØnsketOverført,
-    begrunnelser,
+    begrunnelserForPeriode
   } = overføring;
   const [visDagerGittInnhold, setVisDagerGittInnhold] = useState<boolean>(
     defaultOpen,
   );
+  const {t} = useTranslation();
 
   return (
     <DeleDagerPanel
@@ -77,12 +80,20 @@ const Overføring: React.FunctionComponent<Props> = ({
           <Hr marginTopPx={16} marginBottomPx={16} />
           <LabelValue
             labelTextId="overføring.grunnlag"
-            value={begrunnelser.map(begrunnelse => (
-              <FlexRow alignItems="baseline" key={begrunnelse}>
-                <CheckIcon />
-                <span>{begrunnelse}</span>
-              </FlexRow>
-            ))}
+            value={begrunnelserForPeriode.map(periode => <div key={periode.gjelderFraOgMed}>
+              <Periodeoverskrift>
+                {t('overføring.grunnlag.periodeoverskrift', {
+                  fom: isoDateToLocale(periode.gjelderFraOgMed),
+                  tom: isoDateToLocale(periode.gjelderTilOgMed)
+                })}
+              </Periodeoverskrift>
+              {periode.begrunnelser.map(begrunnelse => (
+                <FlexRow alignItems="baseline" key={`${periode.gjelderFraOgMed} ${begrunnelse}`}>
+                  <CheckIcon />
+                  <span>{begrunnelse}</span>
+                </FlexRow>
+              ))}
+            </div>)}
             retning="vertikal"
           />
         </>
@@ -90,5 +101,11 @@ const Overføring: React.FunctionComponent<Props> = ({
     </DeleDagerPanel>
   );
 };
+
+const Periodeoverskrift = styled.p`
+  border-bottom: 1px solid ${navColors.navGra20};
+  margin-bottom: .5rem;
+  margin-top: 1rem;
+`;
 
 export default Overføring;

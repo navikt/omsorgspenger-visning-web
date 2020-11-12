@@ -6,13 +6,25 @@ export enum OverføringStatus {
   IkkeGjeldende = 'IkkeGjeldende',
 }
 
+export interface Begrunnelse {
+  gjelderFraOgMed: Dato;
+  gjelderTilOgMed: Dato;
+  tekst: string;
+}
+
+export interface BegrunnelserForPeriode {
+  gjelderFraOgMed: Dato;
+  gjelderTilOgMed: Dato;
+  begrunnelser: string[];
+}
+
 export interface Overføring {
   dagerOverført: number;
   dagerØnsketOverført: number;
   gjelderFraOgMed: Dato;
   gjelderTilOgMed: Dato;
   status: OverføringStatus;
-  begrunnelser: string[];
+  begrunnelserForPeriode: BegrunnelserForPeriode[];
   til?: Personidentifikator;
   fra?: Personidentifikator;
 }

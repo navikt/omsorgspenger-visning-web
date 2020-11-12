@@ -24,6 +24,7 @@
   "overføring.ønsketOverført": "Antall dager ønsket overført",
   "overføring.gyldighetsperiode": "Gyldighetsperiode",
   "overføring.grunnlag": "Grunnlag for resultat:",
+  "overføring.grunnlag.periodeoverskrift": "Fra og med {{fom}} til og med {{tom}}",
   "personsøk.indikasjon": "Søker på person …",
   "personsøk.input.label": "Søk på person (fødselsnummer eller d-nummer)",
   "personsøk.søkeknapp.søk": "Søk",
