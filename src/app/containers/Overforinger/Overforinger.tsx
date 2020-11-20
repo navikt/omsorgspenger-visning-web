@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { erDatoSenere, erDatoTidligere, erPeriodeGjeldende } from 'utils/timeUtils';
 import { Overføring as OverføringType, overføringKey } from '../../types';
 import Overføring from 'app/components/Overforing/Overforing';
 import { GoBackInTimeIcon } from '../../components/icons';
@@ -32,30 +33,23 @@ const Overføringer: React.FunctionComponent<Props> = ({
       }
     });
 
-  const gjeldendeOverføringerNå = React.useMemo(() => {
-    const nå = new Date();
+  const gjeldendeOverføringerNå = React.useMemo(
+    () => alleOverføringer.filter(
+      ({gjelderFraOgMed, gjelderTilOgMed}) =>
+        erPeriodeGjeldende(gjelderFraOgMed, gjelderTilOgMed),
+    ),
+    [alleOverføringer]
+  );
 
-    return alleOverføringer.filter(
-      ({ gjelderFraOgMed, gjelderTilOgMed }) =>
-        new Date(gjelderFraOgMed) <= nå && new Date(gjelderTilOgMed) >= nå,
-    );
-  }, [alleOverføringer]);
+  const tidligereOverføringer = React.useMemo(
+    () => alleOverføringer.filter(({gjelderTilOgMed}) => erDatoTidligere(gjelderTilOgMed)),
+    [alleOverføringer]
+  );
 
-  const tidligereOverføringer = React.useMemo(() => {
-    const nå = new Date();
-
-    return alleOverføringer.filter(
-      ({ gjelderTilOgMed }) => new Date(gjelderTilOgMed) < nå,
-    );
-  }, [alleOverføringer]);
-
-  const senereOverføringer = React.useMemo(() => {
-    const nå = new Date();
-
-    return alleOverføringer.filter(
-      ({ gjelderFraOgMed }) => new Date(gjelderFraOgMed) > nå,
-    );
-  }, [alleOverføringer]);
+  const senereOverføringer = React.useMemo(
+    () => alleOverføringer.filter(({gjelderFraOgMed}) => erDatoSenere(gjelderFraOgMed)),
+    [alleOverføringer]
+  );
 
   const [visTidligere, setVisTidligere] = React.useState<boolean>(false);
   const [visSenere, setVisSenere] = React.useState<boolean>(false);

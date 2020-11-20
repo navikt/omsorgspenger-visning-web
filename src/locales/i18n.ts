@@ -7,7 +7,7 @@ import noNb from './no_nb/translation.json';
 import { ConvertedToObjectType } from './types';
 
 const translationsJson = {
-  noNb: {
+  nb: {
     translation: noNb,
   },
 };
@@ -46,8 +46,7 @@ export const i18n = i18next
   .init(
     {
       resources: translationsJson,
-
-      fallbackLng: 'noNb',
+      fallbackLng: 'nb',
       debug:
         process.env.NODE_ENV !== 'production' &&
         process.env.NODE_ENV !== 'test',

@@ -39,7 +39,7 @@ const DeleDagerPanel: React.FunctionComponent<Props> = ({
             <Dager>{overskrift.antallDager}</Dager>
             <Banner>
               <OverskriftTekst>
-                {t(overskrift.overskrifttekstId)}
+                {t(overskrift.overskrifttekstId, {count: overskrift.antallDager})}
               </OverskriftTekst>
               <KnappStyle>
                 {visInnhold
