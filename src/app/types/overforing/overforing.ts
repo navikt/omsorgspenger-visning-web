@@ -20,13 +20,14 @@ export interface BegrunnelserForPeriode {
 
 export interface Overføring {
   dagerOverført: number;
-  dagerØnsketOverført: number;
+  dagerØnsketOverført?: number;
+  gjennomført: Date;
   gjelderFraOgMed: Dato;
   gjelderTilOgMed: Dato;
   status: OverføringStatus;
   begrunnelserForPeriode: BegrunnelserForPeriode[];
-  til?: Personidentifikator;
-  fra?: Personidentifikator;
+  til?: {saksnummer: string; identitetsnummer: Personidentifikator};
+  fra?: {saksnummer: string; identitetsnummer: Personidentifikator};
 }
 
 export interface Overføringer {

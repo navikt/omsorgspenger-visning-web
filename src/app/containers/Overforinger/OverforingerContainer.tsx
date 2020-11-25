@@ -17,7 +17,7 @@ const OverføringerContainer: React.FunctionComponent<Props> = ({
   const { t } = useTranslation();
 
   const { data, error, loading } = useGet(
-    `${apiRoutes().Overføringer}?saksnummer=${saksnummer}`,
+    `${apiRoutes().Overføringer}?status=Aktiv&saksnummer=${saksnummer}`,
   );
 
   const errorStatus = error?.response?.status;
@@ -41,7 +41,7 @@ const OverføringerContainer: React.FunctionComponent<Props> = ({
           )}
         </p>
       )}
-      {data !== null && <Overføringer overføringer={data?.overføringer} />}
+      {data !== null && <Overføringer overføringer={data} />}
     </>
   );
 };
