@@ -1,14 +1,15 @@
+import Lenke from 'nav-frontend-lenker';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import DeleDagerPanel from '../ExpandablePanel/DeleDagerPanel';
 import navColors from '../../../styles/designSystemColors';
 import { Overføring as OverføringType } from '../../types';
 import Dato from '../../types/Dato';
-import LabelValue from '../LabelValue/LabelValue';
+import DeleDagerPanel from '../ExpandablePanel/DeleDagerPanel';
+import { FlexContainer, FlexRow } from '../Flex';
 import Hr from '../Hr/Hr';
 import { CheckIcon } from '../icons';
-import { FlexRow, FlexContainer } from '../Flex';
+import LabelValue from '../LabelValue/LabelValue';
 
 interface Props {
   overføring: OverføringType;
@@ -48,25 +49,19 @@ const Overføring: React.FunctionComponent<Props> = ({
       }}
     >
       <FlexContainer childSpacing="2em">
-        {til && (
-          <LabelValue
-            labelTextId={'overføring.til'}
-            value={til?.identitetsnummer}
-            retning="vertikal"
-          />
-        )}
-        {fra && (
-          <LabelValue
-            labelTextId={'overføring.fra'}
-            value={fra?.identitetsnummer}
-            retning="vertikal"
-          />
-        )}
+        {til && <LabelValue
+          labelTextId={'overføring.til'}
+          value={<Lenke href={til.saksnummer}>{til.identitetsnummer}</Lenke>}
+          retning="vertikal"
+        />}
+        {fra && <LabelValue
+          labelTextId={'overføring.fra'}
+          value={<Lenke href={fra.saksnummer}>{fra.identitetsnummer}</Lenke>}
+          retning="vertikal"
+        />}
         <LabelValue
           labelTextId="overføring.gyldighetsperiode"
-          value={`${isoDateToLocale(gjelderFraOgMed)} - ${isoDateToLocale(
-            gjelderTilOgMed,
-          )}`}
+          value={`${isoDateToLocale(gjelderFraOgMed)} - ${isoDateToLocale(gjelderTilOgMed,)}`}
           retning="vertikal"
         />
         {til && <LabelValue
@@ -75,29 +70,27 @@ const Overføring: React.FunctionComponent<Props> = ({
           retning="vertikal"
         />}
       </FlexContainer>
-      {til && (
-        <>
-          <Hr marginTopPx={16} marginBottomPx={16} />
-          <LabelValue
-            labelTextId="overføring.grunnlag"
-            value={begrunnelserForPeriode.map(periode => <div key={periode.gjelderFraOgMed}>
-              <Periodeoverskrift>
-                {t('overføring.grunnlag.periodeoverskrift', {
-                  fom: isoDateToLocale(periode.gjelderFraOgMed),
-                  tom: isoDateToLocale(periode.gjelderTilOgMed)
-                })}
-              </Periodeoverskrift>
-              {periode.begrunnelser.map(begrunnelse => (
-                <FlexRow alignItems="baseline" key={`${periode.gjelderFraOgMed} ${begrunnelse}`}>
-                  <CheckIcon />
-                  <span>{begrunnelse}</span>
-                </FlexRow>
-              ))}
-            </div>)}
-            retning="vertikal"
-          />
-        </>
-      )}
+      {til && <>
+        <Hr marginTopPx={16} marginBottomPx={16}/>
+        <LabelValue
+          labelTextId="overføring.grunnlag"
+          value={begrunnelserForPeriode!.map(periode => <div key={periode.gjelderFraOgMed}>
+            <Periodeoverskrift>
+              {t('overføring.grunnlag.periodeoverskrift', {
+                fom: isoDateToLocale(periode.gjelderFraOgMed),
+                tom: isoDateToLocale(periode.gjelderTilOgMed)
+              })}
+            </Periodeoverskrift>
+            {periode.begrunnelser.map(begrunnelse => (
+              <FlexRow alignItems="baseline" key={`${periode.gjelderFraOgMed} ${begrunnelse}`}>
+                <CheckIcon />
+                <span>{begrunnelse}</span>
+              </FlexRow>
+            ))}
+          </div>)}
+          retning="vertikal"
+        />
+      </>}
     </DeleDagerPanel>
   );
 };
