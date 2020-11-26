@@ -8,38 +8,54 @@ import navColors from '../../../styles/designSystemColors';
 import OverføringerExpandable from 'app/components/Overforing/OverforingerExpandable';
 
 interface Props {
-  overføringer: OverføringType[];
+  overføringer: {
+    gitt: OverføringType[];
+    fått: OverføringType[];
+  };
 }
 
 const Overføringer: React.FunctionComponent<Props> = ({
-  overføringer = [],
+  overføringer = {gitt: [], fått: []},
 }) => {
   const { t } = useTranslation();
+
+  const alleOverføringer = overføringer
+    .gitt
+    .concat(overføringer.fått)
+    .sort((a, b) => {
+      if (a.gjelderFraOgMed < b.gjelderFraOgMed) {
+        return -1;
+      } else if (a.gjelderFraOgMed > b.gjelderFraOgMed) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
 
   const gjeldendeOverføringerNå = React.useMemo(() => {
     const nå = new Date();
 
-    return overføringer.filter(
+    return alleOverføringer.filter(
       ({ gjelderFraOgMed, gjelderTilOgMed }) =>
         new Date(gjelderFraOgMed) <= nå && new Date(gjelderTilOgMed) >= nå,
     );
-  }, [overføringer]);
+  }, [alleOverføringer]);
 
   const tidligereOverføringer = React.useMemo(() => {
     const nå = new Date();
 
-    return overføringer.filter(
+    return alleOverføringer.filter(
       ({ gjelderTilOgMed }) => new Date(gjelderTilOgMed) < nå,
     );
-  }, [overføringer]);
+  }, [alleOverføringer]);
 
   const senereOverføringer = React.useMemo(() => {
     const nå = new Date();
 
-    return overføringer.filter(
+    return alleOverføringer.filter(
       ({ gjelderFraOgMed }) => new Date(gjelderFraOgMed) > nå,
     );
-  }, [overføringer]);
+  }, [alleOverføringer]);
 
   const [visTidligere, setVisTidligere] = React.useState<boolean>(false);
   const [visSenere, setVisSenere] = React.useState<boolean>(false);

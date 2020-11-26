@@ -51,14 +51,14 @@ const Overføring: React.FunctionComponent<Props> = ({
         {til && (
           <LabelValue
             labelTextId={'overføring.til'}
-            value={til}
+            value={til?.identitetsnummer}
             retning="vertikal"
           />
         )}
         {fra && (
           <LabelValue
             labelTextId={'overføring.fra'}
-            value={fra}
+            value={fra?.identitetsnummer}
             retning="vertikal"
           />
         )}
@@ -69,11 +69,11 @@ const Overføring: React.FunctionComponent<Props> = ({
           )}`}
           retning="vertikal"
         />
-        <LabelValue
+        {til && <LabelValue
           labelTextId="overføring.ønsketOverført"
           value={dagerØnsketOverført}
           retning="vertikal"
-        />
+        />}
       </FlexContainer>
       {til && (
         <>

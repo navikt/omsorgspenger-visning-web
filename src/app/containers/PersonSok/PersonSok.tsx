@@ -1,14 +1,14 @@
-import { LoadingIndicator } from 'app/components/LoadingIndicator';
-import React, { useState } from 'react';
+import { Hovedknapp } from 'nav-frontend-knapper';
 import { Input } from 'nav-frontend-skjema';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
-import { FlexRow } from '../../components/Flex';
-import { Hovedknapp } from 'nav-frontend-knapper';
 import styled from 'styled-components';
-import { post } from 'utils/http/request';
-import { apiRoutes } from 'utils/http/apiConfig';
+import { apiRoutes } from '../../../utils/http/apiConfig';
+import { post } from '../../../utils/http/request';
 import ResponseError from '../../../utils/http/ResponseError';
+import { FlexRow } from '../../components/Flex';
+import { LoadingIndicator } from '../../components/LoadingIndicator';
 
 enum ErrorType {
   NotFound = 'NotFound',
