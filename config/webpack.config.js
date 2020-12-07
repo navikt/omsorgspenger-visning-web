@@ -484,6 +484,7 @@ module.exports = function (webpackEnv) {
             'default-src': ["'self'"],
             'connect-src': [
               "'self'",
+              'https://omsorgspenger-oidc-auth-proxy.intern.nav.no',
               'https://omsorgspenger-oidc-auth-proxy.dev.intern.nav.no',
               'https://sentry.gc.nav.no',
             ],
