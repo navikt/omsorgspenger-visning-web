@@ -5,6 +5,7 @@ import AppContainer from '../../components/AppContainer/AppContainer';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
 import OverføringerContainer from '../Overforinger/OverforingerContainer';
 import { useParams } from 'react-router-dom';
+import { FordelingerContainer } from '../Fordelinger/FordelingerContainer';
 
 const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
@@ -19,6 +20,7 @@ const SakPage: React.FunctionComponent = () => {
       <AppContainer>
         <ContentContainer>
           <OverføringerContainer saksnummer={saksnummer} />
+          {process.env.TOGGLE_FORDELINGER && <FordelingerContainer saksnummer={saksnummer}/>}
         </ContentContainer>
       </AppContainer>
     </>

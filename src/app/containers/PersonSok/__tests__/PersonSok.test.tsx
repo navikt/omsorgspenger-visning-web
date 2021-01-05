@@ -24,7 +24,7 @@ describe('<PersonSøk>', () => {
     const søkeknapp = screen.getByRole('button');
     await userEvent.click(søkeknapp);
 
-    const feilmelding = screen.getByText(/11 siffer/i);
+    const feilmelding = screen.getByText(/11 sifre/i);
     expect(feilmelding).toBeInTheDocument();
   });
 

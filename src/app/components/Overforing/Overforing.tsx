@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import { isoDateToLocale } from 'utils/timeUtils';
 import navColors from '../../../styles/designSystemColors';
 import { Overføring as OverføringType } from '../../types';
-import Dato from '../../types/Dato';
 import DeleDagerPanel from '../ExpandablePanel/DeleDagerPanel';
 import { FlexContainer, FlexRow } from '../Flex';
 import Hr from '../Hr/Hr';
@@ -16,8 +16,6 @@ interface Props {
   defaultOpen: boolean;
   farge: navColors;
 }
-
-const isoDateToLocale = (date: Dato) => new Date(date).toLocaleDateString();
 
 const Overføring: React.FunctionComponent<Props> = ({
   overføring,

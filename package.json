@@ -155,11 +155,6 @@
       "prettier --write"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn checkTs && lint-staged"
-    }
-  },
   "jest": {
     "roots": [
       "<rootDir>/src"
