@@ -12,7 +12,8 @@ export const apiRoutes = () => ({
   Login: `${AUTH_PROXY_URL()}/login`,
   HentSaksnummer: `${SAK_URL()}/saksnummer`,
   Overføringer: `${API_URL()}/rammemeldinger/overforinger`,
-  Fordelinger: `${API_URL()}/fordelinger`
+  Fordelinger: `${API_URL()}/fordelinger`,
+  Barn: `${API_URL()}/barn`
 });
 
 export const loginWithRedirect = () =>

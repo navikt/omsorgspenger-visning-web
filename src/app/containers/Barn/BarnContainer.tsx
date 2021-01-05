@@ -1,23 +1,23 @@
+import Barn from 'app/containers/Barn/Barn';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import useGet from '../../../utils/http/useGet';
 import { apiRoutes } from 'utils/http/apiConfig';
 import RammemeldingOverskrift from '../../components/RammemeldingOverskrift/RammemeldingOverskrift';
 import { LoadingIndicator } from 'app/components/LoadingIndicator';
-import Overføringer from './Overforinger';
-import { TransferArrowsIcon } from '../../components/icons';
+import { GroupIcon } from '../../components/icons';
 
 interface Props {
   saksnummer: string;
 }
 
-const OverføringerContainer: React.FunctionComponent<Props> = ({
+const BarnContainer: React.FunctionComponent<Props> = ({
   saksnummer,
 }) => {
   const { t } = useTranslation();
 
   const { data, error, loading } = useGet(
-    `${apiRoutes().Overføringer}?status=Aktiv&saksnummer=${saksnummer}`,
+    `${apiRoutes().Barn}?saksnummer=${saksnummer}`,
   );
 
   const errorStatus = error?.response?.status;
@@ -25,8 +25,8 @@ const OverføringerContainer: React.FunctionComponent<Props> = ({
   return (
     <>
       <RammemeldingOverskrift>
-        <TransferArrowsIcon/>
-        {t('overføringer.overskrift')}
+        <GroupIcon/>
+        {t('barn.overskrift')}
       </RammemeldingOverskrift>
       {loading && <LoadingIndicator/>}
       {error && <p>
@@ -34,9 +34,9 @@ const OverføringerContainer: React.FunctionComponent<Props> = ({
           ? t('sak.feil.404', {saksnummer})
           : t('sak.feil.ukjent')}
       </p>}
-      {data !== null && <Overføringer overføringer={data} />}
+      {data !== null && <Barn barn={data}/>}
     </>
   );
 };
 
-export default OverføringerContainer;
+export default BarnContainer;
