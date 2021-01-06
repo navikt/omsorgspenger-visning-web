@@ -20,7 +20,7 @@ export const FordelingerContainer: React.FunctionComponent<Props> = ({saksnummer
     {loading && <LoadingIndicator/>}
     {error && <p>
       {errorStatus === 404
-        ? <>{t('sak.feil.404')}<code>{`${saksnummer}`}</code></>
+        ? t('sak.feil.404', {saksnummer})
         : t('sak.feil.ukjent')}
     </p>}
     {data !== null && <Fordelinger fordelinger={data?.fordelinger}/>}
