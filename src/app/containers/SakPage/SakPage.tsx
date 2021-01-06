@@ -1,3 +1,4 @@
+import KoronaverføringerContainer from 'app/containers/Koronaverforinger/KoronaoverforingerContainer';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
@@ -21,6 +22,7 @@ const SakPage: React.FunctionComponent = () => {
       <AppContainer>
         <ContentContainer>
           <OverføringerContainer saksnummer={saksnummer} />
+          {process.env.TOGGLE_KORONAOVERFORING && <KoronaverføringerContainer saksnummer={saksnummer}/>}
           {process.env.TOGGLE_FORDELINGER && <FordelingerContainer saksnummer={saksnummer}/>}
           {process.env.TOGGLE_BARN && <BarnContainer saksnummer={saksnummer}/>}
         </ContentContainer>

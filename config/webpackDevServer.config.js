@@ -9,6 +9,7 @@ const getHttpsConfig = require('./getHttpsConfig');
 const mockLogin = require('./mocks/mockLogin');
 const mockSentry = require('./mocks/mockSentry');
 const mockOverføringer = require('./mocks/mockOverforinger');
+const mockKoronaoverføringer = require('./mocks/mockKoronaoverforinger');
 const mockPersonsøk = require('./mocks/mockPersonsok');
 const mockFordelinger = require('./mocks/mockFordelinger');
 const mockBarn = require('./mocks/mockBarn');
@@ -110,6 +111,7 @@ module.exports = function (proxy, allowedHost) {
       mockLogin(app);
       mockSentry(app);
       mockOverføringer(app);
+      mockKoronaoverføringer(app);
       mockPersonsøk(app);
       mockFordelinger(app);
       mockBarn(app);

@@ -84,7 +84,8 @@ function getClientEnvironment(publicUrl) {
         WDS_SOCKET_PATH: process.env.WDS_SOCKET_PATH,
         WDS_SOCKET_PORT: process.env.WDS_SOCKET_PORT,
         TOGGLE_FORDELINGER: process.env.TOGGLE_FORDELINGER === "true",
-        TOGGLE_BARN: process.env.TOGGLE_BARN === "true"
+        TOGGLE_BARN: process.env.TOGGLE_BARN === "true",
+        TOGGLE_KORONAOVERFORING: process.env.TOGGLE_KORONAOVERFORING === "true"
       },
     );
   // Stringify all values so we can feed into webpack DefinePlugin
