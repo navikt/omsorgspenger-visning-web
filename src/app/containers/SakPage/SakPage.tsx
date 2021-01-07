@@ -11,7 +11,7 @@ import BarnContainer from '../Barn/BarnContainer';
 
 const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
-  const { saksnummer } = useParams();
+  const { saksnummer } = useParams<any>();
 
   return (
     <>
