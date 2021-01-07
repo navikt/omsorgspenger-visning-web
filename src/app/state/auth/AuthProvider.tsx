@@ -13,7 +13,7 @@ import { apiRoutes } from '../../../utils/http/apiConfig';
 import actionLogger from '../../middleware/actionLogger';
 
 // @ts-ignore
-const AuthContext = React.createContext<AuthContextProps>();
+const AuthContext = React.createContext<AuthContextRaw>();
 
 interface AuthContextRaw {
   state: AuthState;
