@@ -7,6 +7,7 @@ import navColors from "../../../styles/designSystemColors";
 import RammemeldingOverskrift from "../../components/RammemeldingOverskrift/RammemeldingOverskrift";
 import {LoadingIndicator} from "../../components/LoadingIndicator";
 import PanelMedDagerOgBeskrivelse from "../../components/PanelMedDagerOgBeskrivelse/PanelMedDagerOgBeskrivelse";
+import {CalendarIcon} from "../../components/icons";
 
 interface Props {
     saksnummer: string;
@@ -21,6 +22,7 @@ export const KvoteContainer: React.FunctionComponent<Props> = ({saksnummer}) => 
     return (
         <>
             <RammemeldingOverskrift>
+                <CalendarIcon />
                 {t('kvote.overskrift', {år: år})}
             </RammemeldingOverskrift>
 
