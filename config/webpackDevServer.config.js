@@ -1,3 +1,5 @@
+import mockKvote from "./mocks/mockKvote";
+
 const fs = require('fs');
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware');
@@ -115,6 +117,7 @@ module.exports = function (proxy, allowedHost) {
       mockPersonsøk(app);
       mockFordelinger(app);
       mockBarn(app);
+      mockKvote(app);
       // Keep `evalSourceMapMiddleware` and `errorOverlayMiddleware`
       // middlewares before `redirectServedPath` otherwise will not have any effect
       // This lets us fetch source contents from webpack for the error overlay
