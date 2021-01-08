@@ -1,5 +1,3 @@
-import mockKvote from "./mocks/mockKvote";
-
 const fs = require('fs');
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware');
@@ -15,6 +13,7 @@ const mockKoronaoverføringer = require('./mocks/mockKoronaoverforinger');
 const mockPersonsøk = require('./mocks/mockPersonsok');
 const mockFordelinger = require('./mocks/mockFordelinger');
 const mockBarn = require('./mocks/mockBarn');
+const mockKvote = require('./mocks/mockKvote')
 
 const host = process.env.HOST || '0.0.0.0';
 const sockHost = process.env.WDS_SOCKET_HOST;

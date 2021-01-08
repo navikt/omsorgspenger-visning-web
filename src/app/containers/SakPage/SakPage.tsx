@@ -8,6 +8,7 @@ import ContentContainer from '../../components/ContentContainer/ContentContainer
 import OverføringerContainer from '../Overforinger/OverforingerContainer';
 import { FordelingerContainer } from '../Fordelinger/FordelingerContainer';
 import BarnContainer from '../Barn/BarnContainer';
+import KvoteContainer from "../Kvote/KvoteContainer";
 
 const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
@@ -21,7 +22,8 @@ const SakPage: React.FunctionComponent = () => {
       </Helmet>
       <AppContainer>
         <ContentContainer>
-          <OverføringerContainer saksnummer={saksnummer} />
+            <KvoteContainer saksnummer={saksnummer} />
+            <OverføringerContainer saksnummer={saksnummer} />
           {process.env.TOGGLE_KORONAOVERFORING && <KoronaverføringerContainer saksnummer={saksnummer}/>}
           {process.env.TOGGLE_FORDELINGER && <FordelingerContainer saksnummer={saksnummer}/>}
           {process.env.TOGGLE_BARN && <BarnContainer saksnummer={saksnummer}/>}

@@ -14,7 +14,8 @@ export const apiRoutes = () => ({
   Overføringer: `${API_URL()}/rammemeldinger/overforinger`,
   Koronaoverføringer: `${API_URL()}/rammemeldinger/koronaoverforinger`,
   Fordelinger: `${API_URL()}/fordelinger`,
-  Barn: `${API_URL()}/barn`
+  Barn: `${API_URL()}/barn`,
+  Kvote: `${API_URL()}/kvote`
 });
 
 export const loginWithRedirect = () =>
