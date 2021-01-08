@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Barn: React.FunctionComponent<Props> = ({barn = []}) => {
-  return <>{barn.map(b => <Barnekomponent {...b}/>)}</>;
+  return <>{barn.map((b, i) => <Barnekomponent {...b} key={`barn_${i}`}/>)}</>;
 };
 
 const Barnekomponent: React.FunctionComponent<BarnInterface> = barn => {
