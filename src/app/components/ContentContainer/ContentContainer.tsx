@@ -1,9 +1,18 @@
 import styled from 'styled-components/macro';
 
-const ContentContainer = styled.section`
-  padding: 1em;
-  max-width: 650px;
+const ContentContainer = styled.section<{skalViseBeggeKolonner?: boolean}>`
+  display: ${({skalViseBeggeKolonner}) => skalViseBeggeKolonner ? 'flex' : 'block'};
   min-width: 350px;
+  padding: 1em;
+  
+  ${({skalViseBeggeKolonner}) => skalViseBeggeKolonner && `
+    > div {
+      width: 50%;
+      
+      &:first-child {margin-right: 1rem}
+      &:last-child {margin-left: 1rem}
+    }
+  `}
 `;
 
 export default ContentContainer;

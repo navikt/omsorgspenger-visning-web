@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import NavFrontendChevron from 'nav-frontend-chevron';
 import navColors from '../../../styles/designSystemColors';
 import { ExpandablePanelBase } from './ExpandablePanel';
+import KnappStyle from './KnappStyle';
 
 interface Props {
   visInnhold: boolean;
@@ -57,19 +58,6 @@ const DeleDagerPanel: React.FunctionComponent<Props> = ({
     </DeleDagerPanelStyle>
   );
 };
-
-const KnappStyle = styled.span`
-  color: #0067c5;
-  text-decoration: underline;
-  padding: 0.2em;
-  font-size: 0.9em;
-  border: none;
-  background-color: inherit;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
 
 export const Overskrift = styled.button<{ farge: string }>`
   border-left: ${({ farge }) => `5px solid ${farge}`};

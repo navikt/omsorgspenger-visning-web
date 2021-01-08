@@ -13,6 +13,7 @@ const mockKoronaoverføringer = require('./mocks/mockKoronaoverforinger');
 const mockPersonsøk = require('./mocks/mockPersonsok');
 const mockFordelinger = require('./mocks/mockFordelinger');
 const mockBarn = require('./mocks/mockBarn');
+const mockDokumenter = require('./mocks/mockDokumenter');
 
 const host = process.env.HOST || '0.0.0.0';
 const sockHost = process.env.WDS_SOCKET_HOST;
@@ -115,6 +116,7 @@ module.exports = function (proxy, allowedHost) {
       mockPersonsøk(app);
       mockFordelinger(app);
       mockBarn(app);
+      mockDokumenter(app);
       // Keep `evalSourceMapMiddleware` and `errorOverlayMiddleware`
       // middlewares before `redirectServedPath` otherwise will not have any effect
       // This lets us fetch source contents from webpack for the error overlay

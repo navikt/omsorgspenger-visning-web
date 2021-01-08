@@ -1,3 +1,4 @@
+import DokumenterContainer from 'app/containers/Dokumenter/DokumenterContainer';
 import KoronaverføringerContainer from 'app/containers/Koronaverforinger/KoronaoverforingerContainer';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -13,6 +14,17 @@ const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
   const { saksnummer } = useParams<any>();
 
+  const kolonne1 = <>
+    <OverføringerContainer saksnummer={saksnummer} />
+    {process.env.TOGGLE_KORONAOVERFORING && <KoronaverføringerContainer saksnummer={saksnummer}/>}
+    {process.env.TOGGLE_FORDELINGER && <FordelingerContainer saksnummer={saksnummer}/>}
+    {process.env.TOGGLE_BARN && <BarnContainer saksnummer={saksnummer}/>}
+  </>;
+
+  const kolonne2 = <DokumenterContainer saksnummer={saksnummer}/>;
+
+  const skalViseBeggeKolonner = !!process.env.TOGGLE_DOKUMENTER;
+
   return (
     <>
       <Helmet>
@@ -20,11 +32,10 @@ const SakPage: React.FunctionComponent = () => {
         <meta name="description" content={t('homepage.descr')} />
       </Helmet>
       <AppContainer>
-        <ContentContainer>
-          <OverføringerContainer saksnummer={saksnummer} />
-          {process.env.TOGGLE_KORONAOVERFORING && <KoronaverføringerContainer saksnummer={saksnummer}/>}
-          {process.env.TOGGLE_FORDELINGER && <FordelingerContainer saksnummer={saksnummer}/>}
-          {process.env.TOGGLE_BARN && <BarnContainer saksnummer={saksnummer}/>}
+        <ContentContainer {...{skalViseBeggeKolonner}}>
+          {skalViseBeggeKolonner
+            ? <><div>{kolonne1}</div><div>{kolonne2}</div></>
+            : kolonne1}
         </ContentContainer>
       </AppContainer>
     </>
