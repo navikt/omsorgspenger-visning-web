@@ -15,12 +15,12 @@ export const KvoteContainer: React.FunctionComponent<Props> = ({saksnummer}) => 
     const {t} = useTranslation();
     const {data, error, loading} = useGet(`${apiRoutes().Kvote}?status=Aktiv&saksnummer=${saksnummer}`);
     const errorStatus = error?.response?.status;
-    const date = new Date().getFullYear();
+    const år = new Date().getFullYear();
 
     return (
         <>
             <RammemeldingOverskrift>
-                {<span>Overskrift</span>}
+                {t('kvote.overskrift', {år: år})}
             </RammemeldingOverskrift>
 
             {loading && <LoadingIndicator/>}
@@ -29,11 +29,11 @@ export const KvoteContainer: React.FunctionComponent<Props> = ({saksnummer}) => 
                 {
                     errorStatus === 404 ? (
                         <>
-                            {<span>Feilkode</span>}
+                            {t('sak.feil.404')}
                             <code>{`${saksnummer}`}</code>
                         </>
                     ) : (
-                        <span>Feil ukjent</span>
+                        t('sak.feil.ukjent')
                     )
                 }
             </p>)
