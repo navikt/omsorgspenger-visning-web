@@ -1,0 +1,45 @@
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
+import PanelMedDagerOgBeskrivelse from '../PanelMedDagerOgBeskrivelse';
+import navColors from "../../../../styles/designSystemColors";
+
+describe('<PanelMedDagerOgBeskrivelse>', () => {
+    test('PanelMedDagerOgBeskrivelse viser dager og beskrivelse', () => {
+        const antallDager = 5;
+        const beskrivelse = 'Tekst om hva dagene innebærer';
+
+        render(
+            <PanelMedDagerOgBeskrivelse
+                farge={navColors.navGronn}
+                beskrivelseAvDager={beskrivelse}
+                antallDager={antallDager}
+            />
+        );
+
+        const hentetAntallDager = screen.getByText(antallDager.toString());
+        expect(hentetAntallDager).toHaveTextContent(antallDager.toString());
+
+        const hentetBeskrivelse = screen.getByText(beskrivelse);
+        expect(hentetBeskrivelse).toHaveTextContent(beskrivelse);
+
+    });
+
+    test('Den har ingen a11y violations', async () => {
+        const antallDager = 5;
+        const beskrivelse = 'Tekst om hva dagene innebærer';
+
+        const { container } = render(
+            <PanelMedDagerOgBeskrivelse
+                farge={navColors.navGronn}
+                beskrivelseAvDager={beskrivelse}
+                antallDager={antallDager}
+            />
+        );
+
+        const a11yResults = await axe(container);
+
+        // @ts-ignore
+        expect(a11yResults).toHaveNoViolations();
+    });
+});
