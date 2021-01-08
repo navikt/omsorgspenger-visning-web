@@ -6,6 +6,7 @@ import navColors from "../../../styles/designSystemColors";
 
 import RammemeldingOverskrift from "../../components/RammemeldingOverskrift/RammemeldingOverskrift";
 import {LoadingIndicator} from "../../components/LoadingIndicator";
+import PanelMedDagerOgBeskrivelse from "../../components/PanelMedDagerOgBeskrivelse/PanelMedDagerOgBeskrivelse";
 
 interface Props {
     saksnummer: string;
@@ -15,7 +16,7 @@ export const KvoteContainer: React.FunctionComponent<Props> = ({saksnummer}) => 
     const {t} = useTranslation();
     const {data, error, loading} = useGet(`${apiRoutes().Kvote}?status=Aktiv&saksnummer=${saksnummer}`);
     const errorStatus = error?.response?.status;
-    const år = new Date().getFullYear();
+    const år = new Date().getFullYear().toString();
 
     return (
         <>
@@ -39,8 +40,14 @@ export const KvoteContainer: React.FunctionComponent<Props> = ({saksnummer}) => 
             </p>)
             }
 
-            {data !== null && data.dager !== null && <div>Content</div>}
-        </>
+            {data !== null && data.dager !== null &&
+            <PanelMedDagerOgBeskrivelse
+                farge={navColors.navGronn}
+                beskrivelseAvDager={`${t('kvote.antallDagerBeskrivelse', {år : år })}`}
+                antallDager={data.dager}
+            />
+            }
+            </>
     );
 }
 
