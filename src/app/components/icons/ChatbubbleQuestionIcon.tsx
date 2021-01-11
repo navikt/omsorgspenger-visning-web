@@ -1,7 +1,7 @@
 import React from 'react';
 import navColors from '../../../styles/designSystemColors';
 
-const CheckIcon = () => (
+const ChatbubbleQuestionIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill={navColors.navMorkGra}>
     <path d="M23.5,1h-23C0.224,1,0,1.224,0,1.5v16C0,17.776,0.224,18,0.5,18H7l0,3.5c0,0.202,0.122,0.385,0.309,0.462
       C7.371,21.987,7.435,22,7.5,22c0.13,0,0.258-0.051,0.354-0.146L11.708,18H23.5c0.276,0,0.5-0.224,0.5-0.5v-16
