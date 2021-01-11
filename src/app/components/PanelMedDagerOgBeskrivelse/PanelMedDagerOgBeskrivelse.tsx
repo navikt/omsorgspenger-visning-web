@@ -3,32 +3,32 @@ import styled from 'styled-components/macro';
 import navColors from "../../../styles/designSystemColors";
 
 interface Props {
-    farge: navColors;
-    antallDager: number;
-    beskrivelseAvDager: string;
+  farge: navColors;
+  antallDager: number;
+  beskrivelseAvDager: string;
 }
 
 const PanelMedDagerOgBeskrivelse: React.FunctionComponent<Props> = ({farge, antallDager, beskrivelseAvDager}) => {
-    return(
-      <Wrapper farge={farge}>
-          <Dager>{antallDager}</Dager>
-          <Beskrivelse>{beskrivelseAvDager}</Beskrivelse>
-      </Wrapper>
-    );
+  return (
+    <Wrapper farge={farge}>
+      <Dager>{antallDager}</Dager>
+      <Beskrivelse>{beskrivelseAvDager}</Beskrivelse>
+    </Wrapper>
+  );
 };
 
-const Wrapper = styled.div<{farge : string}>`
-    align-items: stretch;
-    border-left: ${({farge}) => `5px solid ${farge}`};
-    border-right:none;
-    border-top:none;
-    border-bottom:none;
-    background-color:inherit;
-    display: flex;
-    flex-wrap: nowrap; 
-    margin-bottom: 1rem;
-    text-align:left;
-    width:100%;
+const Wrapper = styled.div<{ farge: string }>`
+  align-items: stretch;
+  border-left: ${({farge}) => `5px solid ${farge}`};
+  border-right:none;
+  border-top:none;
+  border-bottom:none;
+  background-color:inherit;
+  display: flex;
+  flex-wrap: nowrap; 
+  margin-bottom: 1rem;
+  text-align:left;
+  width:100%;
 `;
 
 const Dager = styled.span`
