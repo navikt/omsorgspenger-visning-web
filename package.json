@@ -40,13 +40,11 @@
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
     "eslint": "^7.17.0",
-    "eslint-config-prettier": "7.1.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-loader": "4.0.2",
     "eslint-plugin-flowtype": "5.2.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-prettier": "3.3.1",
     "eslint-plugin-react": "7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "express": "4.17.1",
@@ -87,7 +85,6 @@
     "postcss-normalize": "9.0.0",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.2",
-    "prettier": "2.2.1",
     "prop-types": "15.7.2",
     "react": "16.14.0",
     "react-app-polyfill": "^2.0.0",
@@ -131,8 +128,7 @@
     "eslint": "eslint --ext js,ts,tsx",
     "lint": "yarn eslint -- src",
     "lint:fix": "yarn eslint -- --fix src",
-    "lint:css": "stylelint src/**/*.css",
-    "prettify": "prettier --write"
+    "lint:css": "stylelint src/**/*.css"
   },
   "browserslist": {
     "production": [

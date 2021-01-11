@@ -1,7 +1,7 @@
 import React from 'react';
 import { get } from '../../../utils/http/request';
 import ResponseError from '../../../utils/http/ResponseError';
-import { authReducer, AuthState, initialAuthState } from './AuthState';
+import { AuthState, authReducer, initialAuthState } from './AuthState';
 import {
   AuthActions,
   loadUser,
