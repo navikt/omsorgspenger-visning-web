@@ -31,10 +31,7 @@ export const KvoteContainer: React.FunctionComponent<Props> = ({saksnummer}) => 
             {error && (<p>
                 {
                     errorStatus === 404 ? (
-                        <>
-                            {t('sak.feil.404')}
-                            <code>{`${saksnummer}`}</code>
-                        </>
+                        t('sak.feil.404', {saksnummer})
                     ) : (
                         t('sak.feil.ukjent')
                     )
