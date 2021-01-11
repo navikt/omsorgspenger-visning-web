@@ -36,8 +36,7 @@ export const KvoteContainer: React.FunctionComponent<Props> = ({saksnummer}) => 
                         t('sak.feil.ukjent')
                     )
                 }
-            </p>)
-            }
+            </p>)}
 
             {data !== null && data.dager !== null &&
               <PanelMedDagerOgBeskrivelse
