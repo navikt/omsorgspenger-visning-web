@@ -40,12 +40,11 @@ export const KvoteContainer: React.FunctionComponent<Props> = ({saksnummer}) => 
             }
 
             {data !== null && data.dager !== null &&
-            <PanelMedDagerOgBeskrivelse
+              <PanelMedDagerOgBeskrivelse
                 farge={navColors.navGronn}
-                beskrivelseAvDager={`${t('kvote.antallDagerBeskrivelse', {år : år })}`}
+                beskrivelseAvDager={`${t('kvote.antallDagerBeskrivelse', {år})}`}
                 antallDager={data.dager}
-            />
-            }
+              />}
             </>
     );
 }
