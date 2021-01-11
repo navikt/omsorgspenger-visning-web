@@ -1,12 +1,11 @@
-import FileIcon from 'app/components/icons/FileIcon';
 import { LoadingIndicator } from 'app/components/LoadingIndicator';
 import RammemeldingOverskrift from 'app/components/RammemeldingOverskrift/RammemeldingOverskrift';
-import Dokumenter from 'app/containers/Dokumenter/Dokument';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { apiRoutes } from 'utils/http/apiConfig';
 import useGet from 'utils/http/useGet';
 import ChatbubbleQuestionIcon from "../../components/icons/ChatbubbleQuestionIcon";
+import UidentifiserteRammemeldinger from "./UidentifisertRammemelding";
 
 interface Props {
   saksnummer: string;
@@ -34,7 +33,7 @@ const UidentifiserteRammemeldingerContainer: React.FunctionComponent<Props> = ({
           ? t('sak.feil.404', {saksnummer})
           : t('sak.feil.ukjent')}
       </p>}
-      {data !== null && <Dokumenter dokumenter={data}/>}
+      {data !== null && <UidentifiserteRammemeldinger rammemelding={data}/>}
     </>
   );
 };
