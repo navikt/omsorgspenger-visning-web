@@ -12,4 +12,4 @@ const ChatbubbleQuestionIcon = () => (
   </svg>
 );
 
-export default CheckIcon;
+export default ChatbubbleQuestionIcon;
