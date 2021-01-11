@@ -6,6 +6,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { apiRoutes } from 'utils/http/apiConfig';
 import useGet from 'utils/http/useGet';
+import ChatbubbleQuestionIcon from "../../components/icons/ChatbubbleQuestionIcon";
 
 interface Props {
   saksnummer: string;
@@ -24,7 +25,7 @@ const UidentifiserteRammemeldingerContainer: React.FunctionComponent<Props> = ({
   return (
     <>
       <RammemeldingOverskrift>
-        <FileIcon/>
+        <ChatbubbleQuestionIcon/>
         {t('uidentifiserteRammemeldinger.overskrift')}
       </RammemeldingOverskrift>
       {loading && <LoadingIndicator/>}
