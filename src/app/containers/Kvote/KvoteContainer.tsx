@@ -23,7 +23,7 @@ export const KvoteContainer: React.FunctionComponent<Props> = ({saksnummer}) => 
         <>
             <RammemeldingOverskrift>
                 <CalendarIcon />
-                {t('kvote.overskrift', {år: år})}
+                {t('kvote.overskrift', {år})}
             </RammemeldingOverskrift>
 
             {loading && <LoadingIndicator/>}
