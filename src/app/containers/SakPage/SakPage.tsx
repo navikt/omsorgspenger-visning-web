@@ -24,8 +24,8 @@ const SakPage: React.FunctionComponent = () => {
   </>;
 
   const kolonne2 = <>
-      <DokumenterContainer saksnummer={saksnummer}/>
-      <UidentifiserteRammemeldingerContainer saksnummer={saksnummer} />
+      {process.env.TOGGLE_DOKUMENTER && <DokumenterContainer saksnummer={saksnummer}/>}
+      {process.env.TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER && <UidentifiserteRammemeldingerContainer saksnummer={saksnummer} />}
   </>;
 
   const skalViseBeggeKolonner = !!process.env.TOGGLE_DOKUMENTER || !!process.env.TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER;
