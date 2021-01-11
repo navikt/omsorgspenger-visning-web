@@ -41,7 +41,7 @@ const Dager = styled.span`
 `;
 
 const Beskrivelse = styled.span`
-padding-right:2rem;
+  padding-right: 2rem;
 `;
 
 export default PanelMedDagerOgBeskrivelse;
