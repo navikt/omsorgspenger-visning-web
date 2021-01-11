@@ -86,7 +86,8 @@ function getClientEnvironment(publicUrl) {
         TOGGLE_FORDELINGER: process.env.TOGGLE_FORDELINGER === "true",
         TOGGLE_BARN: process.env.TOGGLE_BARN === "true",
         TOGGLE_KORONAOVERFORING: process.env.TOGGLE_KORONAOVERFORING === "true",
-        TOGGLE_KVOTE: process.env.TOGGLE_KVOTE === "true"
+        TOGGLE_KVOTE: process.env.TOGGLE_KVOTE === "true",
+        TOGGLE_DOKUMENTER: process.env.TOGGLE_DOKUMENTER === "true"
       },
     );
   // Stringify all values so we can feed into webpack DefinePlugin
