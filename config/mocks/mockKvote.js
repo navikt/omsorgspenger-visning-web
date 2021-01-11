@@ -7,7 +7,7 @@ const saksnrKvoteMap = {
 const mockKvote = app => {
   app.get('/api/kvote', (req, res) => {
     const { saksnummer } = req.query;
-    const kvoteJsonPath = saksnrOverføringMap[saksnummer];
+    const kvoteJsonPath = saksnrKvoteMap[saksnummer];
 
     if (kvoteJsonPath) {
       return res.status(200).sendFile(kvoteJsonPath);
