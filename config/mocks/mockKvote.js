@@ -1,6 +1,6 @@
 const path = require('path');
 
-const saksnrOverføringMap = {
+const saksnrKvoteMap = {
   '200': path.join(__dirname, 'mockdata', 'kvote_200.json'),
 };
 
