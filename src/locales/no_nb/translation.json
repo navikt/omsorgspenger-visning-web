@@ -24,6 +24,8 @@
   "ingenTilgang": "Du har ikke tilgang til å se innholdet på denne siden.",
   "innloggingsfeil": "Det skjedde en feil ved innloggingen. Prøv igjen senere.",
   "koronaoverføringer.overskrift": "Koronaoverføringer",
+  "kvote.overskrift": "Kvote {{år}}",
+  "kvote.antallDagerBeskrivelse": "Antall dager personen har rett på kalenderåret {{år}}. Eventuelle forbrukte dager er ikke trukket fra.",
   "lastInnPåNytt": "Trykk her for å laste inn siden på nytt",
   "navHeader": "Omsorgsdager",
   "overføring.dagerFår": "Dager mottatt",
@@ -49,5 +51,8 @@
   "personsøk.søkeknapp.søk": "Søk",
   "sak.feil.404": "Fant ingen saker med saksnummer {{saksnummer}}.",
   "sak.feil.ukjent": "Det skjedde en ukjent feil. Prøv igjen senere.",
-  "uhåndtertApplikasjonsfeil": "Oooops! Det skjedde en uventet feil."
+  "uhåndtertApplikasjonsfeil": "Oooops! Det skjedde en uventet feil.",
+  "uidentifiserteRammemeldinger.overskrift" : "Uidentifiserte rammemeldinger",
+  "uidentifiserteRammemeldinger.AUTOMATISK" : "Automatisk",
+  "uidentifiserteRammemeldinger.UTVIDET_RETT" : "Utvidet rett"
 }
