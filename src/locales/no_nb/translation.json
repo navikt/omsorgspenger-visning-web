@@ -1,6 +1,10 @@
 {
   "404Page": "Fant ikke siden du lette etter.",
   "barn.overskrift": "Barn",
+  "barn.rammevedtak.rammevedtak": "Rammevedtak",
+  "barn.rammevedtak.gyldigFom": "Gyldig f.o.m.",
+  "barn.rammevedtak.gyldigTom": "Gyldig t.o.m.",
+  "barn.rammevedtak.kilde": "Kilde",
   "deleDagerPanel.skjulInnhold": "Skjul innhold",
   "deleDagerPanel.visInnhold": "Vis innhold",
   "dokumenter.overskrift": "Dokumenter",
