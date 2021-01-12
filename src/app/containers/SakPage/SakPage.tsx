@@ -10,6 +10,7 @@ import OverføringerContainer from '../Overforinger/OverforingerContainer';
 import { FordelingerContainer } from '../Fordelinger/FordelingerContainer';
 import BarnContainer from '../Barn/BarnContainer';
 import KvoteContainer from "../Kvote/KvoteContainer";
+import UidentifiserteRammemeldingerContainer from "../UidentifiserteRammemeldinger/UidentifiserteRammemeldingerContainer";
 
 const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
@@ -23,9 +24,12 @@ const SakPage: React.FunctionComponent = () => {
     {process.env.TOGGLE_BARN && <BarnContainer saksnummer={saksnummer}/>}
   </>;
 
-  const kolonne2 = <DokumenterContainer saksnummer={saksnummer}/>;
+  const kolonne2 = <>
+      {process.env.TOGGLE_DOKUMENTER && <DokumenterContainer saksnummer={saksnummer}/>}
+      {process.env.TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER && <UidentifiserteRammemeldingerContainer saksnummer={saksnummer} />}
+  </>;
 
-  const skalViseBeggeKolonner = !!process.env.TOGGLE_DOKUMENTER;
+  const skalViseBeggeKolonner = !!process.env.TOGGLE_DOKUMENTER || !!process.env.TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER;
 
   return (
     <>
