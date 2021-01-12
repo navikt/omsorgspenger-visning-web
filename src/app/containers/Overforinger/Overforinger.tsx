@@ -51,9 +51,6 @@ const Overføringer: React.FunctionComponent<Props> = ({
     [alleOverføringer]
   );
 
-  const [visTidligere, setVisTidligere] = React.useState<boolean>(false);
-  const [visSenere, setVisSenere] = React.useState<boolean>(false);
-
   const flipXAxis = css`
     transform: scaleX(-1);
   `;
@@ -72,36 +69,30 @@ const Overføringer: React.FunctionComponent<Props> = ({
       {tidligereOverføringer.length > 0 && (
         <OverføringerExpandable
           overføringer={tidligereOverføringer}
-          vis={visTidligere}
-          onClick={() => setVisTidligere(current => !current)}
+          vis={false}
           innholdPadding="1em 1em 0 1em"
-          heading={
-            <>
-              <GoBackInTimeIcon />
-              <span>
-                {visTidligere
-                  ? t('overføringer.skjulTidligere')
-                  : t('overføringer.visTidligere')}
-              </span>
-            </>
-          }
+          heading={(skalViseInnhold) => <>
+            <GoBackInTimeIcon />
+            <span>
+              {skalViseInnhold
+                ? t('overføringer.skjulTidligere')
+                : t('overføringer.visTidligere')}
+            </span>
+          </>}
         />
       )}
       {senereOverføringer.length > 0 && (
         <OverføringerExpandable
           overføringer={senereOverføringer}
-          vis={visSenere}
-          onClick={() => setVisSenere(current => !current)}
-          heading={
-            <>
-              <GoBackInTimeIcon cssStyle={flipXAxis} />
-              <span>
-                {visSenere
-                  ? t('overføringer.skjulSenere')
-                  : t('overføringer.visSenere')}
-              </span>
-            </>
-          }
+          vis={false}
+          heading={(skalViseInnhold) => <>
+            <GoBackInTimeIcon cssStyle={flipXAxis} />
+            <span>
+              {skalViseInnhold
+                ? t('overføringer.skjulSenere')
+                : t('overføringer.visSenere')}
+            </span>
+          </>}
         />
       )}
     </>

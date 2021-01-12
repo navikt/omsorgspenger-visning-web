@@ -23,8 +23,6 @@ const DeleDagerPanelStyle = styled.article`
 `;
 
 const DeleDagerPanel: React.FunctionComponent<Props> = ({
-  visInnhold,
-  setVisInnhold,
   farge,
   overskrift,
   children,
@@ -32,26 +30,25 @@ const DeleDagerPanel: React.FunctionComponent<Props> = ({
   const { t } = useTranslation();
 
   return (
-    <DeleDagerPanelStyle aria-expanded={visInnhold}>
+    <DeleDagerPanelStyle>
       <ExpandablePanelBase
-        onClick={setVisInnhold}
-        headerButton={
-          <Overskrift farge={farge} onClick={setVisInnhold}>
+        headerButton={(skalViseInnhold, visEllerSkjulInnhold) => (
+          <Overskrift farge={farge} onClick={visEllerSkjulInnhold}>
             <Dager>{overskrift.antallDager}</Dager>
             <Banner>
               <OverskriftTekst>
                 {t(overskrift.overskrifttekstId, {count: overskrift.antallDager})}
               </OverskriftTekst>
               <KnappStyle>
-                {visInnhold
+                {skalViseInnhold
                   ? t('deleDagerPanel.skjulInnhold')
                   : t('deleDagerPanel.visInnhold')}
-                <NavFrontendChevron type={visInnhold ? 'opp' : 'ned'} />
+                <NavFrontendChevron type={skalViseInnhold ? 'opp' : 'ned'} />
               </KnappStyle>
             </Banner>
           </Overskrift>
-        }
-        isOpen={visInnhold}
+        )}
+        isOpenAsDefault={false}
       >
         {children}
       </ExpandablePanelBase>

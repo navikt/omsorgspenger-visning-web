@@ -1,7 +1,7 @@
 import { ExpandablePanelBase } from 'app/components/ExpandablePanel/ExpandablePanel';
 import Topplinje from 'app/components/ExpandablePanel/Topplinje';
 import PanelWrapper from 'app/components/PanelWrapper/PanelWrapper';
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import navColors from '../../../styles/designSystemColors';
@@ -17,18 +17,15 @@ const UidentifiserteRammemeldinger: React.FunctionComponent<Props> = ({rammemeld
 
 const UidentifisertRammemeldingKomponent: React.FunctionComponent<UidentifisertRammemelding> = rammemelding => {
   const {t} = useTranslation();
-  const [visDetaljer, setVisDetaljer] = useState<boolean>(false);
-  const visEllerSkjulDetaljer = () => setVisDetaljer(!visDetaljer);
   return <PanelWrapper>
     <PanelKnappStyle farge={navColors.navOransje}>
       <ExpandablePanelBase
-        onClick={visEllerSkjulDetaljer}
-        headerButton={
+        headerButton={(visDetaljer, visEllerSkjulDetaljer) => (
           <Topplinje {...{visDetaljer, visEllerSkjulDetaljer}}>
             <span>{t(`uidentifiserteRammemeldinger.${rammemelding.type}`)}</span>
           </Topplinje>
-        }
-        isOpen={visDetaljer}
+        )}
+        isOpenAsDefault={false}
       >
         <p>Det finnes 1 rammevedtak om utvidet rett fra infotrygd som ikke er automatisk kan kobles til ett barn. Vennligst korriger i infotrygd.</p>
         <p><b>Utolkbar tekst: "@9-6 2 L UTV.OMSD*10/</b></p>

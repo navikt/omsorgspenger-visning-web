@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Flatknapp } from 'nav-frontend-knapper';
 import NavFrontendChevron from 'nav-frontend-chevron';
 import Collapse from '@material-ui/core/Collapse';
@@ -6,28 +6,31 @@ import { v4 as uuid } from 'uuid';
 import styled from 'styled-components/macro';
 
 interface BaseProps {
-  onClick: () => void;
-  headerButton: React.ReactElement;
-  isOpen: boolean;
+  headerButton: (
+    skalViseInnhold: boolean,
+    visEllerSkjulInnhold: () => void
+  ) => React.ReactElement;
+  isOpenAsDefault: boolean;
   innholdPadding?: string;
 }
 
 export const ExpandablePanelBase: React.FunctionComponent<BaseProps> = ({
   headerButton,
-  isOpen,
+  isOpenAsDefault,
   children,
   innholdPadding = '1em',
 }) => {
+  const [visInnhold, setVisInnhold] = useState<boolean>(isOpenAsDefault);
   const buttonId = React.useMemo(() => uuid(), []);
   const contentId = React.useMemo(() => uuid(), []);
 
-  if (!React.isValidElement(headerButton)) {
-    throw new Error('headerButton må være et ReactElement!');
-  }
+  const visEllerSkjulInnhold = () => setVisInnhold(!visInnhold);
 
-  const buttonWithId = React.cloneElement(headerButton, {
+  const generatedHeaderButton = headerButton(visInnhold, visEllerSkjulInnhold);
+
+  const buttonWithId = React.cloneElement(generatedHeaderButton, {
     // @ts-ignore
-    ...headerButton.props,
+    ...generatedHeaderButton.props,
     id: buttonId,
     'aria-controls': contentId,
   });
@@ -36,7 +39,7 @@ export const ExpandablePanelBase: React.FunctionComponent<BaseProps> = ({
     <>
       {buttonWithId}
       <div role="region" id={contentId} aria-labelledby={buttonId}>
-        <Collapse in={isOpen}>
+        <Collapse in={visInnhold}>
           <Innhold innholdPadding={innholdPadding}>{children}</Innhold>
         </Collapse>
       </div>
@@ -45,35 +48,32 @@ export const ExpandablePanelBase: React.FunctionComponent<BaseProps> = ({
 };
 
 interface Props {
-  onClick: () => void;
-  heading: React.ReactNode;
-  isOpen: boolean;
+  heading: (skalViseInnhold: boolean) => React.ReactNode;
+  isOpenAsDefault: boolean;
   innholdPadding?: string;
 }
 
 const ExpandablePanel: React.FunctionComponent<Props> = ({
-  onClick,
   heading,
-  isOpen,
+  isOpenAsDefault,
   children,
   innholdPadding = '1em',
 }) => {
   return (
     <ExpandablePanelBase
-      onClick={onClick}
-      isOpen={isOpen}
+      isOpenAsDefault={isOpenAsDefault}
       innholdPadding={innholdPadding}
-      headerButton={
+      headerButton={(skalViseInnhold, visEllerSkjulInnhold) => (
         <Flatknapp
-          onClick={onClick}
+          onClick={visEllerSkjulInnhold}
           mini={true}
           kompakt={true}
           htmlType="button"
         >
-          {heading}
-          <NavFrontendChevron type={isOpen ? 'opp' : 'ned'} />
+          {heading(skalViseInnhold)}
+          <NavFrontendChevron type={skalViseInnhold ? 'opp' : 'ned'} />
         </Flatknapp>
-      }
+      )}
     >
       {children}
     </ExpandablePanelBase>

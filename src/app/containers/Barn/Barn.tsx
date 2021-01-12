@@ -2,7 +2,7 @@ import { ExpandablePanelBase } from 'app/components/ExpandablePanel/ExpandablePa
 import Topplinje from 'app/components/ExpandablePanel/Topplinje';
 import PanelWrapper from 'app/components/PanelWrapper/PanelWrapper';
 import 'nav-frontend-tabell-style';
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { default as BarnInterface } from '../../types/Barn';
 
@@ -16,25 +16,24 @@ const Barn: React.FunctionComponent<Props> = ({barn = []}) => {
 
 const Barnekomponent: React.FunctionComponent<BarnInterface> = barn => {
   const {t} = useTranslation();
-  const [visDetaljer, setVisDetaljer] = useState<boolean>(false);
-  const visEllerSkjulDetaljer = () => setVisDetaljer(!visDetaljer);
   return <PanelWrapper>
     <ExpandablePanelBase
-      onClick={visEllerSkjulDetaljer}
-      headerButton={
+      headerButton={(visDetaljer, visEllerSkjulDetaljer) => (
         <Topplinje {...{visDetaljer, visEllerSkjulDetaljer}}>
           <span>{barn.navn}</span>
           <span>{barn.ident}</span>
         </Topplinje>
-      }
-      isOpen={visDetaljer}
+      )}
+      isOpenAsDefault={false}
     >
       <table className="tabell">
         <thead>
-          <th>{t("barn.rammevedtak.rammevedtak")}</th>
-          <th>{t("barn.rammevedtak.gyldigFom")}</th>
-          <th>{t("barn.rammevedtak.gyldigTom")}</th>
-          <th>{t("barn.rammevedtak.kilde")}</th>
+          <tr>
+            <th>{t("barn.rammevedtak.rammevedtak")}</th>
+            <th>{t("barn.rammevedtak.gyldigFom")}</th>
+            <th>{t("barn.rammevedtak.gyldigTom")}</th>
+            <th>{t("barn.rammevedtak.kilde")}</th>
+          </tr>
         </thead>
         <tbody>
           <tr>

@@ -6,15 +6,13 @@ import Overføring from './Overforing';
 import navColors from '../../../styles/designSystemColors';
 
 interface Props {
-  onClick: () => void;
   vis: boolean;
-  heading: React.ReactNode;
+  heading: (skalViseInnhold: boolean) => React.ReactNode;
   overføringer: OverføringType[];
   innholdPadding?: string;
 }
 
 const OverføringerExpandable: React.FunctionComponent<Props> = ({
-  onClick,
   vis,
   heading,
   overføringer,
@@ -22,9 +20,8 @@ const OverføringerExpandable: React.FunctionComponent<Props> = ({
 }) => (
   <MarginWrapper>
     <ExpandablePanel
-      onClick={onClick}
       heading={heading}
-      isOpen={vis}
+      isOpenAsDefault={vis}
       innholdPadding={innholdPadding}
     >
       {overføringer.map(overføring => (
