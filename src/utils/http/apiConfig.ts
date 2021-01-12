@@ -15,6 +15,7 @@ export const apiRoutes = () => ({
   Koronaoverføringer: `${API_URL()}/rammemeldinger/koronaoverforinger`,
   Fordelinger: `${API_URL()}/fordelinger`,
   Barn: `${API_URL()}/barn`,
+  Kvote: `${API_URL()}/kvote`,
   Dokumenter: `${API_URL()}/dokumenter`,
   UidentifiserteRammemeldinger: `${API_URL()}/uidentifiserteRammemeldinger`
 });
