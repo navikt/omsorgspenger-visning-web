@@ -57,7 +57,7 @@ const Overføringer: React.FunctionComponent<Props> = ({
 
   return (
     <>
-      {gjeldendeOverføringerNå.length === 0 && t('overføringer.ingenGjeldende')}
+      {gjeldendeOverføringerNå.length === 0 && <p>{t('overføringer.ingenGjeldende')}</p>}
       {gjeldendeOverføringerNå.map(overføring => (
         <Overføring
           overføring={overføring}
