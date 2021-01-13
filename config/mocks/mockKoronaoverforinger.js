@@ -5,7 +5,7 @@ const saksnrOverføringMap = {
 };
 
 const mockKoronaoverføringer = app => {
-  app.get('/api/rammemeldinger/koronaoverforinger', (req, res) => {
+  app.get('/api/rammemeldinger/korona-overforinger', (req, res) => {
     const { saksnummer } = req.query;
     const overføringJsonPath = saksnrOverføringMap[saksnummer];
 
