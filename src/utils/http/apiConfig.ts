@@ -12,7 +12,7 @@ export const apiRoutes = () => ({
   Login: `${AUTH_PROXY_URL()}/login`,
   HentSaksnummer: `${SAK_URL()}/saksnummer`,
   Overføringer: `${API_URL()}/rammemeldinger/overforinger`,
-  Koronaoverføringer: `${API_URL()}/rammemeldinger/koronaoverforinger`,
+  Koronaoverføringer: `${API_URL()}/rammemeldinger/korona-overforinger`,
   Fordelinger: `${API_URL()}/fordelinger`,
   Barn: `${API_URL()}/barn`,
   Kvote: `${API_URL()}/kvote`,
