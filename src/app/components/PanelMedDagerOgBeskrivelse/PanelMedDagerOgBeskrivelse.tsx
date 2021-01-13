@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import navColors from "../../../styles/designSystemColors";
+import navColors from '../../../styles/designSystemColors';
 
 interface Props {
   farge: navColors;

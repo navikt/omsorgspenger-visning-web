@@ -1,7 +1,7 @@
-import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
+import React from 'react';
 import PersonSøk from '../PersonSok';
 
 jest.mock('react-router-dom', () => ({

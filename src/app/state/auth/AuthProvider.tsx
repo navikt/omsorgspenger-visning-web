@@ -1,16 +1,10 @@
 import React from 'react';
+import { apiRoutes } from '../../../utils/http/apiConfig';
 import { get } from '../../../utils/http/request';
 import ResponseError from '../../../utils/http/ResponseError';
-import { AuthState, authReducer, initialAuthState } from './AuthState';
-import {
-  AuthActions,
-  loadUser,
-  unknownAuthError,
-  userLoaded,
-  userUnauthorised,
-} from './authActions';
-import { apiRoutes } from '../../../utils/http/apiConfig';
 import actionLogger from '../../middleware/actionLogger';
+import { AuthActions, loadUser, unknownAuthError, userLoaded, userUnauthorised } from './authActions';
+import { authReducer, AuthState, initialAuthState } from './AuthState';
 
 // @ts-ignore
 const AuthContext = React.createContext<AuthContextRaw>();

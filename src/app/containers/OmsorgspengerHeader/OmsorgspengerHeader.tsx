@@ -1,6 +1,6 @@
-import React from 'react';
 import Header from '@navikt/nap-header';
 import UserPanel from '@navikt/nap-user-panel';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuthContext } from '../../state/auth/AuthProvider';
 

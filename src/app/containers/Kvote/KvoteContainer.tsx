@@ -1,17 +1,16 @@
 import React from 'react';
-import {useTranslation} from "react-i18next";
-import {apiRoutes} from "../../../utils/http/apiConfig";
-import useGet from "../../../utils/http/useGet";
-import navColors from "../../../styles/designSystemColors";
-
-import RammemeldingOverskrift from "../../components/RammemeldingOverskrift/RammemeldingOverskrift";
-import {LoadingIndicator} from "../../components/LoadingIndicator";
-import PanelMedDagerOgBeskrivelse from "../../components/PanelMedDagerOgBeskrivelse/PanelMedDagerOgBeskrivelse";
-import {CalendarIcon} from "../../components/icons";
+import { useTranslation } from 'react-i18next';
+import navColors from '../../../styles/designSystemColors';
+import { apiRoutes } from '../../../utils/http/apiConfig';
+import useGet from '../../../utils/http/useGet';
+import { CalendarIcon } from '../../components/icons';
+import { LoadingIndicator } from '../../components/LoadingIndicator';
+import PanelMedDagerOgBeskrivelse from '../../components/PanelMedDagerOgBeskrivelse/PanelMedDagerOgBeskrivelse';
+import RammemeldingOverskrift from '../../components/RammemeldingOverskrift/RammemeldingOverskrift';
 
 interface Props {
-    saksnummer: string;
-};
+  saksnummer: string;
+}
 
 export const KvoteContainer: React.FunctionComponent<Props> = ({saksnummer}) => {
   const {t} = useTranslation();
@@ -46,6 +45,6 @@ export const KvoteContainer: React.FunctionComponent<Props> = ({saksnummer}) => 
         />}
     </>
   );
-}
+};
 
 export default KvoteContainer;

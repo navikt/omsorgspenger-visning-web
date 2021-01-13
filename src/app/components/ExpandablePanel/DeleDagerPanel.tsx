@@ -1,7 +1,7 @@
-import styled from 'styled-components/macro';
+import NavFrontendChevron from 'nav-frontend-chevron';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import NavFrontendChevron from 'nav-frontend-chevron';
+import styled from 'styled-components/macro';
 import navColors from '../../../styles/designSystemColors';
 import { ExpandablePanelBase } from './ExpandablePanel';
 import KnappStyle from './KnappStyle';

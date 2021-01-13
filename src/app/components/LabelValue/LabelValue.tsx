@@ -1,8 +1,8 @@
+import { Label } from 'nav-frontend-skjema';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { v4 as uuid } from 'uuid';
-import { Label } from 'nav-frontend-skjema';
 import styled, { css } from 'styled-components/macro';
+import { v4 as uuid } from 'uuid';
 
 interface Props {
   labelTextId: string;

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import navColors from '../../../styles/designSystemColors';
 import { Overføring as OverføringType, overføringKey } from '../../types';
 import ExpandablePanel from '../ExpandablePanel/ExpandablePanel';
 import Overføring from './Overforing';
-import navColors from '../../../styles/designSystemColors';
 
 interface Props {
   vis: boolean;

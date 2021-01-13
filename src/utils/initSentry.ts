@@ -1,4 +1,4 @@
-import { Integrations, init } from '@sentry/browser';
+import { init, Integrations } from '@sentry/browser';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 const environment = window.location.hostname;

@@ -20,8 +20,8 @@ const UidentifisertRammemeldingKomponent: React.FunctionComponent<UidentifisertR
   return <PanelWrapper>
     <PanelKnappStyle farge={navColors.navOransje}>
       <ExpandablePanelBase
-        headerButton={(visDetaljer, visEllerSkjulDetaljer) => (
-          <Topplinje {...{visDetaljer, visEllerSkjulDetaljer}}>
+        headerButton={(skalViseDetaljer, visEllerSkjulDetaljer) => (
+          <Topplinje {...{skalViseDetaljer, visEllerSkjulDetaljer}}>
             <span>{t(`uidentifiserteRammemeldinger.${rammemelding.type}`)}</span>
           </Topplinje>
         )}

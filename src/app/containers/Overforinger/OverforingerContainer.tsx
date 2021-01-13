@@ -1,11 +1,11 @@
+import { LoadingIndicator } from 'app/components/LoadingIndicator';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import useGet from '../../../utils/http/useGet';
 import { apiRoutes } from 'utils/http/apiConfig';
-import RammemeldingOverskrift from '../../components/RammemeldingOverskrift/RammemeldingOverskrift';
-import { LoadingIndicator } from 'app/components/LoadingIndicator';
-import Overføringer from './Overforinger';
+import useGet from '../../../utils/http/useGet';
 import { TransferArrowsIcon } from '../../components/icons';
+import RammemeldingOverskrift from '../../components/RammemeldingOverskrift/RammemeldingOverskrift';
+import Overføringer from './Overforinger';
 
 interface Props {
   saksnummer: string;

@@ -3,15 +3,11 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect';
-
+import { toHaveNoViolations } from 'jest-axe';
+import 'jest-extended';
+import 'jest-styled-components';
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
-
-import 'jest-styled-components';
-
-import 'jest-extended';
-import '@testing-library/jest-dom/extend-expect';
-import { toHaveNoViolations } from 'jest-axe';
 import './locales/i18n';
 
 expect.extend(toHaveNoViolations);
