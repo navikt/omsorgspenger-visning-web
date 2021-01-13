@@ -5,10 +5,10 @@ exports[`<LoadingIndicator /> should match snapshot 1`] = `
   -webkit-animation: cqkDSr 2.625s linear infinite;
   animation: cqkDSr 2.625s linear infinite;
   height: 3rem;
-  width: 3rem;
   -webkit-transform-origin: center;
   -ms-transform-origin: center;
   transform-origin: center;
+  width: 3rem;
 }
 
 .c1 {
@@ -38,10 +38,10 @@ exports[`<LoadingIndicator /> should match snapshot when props changed 1`] = `
   -webkit-animation: cqkDSr 2.625s linear infinite;
   animation: cqkDSr 2.625s linear infinite;
   height: 1.25rem;
-  width: 1.25rem;
   -webkit-transform-origin: center;
   -ms-transform-origin: center;
   transform-origin: center;
+  width: 1.25rem;
 }
 
 .c1 {

@@ -5,8 +5,8 @@ const AppContainer = styled.main`
   flex-wrap: wrap;
   justify-content: center;
   & > * {
-    margin: 1em;
     flex: 1 1 auto;
+    margin: 1em;
   }
 `;
 
