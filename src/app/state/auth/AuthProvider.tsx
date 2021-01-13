@@ -4,7 +4,7 @@ import { get } from '../../../utils/http/request';
 import ResponseError from '../../../utils/http/ResponseError';
 import actionLogger from '../../middleware/actionLogger';
 import { AuthActions, loadUser, unknownAuthError, userLoaded, userUnauthorised } from './authActions';
-import { authReducer, AuthState, initialAuthState } from './AuthState';
+import { AuthState, authReducer, initialAuthState } from './AuthState';
 
 // @ts-ignore
 const AuthContext = React.createContext<AuthContextRaw>();

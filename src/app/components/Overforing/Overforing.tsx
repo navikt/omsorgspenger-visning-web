@@ -1,4 +1,3 @@
-import Lenke from 'nav-frontend-lenker';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -10,6 +9,7 @@ import { FlexContainer, FlexRow } from '../Flex';
 import Hr from '../Hr/Hr';
 import { CheckIcon } from '../icons';
 import LabelValue from '../LabelValue/LabelValue';
+import Lenke from 'nav-frontend-lenker';
 
 interface Props {
   overføring: OverføringType;
