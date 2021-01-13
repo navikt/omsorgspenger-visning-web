@@ -21,13 +21,15 @@ const Topplinje: React.FunctionComponent<TopplinjeProps> = props => {
 };
 
 const Topplinjeknapp = styled.button`
+  align-items: center;
   background-color: #f3f4f4;
   border: 0;
   cursor: pointer;
   display: flex;
   font-size: .9rem;
   justify-content: space-between;
-  padding: 1rem;
+  height: 2.5rem;
+  padding: 0 1rem;
   width: 100%;
   span {padding: 0}
 `;
