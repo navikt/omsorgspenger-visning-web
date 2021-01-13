@@ -1,3 +1,4 @@
+import PanelWrapper from 'app/components/PanelWrapper/PanelWrapper';
 import NavFrontendChevron from 'nav-frontend-chevron';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -16,12 +17,6 @@ interface Props {
   };
 }
 
-const DeleDagerPanelStyle = styled.article`
-  margin-bottom: 1em;
-  box-shadow: 0 3px 3px -1px #c6c2bf;
-  border: 1px solid #c6c2bf;
-`;
-
 const DeleDagerPanel: React.FunctionComponent<Props> = ({
   farge,
   overskrift,
@@ -30,7 +25,7 @@ const DeleDagerPanel: React.FunctionComponent<Props> = ({
   const { t } = useTranslation();
 
   return (
-    <DeleDagerPanelStyle>
+    <PanelWrapper>
       <ExpandablePanelBase
         headerButton={(skalViseInnhold, visEllerSkjulInnhold) => (
           <Overskrift farge={farge} onClick={visEllerSkjulInnhold}>
@@ -52,22 +47,22 @@ const DeleDagerPanel: React.FunctionComponent<Props> = ({
       >
         {children}
       </ExpandablePanelBase>
-    </DeleDagerPanelStyle>
+    </PanelWrapper>
   );
 };
 
 export const Overskrift = styled.button<{ farge: string }>`
+  align-items: stretch;
+  background-color: inherit;
+  border-bottom: none;
   border-left: ${({ farge }) => `5px solid ${farge}`};
-  display: flex;
-  flex-wrap: nowrap;
   border-right: none;
   border-top: none;
-  border-bottom: none;
-  width: 100%;
-  background-color: inherit;
-  align-items: stretch;
-  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
   font-size: 1em;
+  padding: 0;
+  width: 100%;
 
   &:hover {
     cursor: pointer;
@@ -75,23 +70,20 @@ export const Overskrift = styled.button<{ farge: string }>`
 
   &:focus {
     outline: none;
+    
     ${KnappStyle} {
-      outline: 2px solid #0067c5;
       border-radius: 5px;
+      outline: 2px solid ${navColors.navBla};
     }
-  }
-
-  > * {
-    padding: 0.1em 0;
   }
 `;
 
 export const Dager = styled.span`
-  margin-left: 0.5em;
+  align-items: center;
+  display: flex;
   flex: 0 0 80px;
   font-size: 1.3em;
-  display: flex;
-  align-items: center;
+  margin-left: 0.5em;
 
   > * {
     display: inline;
@@ -103,14 +95,16 @@ export const OverskriftTekst = styled.b`
 `;
 
 export const Banner = styled.span`
-  flex-grow: 1;
-  padding: 10px;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
   background-color: #f3f4f4;
+  display: flex;
+  flex-grow: 1;
+  height: 2.5rem;
+  justify-content: space-between;
+  
   > * {
     margin: 0 0.5em;
+    &:last-child {margin-right: 1rem}
   }
 
   ${OverskriftTekst} {

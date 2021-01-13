@@ -6,7 +6,6 @@ const KnappStyle = styled.span`
   border: none;
   color: ${navColors.navBla};
   font-size: 0.9rem;
-  padding: 0.2em;
   text-decoration: underline;
 
   &:hover {
