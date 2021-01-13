@@ -1,5 +1,5 @@
-import React, { Component, ReactNode } from 'react';
 import { captureException, withScope } from '@sentry/browser';
+import React, { Component, ReactNode } from 'react';
 import ErrorPage from './ErrorPage';
 
 interface OwnProps {

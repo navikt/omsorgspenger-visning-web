@@ -18,8 +18,8 @@ const Barnekomponent: React.FunctionComponent<BarnInterface> = barn => {
   const {t} = useTranslation();
   return <PanelWrapper>
     <ExpandablePanelBase
-      headerButton={(visDetaljer, visEllerSkjulDetaljer) => (
-        <Topplinje {...{visDetaljer, visEllerSkjulDetaljer}}>
+      headerButton={(skalViseDetaljer, visEllerSkjulDetaljer) => (
+        <Topplinje {...{skalViseDetaljer, visEllerSkjulDetaljer}}>
           <span>{barn.navn}</span>
           <span>{barn.ident}</span>
         </Topplinje>

@@ -1,3 +1,4 @@
+import { TransferArrowsIcon } from 'app/components/icons';
 import { LoadingIndicator } from 'app/components/LoadingIndicator';
 import RammemeldingOverskrift from 'app/components/RammemeldingOverskrift/RammemeldingOverskrift';
 import Fordelinger from 'app/containers/Fordelinger/Fordelinger';
@@ -5,7 +6,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { apiRoutes } from 'utils/http/apiConfig';
 import useGet from 'utils/http/useGet';
-import { TransferArrowsIcon } from 'app/components/icons';
 
 interface Props {
   saksnummer: string;

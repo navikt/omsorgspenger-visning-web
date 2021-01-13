@@ -1,5 +1,5 @@
-import { redirect } from './browserUtils';
 import { loginWithRedirect } from './apiConfig';
+import { redirect } from './browserUtils';
 import ResponseData from './ResponseData';
 import ResponseError from './ResponseError';
 

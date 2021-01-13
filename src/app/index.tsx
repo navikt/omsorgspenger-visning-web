@@ -2,13 +2,13 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
+import ErrorBoundary from './components/errors/ErrorBoundary';
+import AuthChecker from './containers/AuthChecker';
 import { HomePageLoadable } from './containers/HomePage/HomePageLoadable';
 import { NotFoundPage } from './containers/NotFoundPage/Loadable';
-import { SakPageLoadable } from './containers/SakPage/SakPageLoadable';
-import AuthChecker from './containers/AuthChecker';
 import OmsorgspengerHeader from './containers/OmsorgspengerHeader/OmsorgspengerHeader';
+import { SakPageLoadable } from './containers/SakPage/SakPageLoadable';
 import { AuthProvider } from './state/auth/AuthProvider';
-import ErrorBoundary from './components/errors/ErrorBoundary';
 
 export function App() {
   return (

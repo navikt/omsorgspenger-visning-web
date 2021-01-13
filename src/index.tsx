@@ -1,19 +1,14 @@
+import { App } from 'app';
+import * as React from 'react';
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
-
-import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import 'sanitize.css/sanitize.css';
-
-import { App } from 'app';
-
 import { HelmetProvider } from 'react-helmet-async';
-
-import initSentry from './utils/initSentry';
-// Initialize languages
-import './locales/i18n';
-import { get } from './utils/http/request';
+import 'sanitize.css/sanitize.css';
+import './locales/i18n'; // Initialize languages
 import { apiRoutes } from './utils/http/apiConfig';
+import { get } from './utils/http/request';
+import initSentry from './utils/initSentry';
 
 initSentry();
 

@@ -1,4 +1,3 @@
-
 enum UidentifisertRammemeldingType {
   AUTOMATISK,
   UTVIDET_RETT

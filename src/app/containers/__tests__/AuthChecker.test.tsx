@@ -1,7 +1,7 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
-import AuthChecker from '../AuthChecker';
+import React from 'react';
 import { AuthProvider } from '../../state/auth/AuthProvider';
+import AuthChecker from '../AuthChecker';
 
 const mockFetch = (response: Partial<Response>) => {
   (global as any).fetch = jest.fn(() => Promise.resolve(response));

@@ -1,6 +1,6 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
+import React from 'react';
 import LabelValue from '../LabelValue';
 
 describe('<LabelValue>', () => {

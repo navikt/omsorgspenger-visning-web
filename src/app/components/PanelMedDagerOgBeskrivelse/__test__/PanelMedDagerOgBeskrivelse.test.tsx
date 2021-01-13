@@ -1,8 +1,8 @@
+import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import React from 'react';
-import {render, screen} from '@testing-library/react';
-import {axe} from 'jest-axe';
+import navColors from '../../../../styles/designSystemColors';
 import PanelMedDagerOgBeskrivelse from '../PanelMedDagerOgBeskrivelse';
-import navColors from "../../../../styles/designSystemColors";
 
 describe('<PanelMedDagerOgBeskrivelse>', () => {
   test('PanelMedDagerOgBeskrivelse viser dager og beskrivelse', () => {

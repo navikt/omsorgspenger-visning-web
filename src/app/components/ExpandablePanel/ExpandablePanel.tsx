@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Flatknapp } from 'nav-frontend-knapper';
-import NavFrontendChevron from 'nav-frontend-chevron';
 import Collapse from '@material-ui/core/Collapse';
-import { v4 as uuid } from 'uuid';
+import NavFrontendChevron from 'nav-frontend-chevron';
+import { Flatknapp } from 'nav-frontend-knapper';
+import React, { useState } from 'react';
 import styled from 'styled-components/macro';
+import { v4 as uuid } from 'uuid';
 
 interface BaseProps {
   headerButton: (

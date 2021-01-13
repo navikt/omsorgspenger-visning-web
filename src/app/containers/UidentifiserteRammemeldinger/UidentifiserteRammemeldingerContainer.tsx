@@ -4,8 +4,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { apiRoutes } from 'utils/http/apiConfig';
 import useGet from 'utils/http/useGet';
-import ChatbubbleQuestionIcon from "../../components/icons/ChatbubbleQuestionIcon";
-import UidentifiserteRammemeldinger from "./UidentifisertRammemelding";
+import ChatbubbleQuestionIcon from '../../components/icons/ChatbubbleQuestionIcon';
+import UidentifiserteRammemeldinger from './UidentifisertRammemelding';
 
 interface Props {
   saksnummer: string;

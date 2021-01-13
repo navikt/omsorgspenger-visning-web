@@ -3,8 +3,8 @@
  */
 
 import React from 'react';
-import { lazyLoad } from 'utils/loadable';
 import styled from 'styled-components/macro';
+import { lazyLoad } from 'utils/loadable';
 import { LoadingIndicator } from '../../components/LoadingIndicator';
 
 const LoadingWrapper = styled.div`

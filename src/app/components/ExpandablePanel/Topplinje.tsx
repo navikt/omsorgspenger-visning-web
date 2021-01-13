@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import KnappStyle from './KnappStyle';
 import NavFrontendChevron from 'nav-frontend-chevron';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+import KnappStyle from './KnappStyle';
 
 interface TopplinjeProps {
-  visDetaljer: boolean;
+  skalViseDetaljer: boolean;
   visEllerSkjulDetaljer: () => void;
 }
 
@@ -14,8 +14,8 @@ const Topplinje: React.FunctionComponent<TopplinjeProps> = props => {
   return <Topplinjeknapp onClick={props.visEllerSkjulDetaljer}>
     {props.children}
     <KnappStyle>
-      {t(`ekspanderbartPanel.detaljer.${props.visDetaljer ? 'skjul' : 'vis'}`)}
-      <NavFrontendChevron type={props.visDetaljer ? 'opp' : 'ned'}/>
+      {t(`ekspanderbartPanel.detaljer.${props.skalViseDetaljer ? 'skjul' : 'vis'}`)}
+      <NavFrontendChevron type={props.skalViseDetaljer ? 'opp' : 'ned'}/>
     </KnappStyle>
   </Topplinjeknapp>;
 };

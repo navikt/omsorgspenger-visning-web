@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { LoadingIndicator } from '../components/LoadingIndicator';
-import { useAuthContext } from '../state/auth/AuthProvider';
-import { LoginStatus } from '../state/auth/authActions';
 import { useTranslation } from 'react-i18next';
+import { LoadingIndicator } from '../components/LoadingIndicator';
+import { LoginStatus } from '../state/auth/authActions';
+import { useAuthContext } from '../state/auth/AuthProvider';
 
 const AuthChecker = ({ children }) => {
   const { getUserInfo, state } = useAuthContext();

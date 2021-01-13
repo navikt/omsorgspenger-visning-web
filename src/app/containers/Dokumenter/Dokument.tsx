@@ -15,8 +15,8 @@ const Dokumenter: React.FunctionComponent<Props> = ({dokumenter = []}) => {
 const Dokumentkomponent: React.FunctionComponent<Dokument> = dokument => {
   return <PanelWrapper>
     <ExpandablePanelBase
-      headerButton={(visDetaljer, visEllerSkjulDetaljer) => (
-        <Topplinje {...{visDetaljer, visEllerSkjulDetaljer}}>
+      headerButton={(skalViseDetaljer, visEllerSkjulDetaljer) => (
+        <Topplinje {...{skalViseDetaljer, visEllerSkjulDetaljer}}>
           <span>{dokument.filnavn}</span>
         </Topplinje>
       )}

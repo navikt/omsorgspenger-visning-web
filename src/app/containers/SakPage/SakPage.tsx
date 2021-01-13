@@ -1,16 +1,17 @@
 import DokumenterContainer from 'app/containers/Dokumenter/DokumenterContainer';
 import KoronaverføringerContainer from 'app/containers/Koronaverforinger/KoronaoverforingerContainer';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import AppContainer from '../../components/AppContainer/AppContainer';
 import ContentContainer from '../../components/ContentContainer/ContentContainer';
-import OverføringerContainer from '../Overforinger/OverforingerContainer';
-import { FordelingerContainer } from '../Fordelinger/FordelingerContainer';
 import BarnContainer from '../Barn/BarnContainer';
-import KvoteContainer from "../Kvote/KvoteContainer";
-import UidentifiserteRammemeldingerContainer from "../UidentifiserteRammemeldinger/UidentifiserteRammemeldingerContainer";
+import { FordelingerContainer } from '../Fordelinger/FordelingerContainer';
+import KvoteContainer from '../Kvote/KvoteContainer';
+import OverføringerContainer from '../Overforinger/OverforingerContainer';
+import UidentifiserteRammemeldingerContainer
+  from '../UidentifiserteRammemeldinger/UidentifiserteRammemeldingerContainer';
 
 const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
