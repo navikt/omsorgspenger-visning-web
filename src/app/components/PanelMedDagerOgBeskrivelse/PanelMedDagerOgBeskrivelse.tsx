@@ -18,7 +18,7 @@ const PanelMedDagerOgBeskrivelse: React.FunctionComponent<Props> = ({farge, anta
 };
 
 const Wrapper = styled.div<{ farge: string }>`
-  align-items: stretch;
+  align-items: center;
   background-color: inherit;
   border-bottom: none;
   border-left: ${({farge}) => `5px solid ${farge}`};
@@ -29,6 +29,7 @@ const Wrapper = styled.div<{ farge: string }>`
   margin-bottom: 1rem;
   text-align: left;
   width: 100%;
+  min-height: 2.5rem;
 `;
 
 const Dager = styled.span`
