@@ -51,33 +51,6 @@ const DeleDagerPanel: React.FunctionComponent<Props> = ({
   );
 };
 
-export const Overskrift = styled.button<{ farge: string }>`
-  align-items: stretch;
-  background-color: inherit;
-  border-bottom: none;
-  border-left: ${({ farge }) => `5px solid ${farge}`};
-  border-right: none;
-  border-top: none;
-  display: flex;
-  flex-wrap: nowrap;
-  font-size: 1em;
-  padding: 0;
-  width: 100%;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:focus {
-    outline: none;
-    
-    ${KnappStyle} {
-      border-radius: 5px;
-      outline: 2px solid ${navColors.navBla};
-    }
-  }
-`;
-
 export const Dager = styled.span`
   align-items: center;
   display: flex;
@@ -109,6 +82,33 @@ export const Banner = styled.span`
 
   ${OverskriftTekst} {
     font-size: 1em;
+  }
+`;
+
+export const Overskrift = styled.button<{ farge: string }>`
+  align-items: stretch;
+  background-color: inherit;
+  border-bottom: none;
+  border-left: ${({ farge }) => `5px solid ${farge}`};
+  border-right: none;
+  border-top: none;
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 1em;
+  padding: 0;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+    
+    ${KnappStyle} {
+      border-radius: 5px;
+      outline: 2px solid ${navColors.navBla};
+    }
   }
 `;
 

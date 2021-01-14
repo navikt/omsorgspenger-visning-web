@@ -95,7 +95,7 @@ const Overføring: React.FunctionComponent<Props> = ({
 
 const Periodeoverskrift = styled.p`
   border-bottom: 1px solid ${navColors.navGra20};
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   margin-top: 1rem;
 `;
 

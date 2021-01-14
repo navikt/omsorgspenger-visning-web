@@ -24,4 +24,4 @@ jobs:
       - name: Installere avhengigheter
         run: yarn install --ignore-optional --no-progress --frozen-lockfile
       - name: Tester og linting
-        run: yarn test && yarn lint
+        run: yarn test && yarn lint && yarn lint:css

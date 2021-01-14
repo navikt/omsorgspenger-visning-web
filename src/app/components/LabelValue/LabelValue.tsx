@@ -32,11 +32,11 @@ const LabelValue: React.FunctionComponent<Props> = ({
 };
 
 const horisontal = css`
-  display: flex;
   align-items: baseline;
+  display: flex;
   & :first-child {
-    margin-right: 1em;
     margin-bottom: 0;
+    margin-right: 1em;
   }
 `;
 

@@ -19,16 +19,16 @@ const PanelMedDagerOgBeskrivelse: React.FunctionComponent<Props> = ({farge, anta
 
 const Wrapper = styled.div<{ farge: string }>`
   align-items: stretch;
+  background-color: inherit;
+  border-bottom: none;
   border-left: ${({farge}) => `5px solid ${farge}`};
-  border-right:none;
-  border-top:none;
-  border-bottom:none;
-  background-color:inherit;
+  border-right: none;
+  border-top: none;
   display: flex;
   flex-wrap: nowrap; 
   margin-bottom: 1rem;
-  text-align:left;
-  width:100%;
+  text-align: left;
+  width: 100%;
 `;
 
 const Dager = styled.span`
@@ -36,7 +36,7 @@ const Dager = styled.span`
   display: flex;
   flex: 0 0 40px;
   font-size: 1.5rem;
-  font-weight:bold;
+  font-weight: bold;
   margin-left: 0.5em;
 `;
 
