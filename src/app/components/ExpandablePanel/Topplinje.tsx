@@ -26,7 +26,7 @@ const Topplinjeknapp = styled.button`
   border: 0;
   cursor: pointer;
   display: flex;
-  font-size: 0.9rem;
+  font-size: 1rem;
   height: 2.5rem;
   justify-content: space-between;
   padding: 0 1rem;
