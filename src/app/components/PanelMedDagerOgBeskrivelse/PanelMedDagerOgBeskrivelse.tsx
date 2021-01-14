@@ -27,9 +27,9 @@ const Wrapper = styled.div<{ farge: string }>`
   display: flex;
   flex-wrap: nowrap; 
   margin-bottom: 1rem;
+  min-height: 2.5rem;
   text-align: left;
   width: 100%;
-  min-height: 2.5rem;
 `;
 
 const Dager = styled.span`
