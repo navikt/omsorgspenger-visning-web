@@ -36,7 +36,7 @@ const Dager = styled.span`
   align-items: center;
   display: flex;
   flex: 0 0 40px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
   margin-left: 0.5em;
 `;
