@@ -26,7 +26,7 @@ const Barnekomponent: React.FunctionComponent<BarnInterface> = barn => {
       )}
       isOpenAsDefault={false}
     >
-      <table className='tabell'>
+      <table className="tabell">
         <thead>
           <tr>
             <th>{t("barn.rammevedtak.rammevedtak")}</th>
