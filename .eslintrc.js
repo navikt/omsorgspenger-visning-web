@@ -6,10 +6,10 @@ module.exports = {
     'react-app'
   ],
   rules: {
-    'jsx-quotes': [1, 'prefer-double'],
-    'no-var': 1,
-    'prefer-const': 1,
-    'sort-imports': [1, {'allowSeparatedGroups': true, 'ignoreDeclarationSort': true}],
+    'jsx-quotes': [2, 'prefer-double'],
+    'no-var': 2,
+    'prefer-const': 2,
+    'sort-imports': [2, {'allowSeparatedGroups': true, 'ignoreDeclarationSort': true}]
   },
   overrides: [
     {
