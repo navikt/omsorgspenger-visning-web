@@ -1,12 +1,12 @@
-import Overføring from 'app/components/Overforing/Overforing';
-import OverføringerExpandable from 'app/components/Overforing/OverforingerExpandable';
+import { GoBackInTimeIcon } from 'app/components/icons';
+import { Overføring as OverføringType, overføringKey } from 'app/types';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { css } from 'styled-components/macro';
+import navColors from 'styles/designSystemColors';
 import { erDatoSenere, erDatoTidligere, erPeriodeGjeldende } from 'utils/timeUtils';
-import navColors from '../../../styles/designSystemColors';
-import { GoBackInTimeIcon } from '../../components/icons';
-import { Overføring as OverføringType, overføringKey } from '../../types';
+import Overføring from './Overforing';
+import OverføringerExpandable from './OverforingerExpandable';
 
 interface Props {
   overføringer: {
