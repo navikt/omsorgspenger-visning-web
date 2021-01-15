@@ -20,7 +20,7 @@ const SakPage: React.FunctionComponent = () => {
   const kolonne1 = <>
     {process.env.TOGGLE_KVOTE && <KvoteContainer saksnummer={saksnummer}/>}
     <OverføringerContainer saksnummer={saksnummer}/>
-    {process.env.TOGGLE_KORONAOVERFORING && <KoronaverføringerContainer saksnummer={saksnummer}/>}
+    <KoronaverføringerContainer saksnummer={saksnummer}/>
     {process.env.TOGGLE_FORDELINGER && <FordelingerContainer saksnummer={saksnummer}/>}
     {process.env.TOGGLE_BARN && <BarnContainer saksnummer={saksnummer}/>}
   </>;

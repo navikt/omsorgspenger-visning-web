@@ -85,7 +85,6 @@ function getClientEnvironment(publicUrl) {
         WDS_SOCKET_PORT: process.env.WDS_SOCKET_PORT,
         TOGGLE_FORDELINGER: process.env.TOGGLE_FORDELINGER === "true",
         TOGGLE_BARN: process.env.TOGGLE_BARN === "true",
-        TOGGLE_KORONAOVERFORING: process.env.TOGGLE_KORONAOVERFORING === "true",
         TOGGLE_KVOTE: process.env.TOGGLE_KVOTE === "true",
         TOGGLE_DOKUMENTER: process.env.TOGGLE_DOKUMENTER === "true",
         TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER: process.env.TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER === "true"
