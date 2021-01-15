@@ -56,6 +56,7 @@ export const Dager = styled.span`
   display: flex;
   flex: 0 0 80px;
   font-size: 1.3em;
+  font-weight: bold;
   margin-left: 0.5em;
 
   > * {

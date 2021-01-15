@@ -20,6 +20,10 @@ export const GlobalStyle = createGlobalStyle`
     min-width: 100%;
   }
 
+  button {
+    font-family: inherit;
+  }
+  
   input, select {
     font-family: inherit;
     font-size: inherit;
