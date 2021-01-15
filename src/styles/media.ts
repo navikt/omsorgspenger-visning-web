@@ -3,13 +3,13 @@
  */
 
 import {
-  css,
   CSSObject,
   DefaultTheme,
   FlattenInterpolation,
   Interpolation,
   InterpolationFunction,
   ThemedStyledProps,
+  css,
 } from 'styled-components/macro';
 
 /*

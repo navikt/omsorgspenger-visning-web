@@ -128,8 +128,8 @@
     "start:prod": "node ./server.js",
     "checkTs": "tsc --noEmit",
     "eslint": "eslint --ext js,ts,tsx",
-    "lint": "yarn eslint -- src",
-    "lint:fix": "yarn eslint -- --fix src",
+    "lint": "yarn eslint src",
+    "lint:fix": "yarn eslint --fix src",
     "lint:css": "stylelint src/**/*.tsx"
   },
   "browserslist": {
