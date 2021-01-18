@@ -36,7 +36,7 @@ jobs:
       - name: Installere dependencies
         run: yarn install --ignore-optional --no-progress --frozen-lockfile
       - name: Tester og linting
-        run: yarn test --watchAll=false
+        run: yarn test --watchAll=false && yarn lint && yarn lint:css
 
       - name: Bygge dist
         run: yarn build
