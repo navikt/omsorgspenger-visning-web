@@ -1,0 +1,46 @@
+import {render, screen} from '@testing-library/react';
+import React, {useState} from 'react';
+import DeleDagerPanel from "../DeleDagerPanel";
+import navColors from "../../../../styles/designSystemColors";
+
+const fordeling = {
+  "antallDager": 1,
+  "til": "02028920544",
+  "gjelderFraOgMed": "2020-01-01",
+  "gjelderTilOgMed": "2020-12-31"
+}
+
+describe('<DeleDagerPanel>', () => {
+  const {antallDager, til} = fordeling;
+  const knappText = 'Vis innhold';
+  const overfortText = 'Dag overført';
+  const visDagerGittInnhold = false;
+  const DeleDagerPanelKomponent = (<DeleDagerPanel
+    visInnhold={visDagerGittInnhold}
+    setVisInnhold={() => visDagerGittInnhold = !visDagerGittInnhold}
+    farge={navColors.navBla}
+    overskrift={{
+      antallDager,
+      overskrifttekstId: til ? 'fordeling.dagerGir' : 'fordling.dagerFår'
+    }}
+  >
+  </DeleDagerPanel>);
+
+  test('Viser antall dager', async () => {
+    render(DeleDagerPanelKomponent);
+    const hentetAntallDager = screen.getByText(antallDager.toString());
+    expect(hentetAntallDager).toHaveTextContent(fordeling.antallDager.toString());
+  });
+
+  test('Viser dag/dager overført', async () => {
+    render(DeleDagerPanelKomponent);
+    const hentetDagerOverførtText = screen.getByText(overfortText);
+    expect(hentetDagerOverførtText).toHaveTextContent(overfortText);
+  });
+
+  test('Viser knapp for visInnehold', async () => {
+    render(DeleDagerPanelKomponent);
+    const hentetKnappText = screen.getByText(knappText);
+    expect(hentetKnappText).toHaveTextContent(knappText)
+  });
+});
