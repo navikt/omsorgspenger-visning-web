@@ -1,7 +1,8 @@
-import {render, screen} from '@testing-library/react';
-import React, {useState} from 'react';
+import { axe } from 'jest-axe';
 import DeleDagerPanel from "../DeleDagerPanel";
 import navColors from "../../../../styles/designSystemColors";
+import React, {useState} from 'react';
+import {render, screen} from '@testing-library/react';
 
 const fordeling = {
   "antallDager": 1,
@@ -14,7 +15,8 @@ describe('<DeleDagerPanel>', () => {
   const {antallDager, til} = fordeling;
   const knappText = 'Vis innhold';
   const overfortText = 'Dag overført';
-  const visDagerGittInnhold = false;
+  let visDagerGittInnhold = false;
+
   const DeleDagerPanelKomponent = (<DeleDagerPanel
     visInnhold={visDagerGittInnhold}
     setVisInnhold={() => visDagerGittInnhold = !visDagerGittInnhold}
@@ -42,5 +44,13 @@ describe('<DeleDagerPanel>', () => {
     render(DeleDagerPanelKomponent);
     const hentetKnappText = screen.getByText(knappText);
     expect(hentetKnappText).toHaveTextContent(knappText)
+  });
+
+  test('Den har ingen a11y violations', async () => {
+    const {container} =  render(DeleDagerPanelKomponent);
+    const a11yResults = await axe(container);
+
+    // @ts-ignore
+    expect(a11yResults).toHaveNoViolations();
   });
 });
