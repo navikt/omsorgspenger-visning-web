@@ -23,7 +23,7 @@ describe('<DeleDagerPanel>', () => {
     farge={navColors.navBla}
     overskrift={{
       antallDager,
-      overskrifttekstId: til ? 'fordeling.dagerGir' : 'fordling.dagerFår'
+      overskrifttekstId: til ? 'fordeling.dagerGir' : 'fordeling.dagerFår'
     }}
   >
   </DeleDagerPanel>);

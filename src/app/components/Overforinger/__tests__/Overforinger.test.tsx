@@ -177,7 +177,7 @@ describe('<Overføringer>', () => {
     expect(hentetFraIdentitet).toBeInTheDocument();
 
     const hentetGyldighetsperiode = screen.getByText(`${isoDateToLocale(overføring.gjelderFraOgMed)} - ${isoDateToLocale(overføring.gjelderTilOgMed)}`);
-    expect(hentetGyldighetsperiode).toHaveTextContent(`1.1.2019 - 31.12.2019`);
+    expect(hentetGyldighetsperiode).toBeInTheDocument();
   });
 
   test('Den har ingen a11y violations', async () => {

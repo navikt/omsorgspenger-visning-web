@@ -65,7 +65,7 @@ describe('<Overforing>', () => {
     const gyldighetsperiode = `Gyldighetsperiode`;
 
     const hentetGyldighetsperiode = screen.getByText(`${isoDateToLocale(overføringInput.gjelderFraOgMed)} - ${isoDateToLocale(overføringInput.gjelderTilOgMed)}`);
-    expect(hentetGyldighetsperiode).toHaveTextContent(`1.1.2019 - 31.12.2019`);
+    expect(hentetGyldighetsperiode).toBeInTheDocument();
 
    const hentetGyldighetsperiodeText = screen.getByText(gyldighetsperiode);
     expect(hentetGyldighetsperiodeText).toBeInTheDocument();
