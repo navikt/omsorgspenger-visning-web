@@ -22,12 +22,12 @@ const gjeldendeFordelinger =  [
 describe('<Fordelingskomponent>', () => {
   const FordelingskomponentTilTest = (<>
     {gjeldendeFordelinger.map((fordeling, key) => (
-    <Fordelingskomponent
-      {...{fordeling, key}}
-      defaultOpen={true}
-      farge={fordeling.til ? navColors.navLysBla : navColors.navDypBla}
-      />))}
-
+      <Fordelingskomponent
+        {...{fordeling, key}}
+        defaultOpen={true}
+        farge={fordeling.til ? navColors.navLysBla : navColors.navDypBla}
+      />
+    ))}
     </>);
 
   test('Viser riktig personnummer til mottaker to ganger', async () => {
