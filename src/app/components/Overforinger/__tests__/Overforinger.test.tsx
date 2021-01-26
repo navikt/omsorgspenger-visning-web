@@ -1,4 +1,4 @@
-import { axe } from 'jest-axe';
+import {axe} from 'jest-axe';
 import React, {useState} from 'react';
 import {render, screen} from '@testing-library/react';
 import {isoDateToLocale} from "../../../../utils/timeUtils";
@@ -85,7 +85,7 @@ const overforingerInput = {
 }
 
 describe('<Overføringer>', () => {
-  const OverføringerKomponent =  <Overføringer overføringer={overforingerInput} />
+  const OverføringerKomponent = <Overføringer overføringer={overforingerInput}/>
 
   test('Viser antall dager overført samt skjul/vis innehold', async () => {
     render(OverføringerKomponent);
@@ -93,10 +93,10 @@ describe('<Overføringer>', () => {
     const visInnehold = 'Vis innhold';
 
     const hentetAntallDager = screen.getByText(overforingerInput.gitt[0].dagerOverført.toString());
-    expect(hentetAntallDager).toHaveTextContent(overforingerInput.gitt[0].dagerOverført.toString());
+    expect(hentetAntallDager).toBeInTheDocument();
 
     const hentetDagerMottatt = screen.getByText(dagerOverført);
-    expect(hentetDagerMottatt).toHaveTextContent(dagerOverført);
+    expect(hentetDagerMottatt).toBeInTheDocument();
 
     const hentetVisInnehold = screen.getAllByText(visInnehold);
     expect(hentetVisInnehold).toBeArrayOfSize(2);
@@ -109,19 +109,19 @@ describe('<Overføringer>', () => {
     const til = 'Til';
 
     const hentetDagerØnsketOverført = screen.getByText(dagerØnsketOverført);
-    expect(hentetDagerØnsketOverført).toHaveTextContent(dagerØnsketOverført);
+    expect(hentetDagerØnsketOverført).toBeInTheDocument();
 
     const hentetAntallDagerØnsketOverført = screen.getByText(overforingerInput.gitt[0].til.identitetsnummer.toString());
-    expect(hentetAntallDagerØnsketOverført).toHaveTextContent(overforingerInput.gitt[0].til.identitetsnummer.toString());
+    expect(hentetAntallDagerØnsketOverført).toBeInTheDocument();
 
     const hentetGyldighetsPeriode = screen.getAllByText(gyldighetsPeriode);
     expect(hentetGyldighetsPeriode).toBeArrayOfSize(2);
 
     const hentetTil = screen.getByText(til);
-    expect(hentetTil).toHaveTextContent(til);
+    expect(hentetTil).toBeInTheDocument();
 
     const hentetTilId = screen.getByText(overforingerInput.gitt[0].dagerØnsketOverført.toString());
-    expect(hentetTilId).toHaveTextContent(overforingerInput.gitt[0].dagerØnsketOverført.toString());
+    expect(hentetTilId).toBeInTheDocument();
 
     const hentetGyldighetsperiode = screen.getByText(`${isoDateToLocale(overforingerInput.gitt[0].gjelderFraOgMed)} - ${isoDateToLocale(overforingerInput.gitt[0].gjelderTilOgMed)}`);
     expect(hentetGyldighetsperiode).toHaveTextContent(`1.1.2020 - 31.12.2021`);
@@ -133,25 +133,25 @@ describe('<Overføringer>', () => {
     const begrunnelserForPeriode = overforingerInput.gitt[0].begrunnelserForPeriode;
 
     const hentetGrunnlagForResultat = screen.getByText(grunnlagForResultat);
-    expect(hentetGrunnlagForResultat).toHaveTextContent(grunnlagForResultat);
+    expect(hentetGrunnlagForResultat).toBeInTheDocument();
 
     const hentetGyldighetsperiode = screen.getByText(`Fra og med ${isoDateToLocale(begrunnelserForPeriode[0].gjelderFraOgMed)} til og med ${isoDateToLocale(begrunnelserForPeriode[0].gjelderTilOgMed)}`);
     expect(hentetGyldighetsperiode).toHaveTextContent(`Fra og med 1.1.2019 til og med 5.3.2019`);
 
     const hentetForsteGrunnlagForResultat = screen.getByText(begrunnelserForPeriode[0].begrunnelser[0]);
-    expect(hentetForsteGrunnlagForResultat).toHaveTextContent(begrunnelserForPeriode[0].begrunnelser[0]);
+    expect(hentetForsteGrunnlagForResultat).toBeInTheDocument();
 
     const hentetAndreGyldighetsperiode = screen.getByText(`Fra og med ${isoDateToLocale(begrunnelserForPeriode[1].gjelderFraOgMed)} til og med ${isoDateToLocale(begrunnelserForPeriode[1].gjelderTilOgMed)}`);
     expect(hentetAndreGyldighetsperiode).toHaveTextContent(`Fra og med 3.2.2020 til og med 7.5.2020`);
 
     const hentetAndreGrunnlagForResultat = screen.getByText(begrunnelserForPeriode[1].begrunnelser[0]);
-    expect(hentetAndreGrunnlagForResultat).toHaveTextContent(begrunnelserForPeriode[1].begrunnelser[0]);
+    expect(hentetAndreGrunnlagForResultat).toBeInTheDocument();
 
     const hentetTredjeGyldighetsperiode = screen.getByText(`Fra og med ${isoDateToLocale(begrunnelserForPeriode[2].gjelderFraOgMed)} til og med ${isoDateToLocale(begrunnelserForPeriode[2].gjelderTilOgMed)}`);
     expect(hentetTredjeGyldighetsperiode).toHaveTextContent(`Fra og med 30.12.2021 til og med 2.2.2022`);
 
     const hentetTredjeGrunnlagForResultat = screen.getByText(begrunnelserForPeriode[2].begrunnelser[0]);
-    expect(hentetTredjeGrunnlagForResultat).toHaveTextContent(begrunnelserForPeriode[2].begrunnelser[0]);
+    expect(hentetTredjeGrunnlagForResultat).toBeInTheDocument();
   });
 
   test('Viser riktig informasjon i tidligere overføringer', async () => {
@@ -162,26 +162,26 @@ describe('<Overføringer>', () => {
     const overføring = overforingerInput.fått[0];
 
     const hentetSkjulTidligereOverføringer = screen.getByText(skjulTidligareOverføringer);
-    expect(hentetSkjulTidligereOverføringer).toHaveTextContent(skjulTidligareOverføringer);
+    expect(hentetSkjulTidligereOverføringer).toBeInTheDocument();
 
     const hentetDager = screen.getByText(overføring.dagerOverført);
-    expect(hentetDager).toHaveTextContent(overføring.dagerOverført.toString());
+    expect(hentetDager).toBeInTheDocument();
 
     const hentetDagerMottatt = screen.getByText(dagerMottatt);
-    expect(hentetDagerMottatt).toHaveTextContent(dagerMottatt);
+    expect(hentetDagerMottatt).toBeInTheDocument();
 
     const hentetFra = screen.getByText(fra);
-    expect(hentetFra).toHaveTextContent(fra);
+    expect(hentetFra).toBeInTheDocument();
 
     const hentetFraIdentitet = screen.getByText(overføring.fra.identitetsnummer);
-    expect(hentetFraIdentitet).toHaveTextContent(overføring.fra.identitetsnummer);
+    expect(hentetFraIdentitet).toBeInTheDocument();
 
     const hentetGyldighetsperiode = screen.getByText(`${isoDateToLocale(overføring.gjelderFraOgMed)} - ${isoDateToLocale(overføring.gjelderTilOgMed)}`);
     expect(hentetGyldighetsperiode).toHaveTextContent(`1.1.2019 - 31.12.2019`);
   });
-  
+
   test('Den har ingen a11y violations', async () => {
-    const {container} =  render(OverføringerKomponent);
+    const {container} = render(OverføringerKomponent);
     const a11yResults = await axe(container);
     // @ts-ignore
     expect(a11yResults).toHaveNoViolations();

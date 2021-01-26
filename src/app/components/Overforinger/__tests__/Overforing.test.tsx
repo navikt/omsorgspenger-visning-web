@@ -54,7 +54,7 @@ describe('<Overforing>', () => {
     const fra = 'Fra';
 
     const hentetIdentitetsnummer = screen.getByText(overføringInput.fra.identitetsnummer);
-    expect(hentetIdentitetsnummer).toHaveTextContent(overføringInput.fra.identitetsnummer);
+    expect(hentetIdentitetsnummer).toBeInTheDocument();
 
     const hentetFra = screen.getByText(fra);
     expect(hentetFra).toHaveTextContent(fra);
@@ -68,7 +68,7 @@ describe('<Overforing>', () => {
     expect(hentetGyldighetsperiode).toHaveTextContent(`1.1.2019 - 31.12.2019`);
 
    const hentetGyldighetsperiodeText = screen.getByText(gyldighetsperiode);
-    expect(hentetGyldighetsperiodeText).toHaveTextContent(gyldighetsperiode);
+    expect(hentetGyldighetsperiodeText).toBeInTheDocument();
   });
 
   test('Viser rett header med dager', async () => {
@@ -77,13 +77,13 @@ describe('<Overforing>', () => {
     const visInnehold = 'Vis innhold';
 
     const hentetAntallDager = screen.getByText(overføringInput.dagerOverført.toString());
-    expect(hentetAntallDager).toHaveTextContent(overføringInput.dagerOverført.toString());
+    expect(hentetAntallDager).toBeInTheDocument();
 
     const hentetDagerMottatt = screen.getByText(dagerMottatt);
-    expect(hentetDagerMottatt).toHaveTextContent(dagerMottatt);
+    expect(hentetDagerMottatt).toBeInTheDocument();
 
     const hentetVisInnehold = screen.getByText(visInnehold);
-    expect(hentetVisInnehold).toHaveTextContent(visInnehold);
+    expect(hentetVisInnehold).toBeInTheDocument();
   });
 
   test('Den har ingen a11y violations', async () => {

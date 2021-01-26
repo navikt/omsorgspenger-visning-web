@@ -31,19 +31,19 @@ describe('<DeleDagerPanel>', () => {
   test('Viser antall dager', async () => {
     render(DeleDagerPanelKomponent);
     const hentetAntallDager = screen.getByText(antallDager.toString());
-    expect(hentetAntallDager).toHaveTextContent(fordeling.antallDager.toString());
+    expect(hentetAntallDager).toBeInTheDocument();
   });
 
   test('Viser dag/dager overført', async () => {
     render(DeleDagerPanelKomponent);
     const hentetDagerOverførtText = screen.getByText(overfortText);
-    expect(hentetDagerOverførtText).toHaveTextContent(overfortText);
+    expect(hentetDagerOverførtText).toBeInTheDocument();
   });
 
   test('Viser knapp for visInnehold', async () => {
     render(DeleDagerPanelKomponent);
     const hentetKnappText = screen.getByText(knappText);
-    expect(hentetKnappText).toHaveTextContent(knappText)
+    expect(hentetKnappText).toBeInTheDocument();
   });
 
   test('Den har ingen a11y violations', async () => {

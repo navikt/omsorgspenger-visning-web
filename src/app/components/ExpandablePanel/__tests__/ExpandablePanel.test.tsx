@@ -38,19 +38,19 @@ describe('<ExpandablePanel>', () => {
   test('Viser innehold', async () => {
     render(ExpandablePanelKomponentVis);
     const hentetInnehold = screen.getByText(inneholdIKomponent);
-    expect(hentetInnehold).toHaveTextContent(inneholdIKomponent);
+    expect(hentetInnehold).toBeInTheDocument();
   });
 
   test('Viser heading om innehold ska inneholde "Skjul"', async () => {
     render(ExpandablePanelKomponentVis);
     const hentetHeadingText = screen.getByText('Skjul');
-    expect(hentetHeadingText).toHaveTextContent('Skjul');
+    expect(hentetHeadingText).toBeInTheDocument();
   });
 
   test('Viser heading som ska inneholde "Vis"', async () => {
     render(ExpandablePanelKomponentSkjul);
     const hentetHeadingText = screen.getByText('Vis');
-    expect(hentetHeadingText).toHaveTextContent('Vis');
+    expect(hentetHeadingText).toBeInTheDocument();
   });
 
   test('Den har ingen a11y violations', async () => {
