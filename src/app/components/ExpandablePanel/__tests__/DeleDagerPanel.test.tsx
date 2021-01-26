@@ -25,8 +25,7 @@ describe('<DeleDagerPanel>', () => {
       antallDager,
       overskrifttekstId: til ? 'fordeling.dagerGir' : 'fordling.dagerFår'
     }}
-  >
-  </DeleDagerPanel>);
+  />);
 
   test('Viser antall dager', async () => {
     render(DeleDagerPanelKomponent);
