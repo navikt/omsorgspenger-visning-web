@@ -1,7 +1,7 @@
-import { axe } from 'jest-axe';
+import {axe} from 'jest-axe';
 import Overføring from "../Overforing";
 import navColors from "../../../../styles/designSystemColors";
-import React, {useState} from 'react';
+import React from 'react';
 import {render, screen} from '@testing-library/react';
 import {OverføringStatus} from "../../../types";
 import {isoDateToLocale} from "../../../../utils/timeUtils";
@@ -43,7 +43,7 @@ const overføringInput = {
 };
 
 describe('<Overforing>', () => {
-  const OverforingKomponent =  <Overføring
+  const OverforingKomponent = <Overføring
     overføring={overføringInput}
     defaultOpen={false}
     farge={navColors.navGra40}
@@ -67,7 +67,7 @@ describe('<Overforing>', () => {
     const hentetGyldighetsperiode = screen.getByText(`${isoDateToLocale(overføringInput.gjelderFraOgMed)} - ${isoDateToLocale(overføringInput.gjelderTilOgMed)}`);
     expect(hentetGyldighetsperiode).toBeInTheDocument();
 
-   const hentetGyldighetsperiodeText = screen.getByText(gyldighetsperiode);
+    const hentetGyldighetsperiodeText = screen.getByText(gyldighetsperiode);
     expect(hentetGyldighetsperiodeText).toBeInTheDocument();
   });
 
@@ -87,7 +87,7 @@ describe('<Overforing>', () => {
   });
 
   test('Den har ingen a11y violations', async () => {
-    const {container} =  render(OverforingKomponent);
+    const {container} = render(OverforingKomponent);
     const a11yResults = await axe(container);
     // @ts-ignore
     expect(a11yResults).toHaveNoViolations();

@@ -1,20 +1,15 @@
-import { axe } from 'jest-axe';
+import {axe} from 'jest-axe';
 import ExpandablePanel from "../ExpandablePanel";
-import React, {useState} from 'react';
+import React from 'react';
 import {render, screen} from '@testing-library/react';
 
 describe('<ExpandablePanel>', () => {
   const inneholdIKomponent = 'Dette er innhold';
   const innholdPadding = '1em';
+  const heading = (skalViseInnhold) => <span>{skalViseInnhold ? 'Skjul' : 'Vis'}</span>;
 
   const ExpandablePanelKomponentVis = (<ExpandablePanel
-    heading={(skalViseInnhold) => <>
-      <span>
-              {skalViseInnhold
-                ? 'Skjul'
-                : 'Vis'}
-            </span>
-    </>}
+    heading={heading}
     isOpenAsDefault={true}
     innholdPadding={innholdPadding}
   >
@@ -22,13 +17,7 @@ describe('<ExpandablePanel>', () => {
   </ExpandablePanel>);
 
   const ExpandablePanelKomponentSkjul = (<ExpandablePanel
-    heading={(skalViseInnhold) => <>
-      <span>
-              {skalViseInnhold
-                ? 'Skjul'
-                : 'Vis'}
-            </span>
-    </>}
+    heading={heading}
     isOpenAsDefault={false}
     innholdPadding={innholdPadding}
   >
@@ -54,7 +43,7 @@ describe('<ExpandablePanel>', () => {
   });
 
   test('Den har ingen a11y violations', async () => {
-    const {container} =  render(ExpandablePanelKomponentVis);
+    const {container} = render(ExpandablePanelKomponentVis);
     const a11yResults = await axe(container);
 
     // @ts-ignore

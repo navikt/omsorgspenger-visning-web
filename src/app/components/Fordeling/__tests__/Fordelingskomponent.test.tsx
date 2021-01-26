@@ -1,10 +1,10 @@
-import { axe } from 'jest-axe';
+import {axe} from 'jest-axe';
 import Fordelingskomponent from "../Fordelingskomponent";
 import navColors from "../../../../styles/designSystemColors";
-import React, {useState} from 'react';
+import React from 'react';
 import {render, screen} from '@testing-library/react';
 
-const gjeldendeFordelinger =  [
+const gjeldendeFordelinger = [
   {
     "antallDager": 1,
     "til": "02028920544",
@@ -17,18 +17,18 @@ const gjeldendeFordelinger =  [
     "gjelderFraOgMed": "2020-01-01",
     "gjelderTilOgMed": "2020-12-31"
   }
+];
 
-  ]
 describe('<Fordelingskomponent>', () => {
   const FordelingskomponentTilTest = (<>
     {gjeldendeFordelinger.map((fordeling, key) => (
-    <Fordelingskomponent
-      {...{fordeling, key}}
-      defaultOpen={true}
-      farge={fordeling.til ? navColors.navLysBla : navColors.navDypBla}
-      />))}
-
-    </>);
+      <Fordelingskomponent
+        {...{fordeling, key}}
+        defaultOpen={true}
+        farge={fordeling.til ? navColors.navLysBla : navColors.navDypBla}
+      />
+    ))}
+  </>);
 
   test('Viser riktig personnummer til mottaker to ganger', async () => {
     render(FordelingskomponentTilTest);
@@ -38,7 +38,7 @@ describe('<Fordelingskomponent>', () => {
   });
 
   test('Den har ingen a11y violations', async () => {
-    const {container} =  render(FordelingskomponentTilTest);
+    const {container} = render(FordelingskomponentTilTest);
     const a11yResults = await axe(container);
 
     // @ts-ignore
