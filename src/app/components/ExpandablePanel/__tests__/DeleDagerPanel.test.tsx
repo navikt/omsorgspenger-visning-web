@@ -9,7 +9,7 @@ const fordeling = {
   "til": "02028920544",
   "gjelderFraOgMed": "2020-01-01",
   "gjelderTilOgMed": "2020-12-31"
-}
+};
 
 describe('<DeleDagerPanel>', () => {
   const {antallDager, til} = fordeling;
