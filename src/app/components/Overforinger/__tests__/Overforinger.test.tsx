@@ -124,7 +124,7 @@ describe('<Overføringer>', () => {
     expect(hentetTilId).toBeInTheDocument();
 
     const hentetGyldighetsperiode = screen.getByText(`${isoDateToLocale(overforingerInput.gitt[0].gjelderFraOgMed)} - ${isoDateToLocale(overforingerInput.gitt[0].gjelderTilOgMed)}`);
-    expect(hentetGyldighetsperiode).toHaveTextContent(`1.1.2020 - 31.12.2021`);
+    expect(hentetGyldighetsperiode).toBeInTheDocument();
   });
 
   test('Viser riktig informasjon i grunnlag for resultat', async () => {
