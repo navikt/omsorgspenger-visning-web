@@ -82,7 +82,7 @@ const overforingerInput = {
       "status": OverføringStatus.Gjeldende
     }
   ]
-}
+};
 
 describe('<Overføringer>', () => {
   const OverføringerKomponent =  <Overføringer overføringer={overforingerInput} />
