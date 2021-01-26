@@ -1,5 +1,5 @@
 import { axe } from 'jest-axe';
-import React, {useState} from 'react';
+import React from 'react';
 import {render, screen} from '@testing-library/react';
 import {isoDateToLocale} from "../../../../utils/timeUtils";
 import Overføringer from "../Overforinger";
