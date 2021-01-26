@@ -1,8 +1,8 @@
 import { axe } from 'jest-axe';
 import DeleDagerPanel from "../DeleDagerPanel";
 import navColors from "../../../../styles/designSystemColors";
-import React, {useState} from 'react';
 import {render, screen} from '@testing-library/react';
+import React from "react";
 
 const fordeling = {
   "antallDager": 1,
