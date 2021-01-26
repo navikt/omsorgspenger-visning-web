@@ -1,6 +1,6 @@
 import { axe } from 'jest-axe';
 import ExpandablePanel from "../ExpandablePanel";
-import React, {useState} from 'react';
+import React from 'react';
 import {render, screen} from '@testing-library/react';
 
 describe('<ExpandablePanel>', () => {
