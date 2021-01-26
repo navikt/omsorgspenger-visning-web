@@ -4,7 +4,7 @@ import navColors from "../../../../styles/designSystemColors";
 import React, {useState} from 'react';
 import {render, screen} from '@testing-library/react';
 
-const gjeldendeFordelinger =  [
+const gjeldendeFordelinger = [
   {
     "antallDager": 1,
     "til": "02028920544",
@@ -17,8 +17,8 @@ const gjeldendeFordelinger =  [
     "gjelderFraOgMed": "2020-01-01",
     "gjelderTilOgMed": "2020-12-31"
   }
+];
 
-  ]
 describe('<Fordelingskomponent>', () => {
   const FordelingskomponentTilTest = (<>
     {gjeldendeFordelinger.map((fordeling, key) => (
