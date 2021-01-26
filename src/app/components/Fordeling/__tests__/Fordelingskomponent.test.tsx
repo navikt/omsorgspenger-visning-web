@@ -1,7 +1,7 @@
 import { axe } from 'jest-axe';
 import Fordelingskomponent from "../Fordelingskomponent";
 import navColors from "../../../../styles/designSystemColors";
-import React, {useState} from 'react';
+import React from 'react';
 import {render, screen} from '@testing-library/react';
 
 const gjeldendeFordelinger = [
