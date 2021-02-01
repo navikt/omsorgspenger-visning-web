@@ -131,7 +131,7 @@
       "^.+\\.module\\.(css|sass|scss)$"
     ],
     "modulePaths": [
-      "C:\\Users\\K157754\\projects\\omsorgspenger-visning-web\\src"
+      "<rootDir>/src"
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web",

@@ -18,17 +18,15 @@ describe('<PanelMedDagerOgBeskrivelse>', () => {
     );
 
     const hentetAntallDager = screen.getByText(antallDager.toString());
-    expect(hentetAntallDager).toHaveTextContent(antallDager.toString());
+    expect(hentetAntallDager).toBeInTheDocument();
 
     const hentetBeskrivelse = screen.getByText(beskrivelse);
-    expect(hentetBeskrivelse).toHaveTextContent(beskrivelse);
-
+    expect(hentetBeskrivelse).toBeInTheDocument();
   });
 
   test('Den har ingen a11y violations', async () => {
     const antallDager = 5;
     const beskrivelse = 'Tekst om hva dagene innebærer';
-
     const {container} = render(
       <PanelMedDagerOgBeskrivelse
         farge={navColors.navGronn}
