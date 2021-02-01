@@ -42,6 +42,8 @@
   "overføringer.skjulTidligere": "Skjul tidligere overføringer",
   "overføringer.visSenere": "Vis kommende endringer",
   "overføringer.visTidligere": "Vis tidligere overføringer",
+  "personkort.fodselsnummer": "Fødselsnummer",
+  "personkort.saksnummer": "Saksnummer",
   "personsøk.indikasjon": "Søker på person …",
   "personsøk.input.feil": "Et fødsels- eller d-nummer består av 11 sifre.",
   "personsøk.input.label": "Søk på person (fødselsnummer eller d-nummer)",

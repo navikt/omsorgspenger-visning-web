@@ -1553,6 +1553,13 @@
   resolved "https://registry.yarnpkg.com/@navikt/nap-bem-utils/-/nap-bem-utils-1.0.1.tgz#dd7edcee164611c187e3f548ad0463c9c10da8c8"
   integrity sha512-byL60wB0nRHY0S6oHnca2kILUElni0rbbPUrj832bGGMgVqqYRy45D9OWPV6IzGIHItJcfCSEzjWHeZCftBerQ==
 
+"@navikt/nap-clipboard@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@navikt/nap-clipboard/-/nap-clipboard-1.0.1.tgz#4972d3c3022f5c2ec9cc99482e699b328c5162fe"
+  integrity sha512-9ggW4JER/Mk1Ek3XxxTWoHF/1vOBoXkfthTZcpSm+KUF/agQQqlI/ruaWdEnR+j9062a3Q1LRGKfFA+zu8jkyg==
+  dependencies:
+    "@navikt/nap-bem-utils" "1.0.1"
+
 "@navikt/nap-header@1.0.10":
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/@navikt/nap-header/-/nap-header-1.0.10.tgz#6b6491a500e5098e8c906c221e3f1537fa4f0b3b"
@@ -1565,6 +1572,27 @@
     nav-frontend-typografi "^2.0.16"
     nav-frontend-typografi-style "^1.0.17"
     prop-types "^15.7.2"
+
+"@navikt/nap-person-card@1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@navikt/nap-person-card/-/nap-person-card-1.1.4.tgz#711499912aba1ab1d175925cb18e67c8567fa56c"
+  integrity sha512-p7owTLWKwa5SGHfsVxuZOA3rhOOt40npJ1FTqOS7iFpLXDOpIc87a80hdllZxqobqGQO2EyNGUJt80vJXMmMJg==
+  dependencies:
+    "@navikt/nap-bem-utils" "1.0.1"
+    "@navikt/nap-clipboard" "1.0.1"
+    "@navikt/nap-popover" "1.0.6"
+    nav-frontend-typografi "^2.0.17"
+    nav-frontend-typografi-style "^1.0.18"
+
+"@navikt/nap-popover@1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@navikt/nap-popover/-/nap-popover-1.0.6.tgz#132acdc827673b17a4ac33e132840bbda26fe287"
+  integrity sha512-JaHCIVz2FKrz1ZYR/9Dim39pc//tqTbkNLRpP4Xg9hgVgGXGRxCuHOv/ByNlHxYXdDSOwhVk6RIJiGhtOdmeGw==
+  dependencies:
+    "@popperjs/core" "^2.3.2"
+    prop-types "^15.7.2"
+    react "^16.13.1"
+    react-popper "^2.2.2"
 
 "@navikt/nap-user-panel@1.0.0":
   version "1.0.0"
@@ -1604,6 +1632,11 @@
   integrity sha512-Uv6h1sT+0DrblvIrolFtbvM1FgWm+/sy4B3pvLp67Zys+thcukzS5ekn7HsZFGpWP4Q3fYJCljbWQE/XivMRLw==
   dependencies:
     mkdirp "^1.0.4"
+
+"@popperjs/core@^2.3.2":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
+  integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
 
 "@rollup/plugin-babel@^5.2.0":
   version "5.2.2"
@@ -8482,6 +8515,11 @@ nav-frontend-core@^4.0.11:
   resolved "https://registry.yarnpkg.com/nav-frontend-core/-/nav-frontend-core-4.0.13.tgz#0f1917d914279c9f6555ccd1f7709c67b0316233"
   integrity sha512-36PyQkYceP6ZInQpeYfNA307qEODRjGfSxOIeiPdxilyxRB6v2PaLEePRZSS/adJ5i9PegSCDsm/rUKBaJKaIA==
 
+nav-frontend-core@^5.0.11:
+  version "5.0.11"
+  resolved "https://registry.yarnpkg.com/nav-frontend-core/-/nav-frontend-core-5.0.11.tgz#d2611a79f5f5372166a467a5f6e5eaccb8725086"
+  integrity sha512-5b1FMK1mPfnpsXgHMDLY8Tj4SiPXVFg9hXj//qTaO3W2lwMY4Df3dKh4R595OiuVu7IRutAIuocPtXv3ysmsag==
+
 nav-frontend-js-utils@1.0.15, nav-frontend-js-utils@^1.0.8:
   version "1.0.15"
   resolved "https://registry.yarnpkg.com/nav-frontend-js-utils/-/nav-frontend-js-utils-1.0.15.tgz#d5dc090ad6194f595175048a2717615eba8aed53"
@@ -8536,10 +8574,22 @@ nav-frontend-typografi-style@1.0.31, nav-frontend-typografi-style@^1.0.17:
   dependencies:
     nav-frontend-core "^5.0.10"
 
+nav-frontend-typografi-style@^1.0.18:
+  version "1.0.33"
+  resolved "https://registry.yarnpkg.com/nav-frontend-typografi-style/-/nav-frontend-typografi-style-1.0.33.tgz#ed1c9214662da8bd714d64ec2a2833736158d692"
+  integrity sha512-HKNQXVEG99YDlgNz22/hTFcN9yyKs3N67xUonQ8Esh7Cr8lJwT1BnAYlkiT3DimJL+oKyx7bnfA/lPJF8aSl2A==
+  dependencies:
+    nav-frontend-core "^5.0.11"
+
 nav-frontend-typografi@2.0.37, nav-frontend-typografi@^2.0.16:
   version "2.0.37"
   resolved "https://registry.yarnpkg.com/nav-frontend-typografi/-/nav-frontend-typografi-2.0.37.tgz#dc7d930dbdb9fb8bfcb5441b1f893f67d9c59ad0"
   integrity sha512-u+oUiAgsf3e0/TZtzksiQKayxtrkU+WNZ/w5OjIx2W1oiKocE8UaJ1SWCoJm1JrVops1ifR+ZMuBQcXCpb8pFQ==
+
+nav-frontend-typografi@^2.0.17:
+  version "2.0.39"
+  resolved "https://registry.yarnpkg.com/nav-frontend-typografi/-/nav-frontend-typografi-2.0.39.tgz#036e602e1c6253685132b62f05e42aeafc50fb9c"
+  integrity sha512-YJ2e+nB2C1GdpxkONM87W8to+6ij058WWa6s2k1ABdODtfiHKQd0hJEfgmW9WrJT5e2WM6kkal5IeH3qF3lVuw==
 
 negotiator@0.6.2:
   version "0.6.2"
@@ -10310,7 +10360,7 @@ react-error-overlay@^6.0.8:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.8.tgz#474ed11d04fc6bda3af643447d85e9127ed6b5de"
   integrity sha512-HvPuUQnLp5H7TouGq3kzBeioJmXms1wHy9EGjz2OURWBp4qZO6AfGEcnxts1D/CbwPLRAgTMPCEgYhA3sEM4vw==
 
-react-fast-compare@^3.2.0:
+react-fast-compare@^3.0.1, react-fast-compare@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
@@ -10343,6 +10393,14 @@ react-is@16.13.1, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
+
+react-popper@^2.2.2:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-2.2.4.tgz#d2ad3d2474ac9f1abf93df3099d408e5aa6a2e22"
+  integrity sha512-NacOu4zWupdQjVXq02XpTD3yFPSfg5a7fex0wa3uGKVkFK7UN6LvVxgcb+xYr56UCuWiNPMH20tntdVdJRwYew==
+  dependencies:
+    react-fast-compare "^3.0.1"
+    warning "^4.0.2"
 
 react-router-dom@5.1.2:
   version "5.1.2"
@@ -10393,7 +10451,7 @@ react-transition-group@^4.4.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@16.14.0:
+react@16.14.0, react@^16.13.1:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
   integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
@@ -12571,6 +12629,13 @@ walker@^1.0.7, walker@~1.0.5:
   integrity sha1-L3+bj9ENZ3JisYqITijRlhjgKPs=
   dependencies:
     makeerror "1.0.x"
+
+warning@^4.0.2:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/warning/-/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"
+  integrity sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
+  dependencies:
+    loose-envify "^1.0.0"
 
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"
