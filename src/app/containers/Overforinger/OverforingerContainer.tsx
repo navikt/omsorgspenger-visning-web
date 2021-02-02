@@ -31,7 +31,7 @@ const OverføringerContainer: React.FunctionComponent<Props> = ({
       {loading && <LoadingIndicator/>}
       {error && <p>
         {errorStatus === 404
-          ? t('sak.feil.404', {saksnummer})
+          ? t('sak.feil.ikkeIdentitetsnummerEllerSaksnummer', {saksnummer})
           : t('sak.feil.ukjent')}
       </p>}
       {data !== null && <Overføringer overføringer={data} />}

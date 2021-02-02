@@ -52,6 +52,7 @@
   "personsøk.response.feil.Unknown": "Det skjedde en ukjent feil. Prøv på nytt senere.",
   "personsøk.søkeknapp.søk": "Søk",
   "sak.feil.404": "Fant ingen saker med saksnummer {{saksnummer}}.",
+  "sak.feil.ikkeIdentitetsnummerEllerSaksnummer": "Fant ikke identitetsnummer eller saksnummer {{saksnummer}}." ,
   "sak.feil.ukjent": "Det skjedde en ukjent feil. Prøv igjen senere.",
   "uhåndtertApplikasjonsfeil": "Oooops! Det skjedde en uventet feil.",
   "uidentifiserteRammemeldinger.overskrift" : "Uidentifiserte rammemeldinger",

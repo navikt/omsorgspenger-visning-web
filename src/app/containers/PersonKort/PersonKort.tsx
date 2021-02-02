@@ -27,7 +27,7 @@ const PersonKort: React.FunctionComponent<Props> = ({saksnummer}) => {
       </PersonCardStyle>}
       {error && <p>
         {errorStatus === 404
-          ? t('sak.feil.404', {saksnummer})
+          ? t('sak.feil.ikkeIdentitetsnummerEllerSaksnummer', {saksnummer})
           : t('sak.feil.ukjent')}
       </p>}
     </>
