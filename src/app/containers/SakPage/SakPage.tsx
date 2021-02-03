@@ -12,6 +12,7 @@ import KvoteContainer from '../Kvote/KvoteContainer';
 import OverføringerContainer from '../Overforinger/OverforingerContainer';
 import UidentifiserteRammemeldingerContainer
   from '../UidentifiserteRammemeldinger/UidentifiserteRammemeldingerContainer';
+import PersonKort from "../PersonKort/PersonKort";
 
 const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
@@ -39,6 +40,7 @@ const SakPage: React.FunctionComponent = () => {
         <meta name="description" content={t('homepage.descr')} />
       </Helmet>
       <AppContainer>
+        <PersonKort saksnummer={saksnummer}/>
         <ContentContainer {...{skalViseBeggeKolonner}}>
           {skalViseBeggeKolonner
             ? <><div>{kolonne1}</div><div>{kolonne2}</div></>
