@@ -22,9 +22,11 @@ const PersonKort: React.FunctionComponent<Props> = ({saksnummer}) => {
       {loading && <LoadingIndicator/>}
       {data !== null &&
       <PersonCardStyle>
-        <PersonCard name={`${t('personkort.saksnummer')}: ${data.saksnummer}`}
-                    fodselsnummer={`${t('personkort.fodselsnummer')}: ${data.identitetsnummer}`} gender={'unknown'}/>
-      </PersonCardStyle>}
+        <PersonCard name={t('personkort.saksnummer', {saksnummer})}
+                    fodselsnummer={t('personkort.fodselsnummer', {fodselsnummer: data.identitetsnummer})}
+                    gender={'unknown'}/>
+      </PersonCardStyle>
+      }
       {error && <p>
         {errorStatus === 404
           ? t('sak.feil.ikkeIdentitetsnummerEllerSaksnummer', {saksnummer})
@@ -39,7 +41,7 @@ const PersonCardStyle = styled.div`
   .clipboard__animationContainer{
     display: none;
   }
-
+  
   .person-card__name-gender-container{
     padding-left: 0;
   }
