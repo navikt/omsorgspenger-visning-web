@@ -38,6 +38,8 @@ const PersonKort: React.FunctionComponent<Props> = ({saksnummer}) => {
 
 const PersonCardStyle = styled.div`
   margin-bottom: 0;
+  width: 100%;
+  
   .clipboard__animationContainer{
     display: none;
   }
