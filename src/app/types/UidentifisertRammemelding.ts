@@ -4,5 +4,5 @@ enum UidentifisertRammemeldingType {
 }
 
 export default interface UidentifisertRammemelding {
-  type : UidentifisertRammemeldingType
+  type: UidentifisertRammemeldingType;
 }

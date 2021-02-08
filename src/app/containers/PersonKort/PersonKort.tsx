@@ -21,20 +21,19 @@ const PersonKort: React.FunctionComponent<Props> = ({saksnummer}) => {
     <>
       {loading && <LoadingIndicator/>}
       {data !== null &&
-      <PersonCardStyle>
-        <PersonCard name={t('personkort.saksnummer', {saksnummer})}
-                    fodselsnummer={t('personkort.fodselsnummer', {fodselsnummer: data.identitetsnummer})}
-                    gender={'unknown'}/>
-      </PersonCardStyle>
-      }
+        <PersonCardStyle>
+          <PersonCard name={t('personkort.saksnummer', {saksnummer})}
+                      fodselsnummer={t('personkort.fodselsnummer', {fodselsnummer: data.identitetsnummer})}
+                      gender={'unknown'}/>
+        </PersonCardStyle>}
       {error && <p>
         {errorStatus === 404
           ? t('sak.feil.ikkeIdentitetsnummerEllerSaksnummer', {saksnummer})
           : t('sak.feil.ukjent')}
       </p>}
     </>
-  )
-}
+  );
+};
 
 const PersonCardStyle = styled.div`
   margin-bottom: 0;

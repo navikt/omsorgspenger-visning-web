@@ -39,8 +39,8 @@ get(apiRoutes().Env).then(({ data = {} }) => {
     // have to be constants at compile-time
     module.hot.accept(['./app', './locales/i18n'], () => {
       ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-      const App = require('./app').App;
-      render(App);
+      const app = require('./app').App;
+      render(app);
     });
   }
 
