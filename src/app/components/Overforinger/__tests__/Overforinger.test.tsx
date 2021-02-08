@@ -85,7 +85,7 @@ const overforingerInput = {
 };
 
 describe('<Overføringer>', () => {
-  const OverføringerKomponent = <Overføringer overføringer={overforingerInput}/>
+  const OverføringerKomponent = <Overføringer overføringer={overforingerInput}/>;
 
   test('Viser antall dager overført samt skjul/vis innehold', async () => {
     render(OverføringerKomponent);

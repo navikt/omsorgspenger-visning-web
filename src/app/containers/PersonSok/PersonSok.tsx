@@ -45,11 +45,8 @@ const PersonSøk: React.FunctionComponent = () => {
             setResponseError(ErrorType.Unknown);
           }
         })
-        .catch(e => {
-          const responseError = e as ResponseError;
-          const status = responseError.response.status;
-
-          switch (status) {
+        .catch(err => {
+          switch ((err as ResponseError).response.status) {
             case 403:
               setResponseError(ErrorType.NotAuthorised);
               break;
