@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_BASE: docker.pkg.github.com/${{ github.repository }}/omsorgspenger-visning-web
+  IMAGE_BASE: ghcr.io/${{ github.repository }}
   GITHUB_USERNAME: x-access-token
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -20,7 +20,7 @@ jobs:
       - name: Hente kode
         uses: actions/checkout@v2.3.4
       - name: Sette opp Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.5
         with:
           node-version: 12.x
 
@@ -49,7 +49,7 @@ jobs:
       - name: Bygg og laste opp docker-image
         run: |
           docker build --tag ${IMAGE} --tag ${IMAGE_BASE}:latest .
-          echo "$GITHUB_TOKEN" | docker login --username "x-access-token" --password-stdin https://docker.pkg.github.com
+          echo ${GITHUB_TOKEN} | docker login ghcr.io --username ${GITHUB_REPOSITORY} --password-stdin
           docker push ${IMAGE_BASE}:latest
           docker push ${IMAGE}
 
