@@ -199,7 +199,7 @@
     "html-webpack-plugin": "4.5.2",
     "jest": "27.0.5",
     "jest-axe": "5.0.1",
-    "jest-environment-jsdom": "^27.0.5",
+    "jest-environment-jsdom": "^27.0.6",
     "jest-extended": "0.11.5",
     "jest-resolve": "27.0.5",
     "jest-styled-components": "7.0.4",
