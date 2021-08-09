@@ -16,7 +16,7 @@
     "@types/react-helmet": "6.1.2",
     "@types/react-router-dom": "5.1.8",
     "@types/styled-components": "5.1.12",
-    "browserslist": "^4.16.6",
+    "browserslist": "^4.16.7",
     "camelcase": "^6.2.0",
     "classnames": "2.3.1",
     "dotenv": "10.0.0",
