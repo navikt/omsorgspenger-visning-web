@@ -42,7 +42,7 @@
     "nav-frontend-tabell-style": "2.0.2",
     "nav-frontend-typografi": "4.0.1",
     "nav-frontend-typografi-style": "2.0.1",
-    "pnp-webpack-plugin": "1.6.4",
+    "pnp-webpack-plugin": "1.7.0",
     "postcss": "8.3.6",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-normalize": "10.0.0",
@@ -225,6 +225,6 @@
     "webpack": "4.46.0",
     "webpack-dev-server": "3.11.2",
     "webpack-manifest-plugin": "3.1.1",
-    "workbox-webpack-plugin": "6.1.5"
+    "workbox-webpack-plugin": "6.2.2"
   }
 }
