@@ -9,7 +9,7 @@
     "@navikt/nap-person-card": "1.1.4",
     "@navikt/nap-user-panel": "1.1.0",
     "@sentry/browser": "6.11.0",
-    "@types/node": "16.4.13",
+    "@types/node": "16.7.1",
     "@types/react": "17.0.16",
     "@types/react-collapse": "5.0.1",
     "@types/react-dom": "17.0.9",
