@@ -34,10 +34,10 @@ export const useAuthContext = (): AuthContextProps => {
 
       dispatch(userLoaded(data.name));
     } catch (e) {
-      if (e.response) {
-        const responseError = e as ResponseError;
+      const { response } = e as ResponseError;
+      if (response) {
         console.log(e);
-        if (responseError.response.status === 403) {
+        if (response.status === 403) {
           return dispatch(userUnauthorised());
         }
       }
