@@ -9,7 +9,7 @@ type ReturnType = {
 
 const usePost = (url: string, body: any): ReturnType => {
   const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState(null);
+  const [error, setError] = React.useState<Error | null>(null);
   const [data, setData] = React.useState(null);
 
   const postData = async () => {
@@ -18,7 +18,7 @@ const usePost = (url: string, body: any): ReturnType => {
       const response = await post(url, body);
       setData(response.data);
     } catch (e) {
-      return setError(e);
+      return setError(e as Error);
     } finally {
       setLoading(false);
     }

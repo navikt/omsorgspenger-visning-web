@@ -9,7 +9,7 @@ type ReturnType = {
 
 const useGet = (url: string, options?: RequestInit): ReturnType => {
   const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState(null);
+  const [error, setError] = React.useState<Error | null>(null);
   const [data, setData] = React.useState(null);
 
   const getData = async () => {
@@ -18,7 +18,7 @@ const useGet = (url: string, options?: RequestInit): ReturnType => {
       const response = await get(url, options);
       setData(response.data);
     } catch (e) {
-      return setError(e);
+      return setError(e as Error);
     } finally {
       setLoading(false);
     }
