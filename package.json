@@ -8,7 +8,7 @@
     "@navikt/nap-header": "1.0.10",
     "@navikt/nap-person-card": "1.1.4",
     "@navikt/nap-user-panel": "1.1.0",
-    "@sentry/browser": "6.12.0",
+    "@sentry/browser": "6.13.1",
     "@types/node": "16.9.1",
     "@types/react": "17.0.20",
     "@types/react-collapse": "5.0.1",
