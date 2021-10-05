@@ -8,7 +8,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 process.env.NODE_ENV = 'production';
-const dotenv = require("dotenv").config({ path: __dirname + "/../.env.production" });
+const Dotenv = require('dotenv-webpack');
 
 module.exports = merge(commonWebpackConfig, {
   mode: 'production',
@@ -30,8 +30,8 @@ module.exports = merge(commonWebpackConfig, {
     modules: ['node_modules', 'src'],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      "process.env": JSON.stringify(dotenv.parsed),
+    new Dotenv({
+      path: path.resolve(__dirname + "/../.env.production" );
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
