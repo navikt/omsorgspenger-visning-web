@@ -18,6 +18,9 @@ const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
   const { saksnummer } = useParams<any>();
 
+  // eslint-disable-next-line
+  console.log('PROCESS.ENV', process.env);
+  
   const kolonne1 = <>
     {process.env.TOGGLE_KVOTE && <KvoteContainer saksnummer={saksnummer}/>}
     <OverføringerContainer saksnummer={saksnummer}/>
