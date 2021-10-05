@@ -17,9 +17,7 @@ import PersonKort from "../PersonKort/PersonKort";
 const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
   const { saksnummer } = useParams<any>();
-
-  // eslint-disable-next-line
-  console.log('PROCESS.ENV', process.env);
+  
   const skalKomponentVises = (property: string) => {
     if(typeof process.env[property] !== undefined && process.env[property] === 'true'){
       return true;

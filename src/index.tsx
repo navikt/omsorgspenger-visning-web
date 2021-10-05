@@ -4,7 +4,6 @@ import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 import * as ReactDOM from 'react-dom';
 import { HelmetProvider } from 'react-helmet-async';
-// import 'sanitize.css/sanitize.css';
 import './locales/i18n'; // Initialize languages
 import { apiRoutes } from './utils/http/apiConfig';
 import { get } from './utils/http/request';
