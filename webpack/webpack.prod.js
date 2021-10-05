@@ -16,6 +16,7 @@ module.exports = merge(commonWebpackConfig, {
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, `../build`),
+    publicPath: '/',
   },
   optimization: {
     minimize: true,
