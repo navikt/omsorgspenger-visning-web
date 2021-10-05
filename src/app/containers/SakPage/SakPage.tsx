@@ -14,6 +14,8 @@ import UidentifiserteRammemeldingerContainer
   from '../UidentifiserteRammemeldinger/UidentifiserteRammemeldingerContainer';
 import PersonKort from "../PersonKort/PersonKort";
 
+require('dotenv').config();
+
 const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
   const { saksnummer } = useParams<any>();
