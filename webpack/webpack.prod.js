@@ -5,6 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const commonWebpackConfig = require('./webpack.common.js');
 const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 process.env.NODE_ENV = 'production';
 const dotenv = require("dotenv").config({ path: __dirname + "/../.env.production" });
@@ -30,6 +31,11 @@ module.exports = merge(commonWebpackConfig, {
   plugins: [
     new webpack.DefinePlugin({
       "process.env": JSON.stringify(dotenv.parsed),
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      favicon: path.resolve(__dirname, '../public/favicon.ico'),
+      template: path.resolve(__dirname, '../public/index.html')
     }),
     new CspHtmlWebpackPlugin(
       {
