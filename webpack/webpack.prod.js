@@ -31,7 +31,7 @@ module.exports = merge(commonWebpackConfig, {
   },
   plugins: [
     new Dotenv({
-      path: path.resolve(__dirname + "/../.env.production" );
+      path: path.resolve(__dirname + "/../.env.production")
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
