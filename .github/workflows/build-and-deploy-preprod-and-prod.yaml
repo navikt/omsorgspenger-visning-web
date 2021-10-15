@@ -1,4 +1,4 @@
-name: Deploy branch til preprod
+name: Bygg og deploy til preprod och prod.
 
 on: [workflow_dispatch]
 
@@ -56,3 +56,12 @@ jobs:
           CLUSTER: dev-gcp
           RESOURCE: nais/naiserator.yaml
           VARS: nais/dev-gcp.json
+          
+      - name: Deploy til prod-gcp
+        if: github.ref == 'refs/heads/master'
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: nais/naiserator.yaml
+          VARS: nais/prod-gcp.json
