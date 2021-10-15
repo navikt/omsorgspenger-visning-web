@@ -17,21 +17,28 @@ import PersonKort from "../PersonKort/PersonKort";
 const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
   const { saksnummer } = useParams<any>();
+  
+  const skalKomponentVises = (property: string) => {
+    if(typeof process.env[property] !== undefined && process.env[property] === 'true'){
+      return true;
+    }
+    return false;
+  };
 
   const kolonne1 = <>
-    {process.env.TOGGLE_KVOTE && <KvoteContainer saksnummer={saksnummer}/>}
+    {skalKomponentVises("TOGGLE_KVOTE") && <KvoteContainer saksnummer={saksnummer}/>}
     <OverføringerContainer saksnummer={saksnummer}/>
     <KoronaverføringerContainer saksnummer={saksnummer}/>
-    {process.env.TOGGLE_FORDELINGER && <FordelingerContainer saksnummer={saksnummer}/>}
-    {process.env.TOGGLE_BARN && <BarnContainer saksnummer={saksnummer}/>}
+    {skalKomponentVises("TOGGLE_FORDELINGER") && <FordelingerContainer saksnummer={saksnummer}/>}
+    {skalKomponentVises("TOGGLE_BARN") && <BarnContainer saksnummer={saksnummer}/>}
   </>;
 
   const kolonne2 = <>
-      {process.env.TOGGLE_DOKUMENTER && <DokumenterContainer saksnummer={saksnummer}/>}
-      {process.env.TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER && <UidentifiserteRammemeldingerContainer saksnummer={saksnummer} />}
+      {skalKomponentVises("TOGGLE_DOKUMENTER") && <DokumenterContainer saksnummer={saksnummer}/>}
+      {skalKomponentVises("TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER") && <UidentifiserteRammemeldingerContainer saksnummer={saksnummer} />}
   </>;
 
-  const skalViseBeggeKolonner = !!process.env.TOGGLE_DOKUMENTER || !!process.env.TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER;
+  const skalViseBeggeKolonner = skalKomponentVises("TOGGLE_DOKUMENTER") || skalKomponentVises("TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER");
 
   return (
     <>
