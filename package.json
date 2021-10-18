@@ -181,7 +181,7 @@
     "jest-axe": "5.0.1",
     "jest-environment-jsdom": "^27.2.3",
     "jest-extended": "0.11.5",
-    "jest-resolve": "27.2.3",
+    "jest-resolve": "27.3.0",
     "jest-styled-components": "7.0.5",
     "jest-watch-typeahead": "0.6.4",
     "less": "4.1.1",
