@@ -53,9 +53,7 @@ module.exports = merge(commonWebpackConfig, {
         'style-src': [
           "'self'",
           "'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='", // Tomme style-tagger
-          "'sha256-AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs='", // Material-UI Collapse
-          "'sha256-MlG1H2ieI8FYgUeZlEfwURA2tVOOMtyN0sSi0GHcR+g='" // Material-UI Collapse
-        ], // Det kan bli nødvendig å endre disse hashene ved oppdatering av @material-ui/core
+        ],
       },
       {
         nonceEnabled: {
