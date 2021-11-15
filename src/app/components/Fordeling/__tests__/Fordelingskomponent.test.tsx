@@ -33,7 +33,7 @@ describe('<Fordelingskomponent>', () => {
   test('Viser riktig personnummer til mottaker to ganger', async () => {
     render(FordelingskomponentTilTest);
     const hentetAntallDager = screen.getAllByText(gjeldendeFordelinger[0].til);
-    expect(hentetAntallDager).toBeArrayOfSize(2);
+    expect(hentetAntallDager.length).toBe(2);
     expect(hentetAntallDager[0]).toHaveTextContent(gjeldendeFordelinger[0].til);
   });
 

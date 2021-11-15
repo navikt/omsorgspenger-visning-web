@@ -99,7 +99,7 @@ describe('<Overføringer>', () => {
     expect(hentetDagerMottatt).toBeInTheDocument();
 
     const hentetVisInnehold = screen.getAllByText(visInnehold);
-    expect(hentetVisInnehold).toBeArrayOfSize(2);
+    expect(hentetVisInnehold.length).toBe(2);
   });
 
   test('Viser riktig informasjon i utøket panel', async () => {
@@ -115,7 +115,7 @@ describe('<Overføringer>', () => {
     expect(hentetAntallDagerØnsketOverført).toBeInTheDocument();
 
     const hentetGyldighetsPeriode = screen.getAllByText(gyldighetsPeriode);
-    expect(hentetGyldighetsPeriode).toBeArrayOfSize(2);
+    expect(hentetGyldighetsPeriode.length).toBe(2);
 
     const hentetTil = screen.getByText(til);
     expect(hentetTil).toBeInTheDocument();
