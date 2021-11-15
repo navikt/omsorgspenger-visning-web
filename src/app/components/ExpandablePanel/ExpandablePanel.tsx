@@ -1,4 +1,3 @@
-import Collapse from '@material-ui/core/Collapse';
 import NavFrontendChevron from 'nav-frontend-chevron';
 import { Flatknapp } from 'nav-frontend-knapper';
 import React, { useState } from 'react';
@@ -39,9 +38,7 @@ export const ExpandablePanelBase: React.FunctionComponent<BaseProps> = ({
     <>
       {buttonWithId}
       <div role="region" id={contentId} aria-labelledby={buttonId}>
-        <Collapse in={visInnhold}>
-          <Innhold innholdPadding={innholdPadding}>{children}</Innhold>
-        </Collapse>
+        {visInnhold && <Innhold innholdPadding={innholdPadding}>{children}</Innhold>}
       </div>
     </>
   );
