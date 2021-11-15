@@ -3,6 +3,7 @@ import { Flatknapp } from 'nav-frontend-knapper';
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
 import { v4 as uuid } from 'uuid';
+import navColors from "../../../styles/designSystemColors";
 
 interface BaseProps {
   headerButton: (
@@ -37,7 +38,7 @@ export const ExpandablePanelBase: React.FunctionComponent<BaseProps> = ({
   return (
     <>
       {buttonWithId}
-      <div role="region" id={contentId} aria-labelledby={buttonId}>
+      <div role="region" id={contentId} aria-labelledby={buttonId} data-testid="ExpandablePanelBase">
         {visInnhold && <Innhold innholdPadding={innholdPadding}>{children}</Innhold>}
       </div>
     </>
@@ -61,6 +62,7 @@ const ExpandablePanel: React.FunctionComponent<Props> = ({
       isOpenAsDefault={isOpenAsDefault}
       innholdPadding={innholdPadding}
       headerButton={(skalViseInnhold, visEllerSkjulInnhold) => (
+        <KnappIkkeHover>
         <Flatknapp
           onClick={visEllerSkjulInnhold}
           mini={true}
@@ -70,12 +72,25 @@ const ExpandablePanel: React.FunctionComponent<Props> = ({
           {heading(skalViseInnhold)}
           <NavFrontendChevron type={skalViseInnhold ? 'opp' : 'ned'} />
         </Flatknapp>
+        </KnappIkkeHover>
       )}
     >
       {children}
     </ExpandablePanelBase>
   );
 };
+
+
+const KnappIkkeHover = styled.div`
+  .knapp:hover, .knapp--flat:hover{
+     border-color: white;
+   }
+   
+  .knapp:active, .knapp--flat:active{
+    border-color: white;
+    background-color: white;
+  }
+`;
 
 const Innhold = styled.div<Pick<BaseProps, 'innholdPadding'>>`
   padding: ${({ innholdPadding }) => innholdPadding};

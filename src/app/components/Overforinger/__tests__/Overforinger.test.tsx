@@ -1,6 +1,6 @@
 import {axe} from 'jest-axe';
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import {isoDateToLocale} from "../../../../utils/timeUtils";
 import Overføringer from "../Overforinger";
 import {OverføringStatus} from "../../../types";
@@ -99,7 +99,7 @@ describe('<Overføringer>', () => {
     expect(hentetDagerMottatt).toBeInTheDocument();
 
     const hentetVisInnehold = screen.getAllByText(visInnehold);
-    expect(hentetVisInnehold.length).toBe(2);
+    expect(hentetVisInnehold.length).toBe(1);
   });
 
   test('Viser riktig informasjon i utøket panel', async () => {
@@ -108,6 +108,9 @@ describe('<Overføringer>', () => {
     const gyldighetsPeriode = `Gyldighetsperiode`;
     const til = 'Til';
 
+    const antallDagerOverfort = screen.getByText('Dager overført');
+    fireEvent.click(antallDagerOverfort);
+
     const hentetDagerØnsketOverført = screen.getByText(dagerØnsketOverført);
     expect(hentetDagerØnsketOverført).toBeInTheDocument();
 
@@ -115,7 +118,7 @@ describe('<Overføringer>', () => {
     expect(hentetAntallDagerØnsketOverført).toBeInTheDocument();
 
     const hentetGyldighetsPeriode = screen.getAllByText(gyldighetsPeriode);
-    expect(hentetGyldighetsPeriode.length).toBe(2);
+    expect(hentetGyldighetsPeriode.length).toBe(1);
 
     const hentetTil = screen.getByText(til);
     expect(hentetTil).toBeInTheDocument();
@@ -131,6 +134,9 @@ describe('<Overføringer>', () => {
     render(OverføringerKomponent);
     const grunnlagForResultat = 'Grunnlag for resultat:';
     const begrunnelserForPeriode = overforingerInput.gitt[0].begrunnelserForPeriode;
+
+    const antallDagerOverfort = screen.getByText('Dager overført');
+    fireEvent.click(antallDagerOverfort);
 
     const hentetGrunnlagForResultat = screen.getByText(grunnlagForResultat);
     expect(hentetGrunnlagForResultat).toBeInTheDocument();
@@ -164,11 +170,15 @@ describe('<Overføringer>', () => {
     const hentetSkjulTidligereOverføringer = screen.getByText(skjulTidligareOverføringer);
     expect(hentetSkjulTidligereOverføringer).toBeInTheDocument();
 
+    fireEvent.click(hentetSkjulTidligereOverføringer);
+
     const hentetDager = screen.getByText(overføring.dagerOverført);
     expect(hentetDager).toBeInTheDocument();
 
     const hentetDagerMottatt = screen.getByText(dagerMottatt);
     expect(hentetDagerMottatt).toBeInTheDocument();
+
+    fireEvent.click(hentetDager);
 
     const hentetFra = screen.getByText(fra);
     expect(hentetFra).toBeInTheDocument();

@@ -2,7 +2,7 @@ import {axe} from 'jest-axe';
 import Overføring from "../Overforing";
 import navColors from "../../../../styles/designSystemColors";
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import {OverføringStatus} from "../../../types";
 import {isoDateToLocale} from "../../../../utils/timeUtils";
 
@@ -53,6 +53,9 @@ describe('<Overforing>', () => {
     render(OverforingKomponent);
     const fra = 'Fra';
 
+    const antallDagerOverfort = screen.getByText('Dager mottatt');
+    fireEvent.click(antallDagerOverfort);
+
     const hentetIdentitetsnummer = screen.getByText(overføringInput.fra.identitetsnummer);
     expect(hentetIdentitetsnummer).toBeInTheDocument();
 
@@ -63,6 +66,9 @@ describe('<Overforing>', () => {
   test('Viser gyldighetsperiode', async () => {
     render(OverforingKomponent);
     const gyldighetsperiode = `Gyldighetsperiode`;
+
+    const antallDagerOverfort = screen.getByText('Dager mottatt');
+    fireEvent.click(antallDagerOverfort);
 
     const hentetGyldighetsperiode = screen.getByText(`${isoDateToLocale(overføringInput.gjelderFraOgMed)} - ${isoDateToLocale(overføringInput.gjelderTilOgMed)}`);
     expect(hentetGyldighetsperiode).toBeInTheDocument();

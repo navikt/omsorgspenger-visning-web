@@ -2,7 +2,7 @@ import {axe} from 'jest-axe';
 import Fordelingskomponent from "../Fordelingskomponent";
 import navColors from "../../../../styles/designSystemColors";
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 
 const gjeldendeFordelinger = [
   {
@@ -32,6 +32,13 @@ describe('<Fordelingskomponent>', () => {
 
   test('Viser riktig personnummer til mottaker to ganger', async () => {
     render(FordelingskomponentTilTest);
+
+    const antallDagerOverfort = screen.getByText('1');
+    fireEvent.click(antallDagerOverfort);
+
+    const antallDagerOverfortAndraRad = screen.getByText('4');
+    fireEvent.click(antallDagerOverfortAndraRad);
+
     const hentetAntallDager = screen.getAllByText(gjeldendeFordelinger[0].til);
     expect(hentetAntallDager.length).toBe(2);
     expect(hentetAntallDager[0]).toHaveTextContent(gjeldendeFordelinger[0].til);
