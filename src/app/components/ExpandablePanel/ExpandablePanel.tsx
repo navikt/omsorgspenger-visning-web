@@ -83,12 +83,12 @@ const ExpandablePanel: React.FunctionComponent<Props> = ({
 
 const KnappIkkeHover = styled.div`
   .knapp:hover, .knapp--flat:hover{
-     border-color: white;
-   }
+    border-color: white;
+  }
    
   .knapp:active, .knapp--flat:active{
-    border-color: white;
     background-color: white;
+    border-color: white;
   }
 `;
 
