@@ -163,7 +163,7 @@
     "babel-loader": "8.2.3",
     "babel-plugin-styled-components": "2.0.2",
     "babel-preset-react-app": "^10.0.0",
-    "body-parser": "1.19.0",
+    "body-parser": "1.19.1",
     "csp-html-webpack-plugin": "5.1.0",
     "css-loader": "6.5.1",
     "eslint": "^8.4.1",
