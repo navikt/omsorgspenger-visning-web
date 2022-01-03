@@ -5,7 +5,6 @@ import {isoDateToLocale} from "../../../../utils/timeUtils";
 import Overføringer from "../Overforinger";
 import {OverføringStatus} from "../../../types";
 
-
 const overforingerInput = {
   "fått": [
     {
@@ -76,7 +75,7 @@ const overforingerInput = {
           ]
         }
       ],
-      "gjelderTilOgMed": "2021-12-31",
+      "gjelderTilOgMed": new Date(new Date().getFullYear(), 11, 31).toISOString().substring(0,10),
       "dagerOverført": 5,
       "dagerØnsketOverført": 10,
       "status": OverføringStatus.Gjeldende
