@@ -147,7 +147,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "@babel/core": "7.17.2",
+    "@babel/core": "7.17.5",
     "@testing-library/dom": "^8.11.3",
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "12.1.2",
