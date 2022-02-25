@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
 import ErrorBoundary from './components/errors/ErrorBoundary';
 import AuthChecker from './containers/AuthChecker';
@@ -24,11 +24,11 @@ export function App() {
         <OmsorgspengerHeader />
         <ErrorBoundary>
           <AuthChecker>
-            <Switch>
-              <Route exact path="/" component={HomePageLoadable} />
-              <Route path="/sak/:saksnummer" component={SakPageLoadable} />
-              <Route component={NotFoundPage} />
-            </Switch>
+            <Routes>
+              <Route path="/" element={<HomePageLoadable />} />
+              <Route path="/sak/:saksnummer" element={<SakPageLoadable />} />
+              <Route element={<NotFoundPage />} />
+            </Routes>
           </AuthChecker>
         </ErrorBoundary>
         <GlobalStyle />

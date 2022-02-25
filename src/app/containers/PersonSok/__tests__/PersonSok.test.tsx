@@ -5,10 +5,10 @@ import React from 'react';
 import PersonSøk from '../PersonSok';
 
 jest.mock('react-router-dom', () => ({
-  useHistory: jest.fn(),
+  useNavigate: jest.fn(),
 }));
 
-const { useHistory } = require('react-router-dom');
+const { useNavigate } = require('react-router-dom');
 
 const mockFetch = (response: Partial<Response>) => {
   (global as any).fetch = jest.fn(() => Promise.resolve(response));
@@ -35,7 +35,7 @@ describe('<PersonSøk>', () => {
       json: () => Promise.resolve({ saksnummer }),
     });
     let currentUrl = '';
-    useHistory.mockImplementation(() => ({
+    useNavigate.mockImplementation(() => ({
       push: url => (currentUrl = url),
     }));
 

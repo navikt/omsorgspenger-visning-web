@@ -2,7 +2,7 @@ import { Hovedknapp } from 'nav-frontend-knapper';
 import { Input } from 'nav-frontend-skjema';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 import { apiRoutes } from '../../../utils/http/apiConfig';
 import { post } from '../../../utils/http/request';
@@ -18,7 +18,7 @@ enum ErrorType {
 
 const PersonSøk: React.FunctionComponent = () => {
   const { t } = useTranslation();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [personIdent, setPersonIdent] = useState<string>('');
   const [hasSearched, setHasSearched] = useState<boolean>(false);
@@ -40,7 +40,7 @@ const PersonSøk: React.FunctionComponent = () => {
         .then(({ data }) => {
           const { saksnummer } = data;
           if (saksnummer) {
-            history.push(`sak/${saksnummer}`);
+            navigate(`sak/${saksnummer}`);
           } else {
             setResponseError(ErrorType.Unknown);
           }
