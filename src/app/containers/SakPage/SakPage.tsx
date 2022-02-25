@@ -16,7 +16,7 @@ import PersonKort from "../PersonKort/PersonKort";
 
 const SakPage: React.FunctionComponent = () => {
   const { t } = useTranslation();
-  const { saksnummer } = useParams<any>();
+  const { saksnummer } = useParams<string>();
   
   const skalKomponentVises = (property: string) => {
     if(typeof process.env[property] !== undefined && process.env[property] === 'true'){
@@ -25,17 +25,19 @@ const SakPage: React.FunctionComponent = () => {
     return false;
   };
 
+
+
   const kolonne1 = <>
-    {skalKomponentVises("TOGGLE_KVOTE") && <KvoteContainer saksnummer={saksnummer}/>}
-    <OverføringerContainer saksnummer={saksnummer}/>
-    <KoronaverføringerContainer saksnummer={saksnummer}/>
-    {skalKomponentVises("TOGGLE_FORDELINGER") && <FordelingerContainer saksnummer={saksnummer}/>}
-    {skalKomponentVises("TOGGLE_BARN") && <BarnContainer saksnummer={saksnummer}/>}
+    {skalKomponentVises("TOGGLE_KVOTE") && saksnummer && <KvoteContainer saksnummer={saksnummer}/>}
+    {saksnummer && <OverføringerContainer saksnummer={saksnummer}/>}
+    {saksnummer && <KoronaverføringerContainer saksnummer={saksnummer}/>}
+    {skalKomponentVises("TOGGLE_FORDELINGER") && saksnummer && <FordelingerContainer saksnummer={saksnummer}/>}
+    {skalKomponentVises("TOGGLE_BARN") && saksnummer && <BarnContainer saksnummer={saksnummer}/>}
   </>;
 
   const kolonne2 = <>
-      {skalKomponentVises("TOGGLE_DOKUMENTER") && <DokumenterContainer saksnummer={saksnummer}/>}
-      {skalKomponentVises("TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER") && <UidentifiserteRammemeldingerContainer saksnummer={saksnummer} />}
+      {skalKomponentVises("TOGGLE_DOKUMENTER") && saksnummer && <DokumenterContainer saksnummer={saksnummer}/>}
+      {skalKomponentVises("TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER") && saksnummer && <UidentifiserteRammemeldingerContainer saksnummer={saksnummer} />}
   </>;
 
   const skalViseBeggeKolonner = skalKomponentVises("TOGGLE_DOKUMENTER") || skalKomponentVises("TOGGLE_UIDENTIFISERTE_RAMMEMELDINGER");
@@ -47,7 +49,7 @@ const SakPage: React.FunctionComponent = () => {
         <meta name="description" content={t('homepage.descr')} />
       </Helmet>
       <AppContainer>
-        <PersonKort saksnummer={saksnummer}/>
+        {saksnummer && <PersonKort saksnummer={saksnummer}/>}
         <ContentContainer {...{skalViseBeggeKolonner}}>
           {skalViseBeggeKolonner
             ? <><div>{kolonne1}</div><div>{kolonne2}</div></>
