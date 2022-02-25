@@ -3,12 +3,14 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import React from 'react';
 import PersonSøk from '../PersonSok';
+import { MemoryRouter } from "react-router-dom";
+
+const mockNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
-  useNavigate: jest.fn(),
+  ...(jest.requireActual('react-router-dom') as Record<string, unknown>),
+  useNavigate: () => mockNavigate,
 }));
-
-const { useNavigate } = require('react-router-dom');
 
 const mockFetch = (response: Partial<Response>) => {
   (global as any).fetch = jest.fn(() => Promise.resolve(response));
@@ -30,24 +32,22 @@ describe('<PersonSøk>', () => {
 
   test('Søk på ident som finnes, redirecter til saken', async () => {
     const saksnummer = 'Sk233';
+
     mockFetch({
       status: 200,
       json: () => Promise.resolve({ saksnummer }),
     });
-    let currentUrl = '';
-    useNavigate.mockImplementation(() => ({
-      push: url => (currentUrl = url),
-    }));
 
-    render(<PersonSøk />);
+    render(<MemoryRouter><PersonSøk /></MemoryRouter>);
 
     const inputElement = screen.getByLabelText(/fødselsnummer/i);
     await userEvent.type(inputElement, '11111111111');
 
     const søkeknapp = screen.getByRole('button');
-    userEvent.click(søkeknapp);
 
-    await waitFor(() => expect(currentUrl).toEqual(`sak/${saksnummer}`));
+    await userEvent.click(søkeknapp);
+
+    await waitFor(() => expect(mockNavigate.mock.calls[0][0]).toBe('sak/Sk233'));
   });
 
   const testFeilmeldingForStatus = async (
