@@ -9,7 +9,10 @@ const OmsorgspengerHeader: React.FunctionComponent = () => {
   const { state } = useAuthContext();
 
   return (
-    <Header title={t('navHeader')} titleHref="https://k9-los-web.nais.adeo.no/">
+    < // @ts-ignore
+      Header
+      title={t('navHeader')}
+      titleHref="https://k9-los-web.nais.adeo.no/">
       <UserPanel name={state.userName || ''} />
     </Header>
   );

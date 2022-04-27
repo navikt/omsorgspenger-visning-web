@@ -15,6 +15,7 @@ interface Props {
     antallDager: number;
     overskrifttekstId: string;
   };
+  children?: React.ReactNode;
 }
 
 const DeleDagerPanel: React.FunctionComponent<Props> = ({
