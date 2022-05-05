@@ -1,9 +1,9 @@
 import { captureException, withScope } from '@sentry/browser';
-import React, { Component, ReactNode } from 'react';
+import React, { Component } from 'react';
 import ErrorPage from './ErrorPage';
 
 interface OwnProps {
-  children: ReactNode;
+  children?: React.ReactNode;
 }
 
 interface State {

@@ -8,6 +8,7 @@ import './locales/i18n'; // Initialize languages
 import { apiRoutes } from './utils/http/apiConfig';
 import { get } from './utils/http/request';
 import initSentry from './utils/initSentry';
+import {createRoot} from "react-dom/client";
 
 initSentry();
 
@@ -15,7 +16,8 @@ get(apiRoutes().Env).then(({ data = {} }) => {
   // @ts-ignore
   window.appSettings = data;
 
-  const MOUNT_NODE = document.getElementById('root') as HTMLElement;
+  const container = document.getElementById('root');
+  const root = createRoot(container!);
 
   interface Props {
     Component: typeof App;
@@ -29,7 +31,7 @@ get(apiRoutes().Env).then(({ data = {} }) => {
   );
 
   const render = (Component: typeof App) => {
-    ReactDOM.render(<ConnectedApp Component={Component} />, MOUNT_NODE);
+    root.render(<ConnectedApp Component={Component} />);
   };
 
   if (module.hot) {
@@ -37,7 +39,7 @@ get(apiRoutes().Env).then(({ data = {} }) => {
     // modules.hot.accept does not accept dynamic dependencies,
     // have to be constants at compile-time
     module.hot.accept(['./app', './locales/i18n'], () => {
-      ReactDOM.unmountComponentAtNode(MOUNT_NODE);
+      root.unmount();
       const app = require('./app').App;
       render(app);
     });

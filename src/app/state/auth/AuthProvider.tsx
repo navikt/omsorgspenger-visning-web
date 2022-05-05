@@ -52,7 +52,11 @@ export const useAuthContext = (): AuthContextProps => {
   };
 };
 
-export const AuthProvider: React.FunctionComponent = props => {
+interface OwnProps{
+  children?: React.ReactNode;
+}
+
+export const AuthProvider: React.FunctionComponent<OwnProps> = props => {
   const [state, dispatch] = React.useReducer(
     actionLogger(authReducer, 'Auth'),
     initialAuthState,

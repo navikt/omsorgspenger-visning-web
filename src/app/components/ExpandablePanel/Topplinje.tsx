@@ -7,6 +7,7 @@ import KnappStyle from './KnappStyle';
 interface TopplinjeProps {
   skalViseDetaljer: boolean;
   visEllerSkjulDetaljer: () => void;
+  children?: React.ReactNode;
 }
 
 const Topplinje: React.FunctionComponent<TopplinjeProps> = props => {

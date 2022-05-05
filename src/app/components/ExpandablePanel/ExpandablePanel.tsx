@@ -12,6 +12,7 @@ interface BaseProps {
   ) => React.ReactElement;
   isOpenAsDefault: boolean;
   innholdPadding?: string;
+  children?: React.ReactNode;
 }
 
 export const ExpandablePanelBase: React.FunctionComponent<BaseProps> = ({
@@ -49,6 +50,7 @@ interface Props {
   heading: (skalViseInnhold: boolean) => React.ReactNode;
   isOpenAsDefault: boolean;
   innholdPadding?: string;
+  children?: React.ReactNode;
 }
 
 const ExpandablePanel: React.FunctionComponent<Props> = ({

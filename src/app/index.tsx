@@ -11,6 +11,7 @@ import { SakPageLoadable } from './containers/SakPage/SakPageLoadable';
 import { AuthProvider } from './state/auth/AuthProvider';
 
 export function App() {
+  // @ts-ignore
   return (
     <BrowserRouter>
       <Helmet
@@ -19,7 +20,6 @@ export function App() {
       >
         <meta name="description" content="Omsorgspenger visning" />
       </Helmet>
-
       <AuthProvider>
         <OmsorgspengerHeader />
         <ErrorBoundary>
@@ -31,7 +31,8 @@ export function App() {
             </Routes>
           </AuthChecker>
         </ErrorBoundary>
-        <GlobalStyle />
+        < // @ts-ignore
+          GlobalStyle />
       </AuthProvider>
     </BrowserRouter>
   );
