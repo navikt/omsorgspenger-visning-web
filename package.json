@@ -174,7 +174,7 @@
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
     "file-loader": "6.2.0",
-    "fork-ts-checker-webpack-plugin": "7.2.7",
+    "fork-ts-checker-webpack-plugin": "7.2.12",
     "html-webpack-plugin": "5.5.0",
     "jest": "27.5.1",
     "jest-axe": "6.0.0",
