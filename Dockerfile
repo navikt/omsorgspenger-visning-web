@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:alpine
 LABEL org.opencontainers.image.source=https://github.com/navikt/omsorgspenger-visning-web
 
 WORKDIR /usr/src/app
