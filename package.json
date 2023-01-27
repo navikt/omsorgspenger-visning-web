@@ -23,7 +23,7 @@
     "express": "4.18.0",
     "helmet": "5.0.2",
     "i18next": "^21.6.16",
-    "i18next-browser-languagedetector": "6.1.4",
+    "i18next-browser-languagedetector": "7.0.1",
     "identity-obj-proxy": "3.0.0",
     "nav-frontend-chevron": "1.0.30",
     "nav-frontend-chevron-style": "1.0.4",
