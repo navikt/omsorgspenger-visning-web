@@ -1,12 +1,10 @@
-FROM node:14-alpine
-LABEL org.opencontainers.image.source=https://github.com/navikt/omsorgspenger-visning-web
+FROM nginxinc/nginx-unprivileged:1.23.3-alpine
 
-WORKDIR /usr/src/app
-
-COPY build ./build
-COPY node_modules ./node_modules
-COPY server.js .
-COPY package.json .
+ADD server.nginx /etc/nginx/conf.d/app.conf.template
+COPY build /usr/share/nginx/html
+ADD start-server.sh ./start-server.sh
 
 EXPOSE 8090
-CMD ["yarn", "start:prod"]
+
+# using bash over sh for betterssignal-handling
+CMD sh /start-server.sh          
