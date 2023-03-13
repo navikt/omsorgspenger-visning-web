@@ -2,8 +2,8 @@
   "cluster": "dev-gcp",
   "minReplicas": "1",
   "maxReplicas": "2",
-  "ingresses": ["https://omsorgspenger-visning.dev.intern.nav.no"],
+  "ingresses": ["https://omsorgspenger-visning.intern.dev.nav.no"],
   "env": {
-    "OIDC_AUTH_PROXY_URL": "https://omsorgspenger-oidc-auth-proxy.dev.intern.nav.no"
+    "OIDC_AUTH_PROXY_URL": "https://omsorgspenger-oidc-auth-proxy.intern.dev.nav.no"
   }
 }
